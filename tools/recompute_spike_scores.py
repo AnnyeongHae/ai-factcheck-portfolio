@@ -467,6 +467,7 @@ def main():
     parser.add_argument("--all", action="store_true", help="Force full table scan across all historical rows")
     parser.add_argument("--backfill-days", type=int, default=0, help="Backfill historical daily rankings for the past N days (e.g. 30)")
     parser.add_argument("--top-daily", type=int, default=30, help="Max top spiking items to store per day in cross_viral_daily_rankings")
+    parser.add_argument("--silent", action="store_true", help="Minimal clean output without verbose Top 15 listings")
     args = parser.parse_args()
 
     db_url = os.getenv("DATABASE_URL")
@@ -948,20 +949,23 @@ def main():
                 best_rank
             ))
 
-    print("\n" + "="*80)
-    print(f"📊 [H-V-D TRIPOD SCORING RESULTS] Total Active Analyzed: {len(active_rows)}")
-    print(f"   - Self-Healed Missing Primary Sources : {healed_count} rows")
-    print(f"   - Active Spiking Stories              : {spike_count}")
-    print(f"   - 🔥 3-Axis Super Spikes              : {super_spike_count}")
-    print(f"   - ⚡ 2-Axis Cross Spikes              : {cross_spike_count}")
-    print(f"   - 📅 Today's ({today_kst_str}) Persisted Top Rankings : {min(len(today_ranking_candidates), args.top_daily)}")
-    print(f"   - ⚡ Dirty-Checked Rows Needing Write : {len(updates)} rows (Skipped {len(active_rows) - len(updates)} unchanged rows)")
-    print("="*80)
-    print("🏆 Top 15 Highest Spiking Stories Right Now:")
-    for rank, (score, an, title, rid) in enumerate(scored_items[:15], 1):
-        pk_info = f" | Peak #{an.get('best_rank', rank)} ({an.get('peak_score', score)}p)" if an.get("best_rank") else ""
-        print(f"  #{rank:>2} [{score:>6.1f} pts] {an['tier']:<20} (Sources: {an['sources_count']}|P:{an['press_count']}|C:{an['community_count']}|K:{an['code_count']}){pk_info}")
-        print(f"       ID {rid}: {title[:75]}")
+    if not args.silent:
+        print("\n" + "="*80)
+        print(f"📊 [H-V-D TRIPOD SCORING RESULTS] Total Active Analyzed: {len(active_rows)}")
+        print(f"   - Self-Healed Missing Primary Sources : {healed_count} rows")
+        print(f"   - Active Spiking Stories              : {spike_count}")
+        print(f"   - 🔥 3-Axis Super Spikes              : {super_spike_count}")
+        print(f"   - ⚡ 2-Axis Cross Spikes              : {cross_spike_count}")
+        print(f"   - 📅 Today's ({today_kst_str}) Persisted Top Rankings : {min(len(today_ranking_candidates), args.top_daily)}")
+        print(f"   - ⚡ Dirty-Checked Rows Needing Write : {len(updates)} rows (Skipped {len(active_rows) - len(updates)} unchanged rows)")
+        print("="*80)
+        print("🏆 Top 15 Highest Spiking Stories Right Now:")
+        for rank, (score, an, title, rid) in enumerate(scored_items[:15], 1):
+            pk_info = f" | Peak #{an.get('best_rank', rank)} ({an.get('peak_score', score)}p)" if an.get("best_rank") else ""
+            print(f"  #{rank:>2} [{score:>6.1f} pts] {an['tier']:<20} (Sources: {an['sources_count']}|P:{an['press_count']}|C:{an['community_count']}|K:{an['code_count']}){pk_info}")
+            print(f"       ID {rid}: {title[:75]}")
+    else:
+        print(f"[H-V-D Spike] Analyzed {len(active_rows)} stories -> {len(updates)} updates, {min(len(today_ranking_candidates), args.top_daily)} rankings.")
 
     if args.commit:
         from psycopg2.extras import execute_values

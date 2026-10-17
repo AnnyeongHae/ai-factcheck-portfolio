@@ -19,6 +19,7 @@ import time
 import urllib.request
 import urllib.error
 from datetime import datetime, timezone
+import subprocess
 
 if sys.stdout.encoding != 'utf-8':
     try:
@@ -681,26 +682,28 @@ def run_re_enrichment(mode: str = "local-gemini", batch_size: int = None, limit:
     print("=" * 65)
 
     # Mandatory Post-Enrichment Pipeline (Strict Order SSOT):
-    # Step 1: Voyage Embeddings on enriched text (MANDATORY: strictly AFTER AI enrichment)
+    # Step 1: Voyage Embeddings on enriched text (MANDATORY: strictly AFTER all items are 100% enriched to English)
     # Step 2: H-V-D Tripod Spike Engine & Cross-Platform Clusters
     if total_applied > 0:
-        try:
-            import subprocess
-            voyage_script = os.path.join(ROOT_DIR, "tools", "drain_voyage_embeddings.py")
-            if os.path.exists(voyage_script):
-                print("\n[*] [Mandatory Step 1] Auto-triggering Voyage Embedding Pipeline (`tools/drain_voyage_embeddings.py`)...")
-                subprocess.run([sys.executable, voyage_script], check=False)
-        except Exception as e:
-            print(f"[!] Warning: Auto-trigger of drain_voyage_embeddings.py failed: {e}")
+        if rem_count == 0:
+            try:
+                voyage_script = os.path.join(ROOT_DIR, "tools", "drain_voyage_embeddings.py")
+                if os.path.exists(voyage_script):
+                    print("\n[*] [Step 2/3] All items enriched to English -> Triggering Voyage Embeddings...")
+                    subprocess.run([sys.executable, voyage_script], check=False)
+            except Exception as e:
+                print(f"[!] Warning: Auto-trigger of drain_voyage_embeddings.py failed: {e}")
 
-        try:
-            import subprocess
-            spike_script = os.path.join(ROOT_DIR, "tools", "recompute_spike_scores.py")
-            if os.path.exists(spike_script):
-                print("\n[*] [Mandatory Step 2] Auto-triggering H-V-D Tripod Spike Engine (`tools/recompute_spike_scores.py --commit`)...")
-                subprocess.run([sys.executable, spike_script, "--commit"], check=False)
-        except Exception as e:
-            print(f"[!] Warning: Auto-trigger of recompute_spike_scores.py failed: {e}")
+            try:
+                spike_script = os.path.join(ROOT_DIR, "tools", "recompute_spike_scores.py")
+                if os.path.exists(spike_script):
+                    print("[*] [Step 3/3] Updating H-V-D Tripod Spike Engine & Daily Rankings...")
+                    subprocess.run([sys.executable, spike_script, "--commit", "--silent"], check=False)
+            except Exception as e:
+                print(f"[!] Warning: Auto-trigger of recompute_spike_scores.py failed: {e}")
+        else:
+            print(f"\n[*] [Notice] AI Enrichment partially applied ({total_applied}건). Remaining: {rem_count}건.")
+            print("    Voyage embedding deferred until remaining items reach 0 to ensure 100% English representation.")
 
     return 0
 
