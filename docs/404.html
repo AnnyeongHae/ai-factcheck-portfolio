@@ -775,8 +775,8 @@
             <div class="bg-emerald-500 h-3 rounded-full transition-all duration-500" id="quotaProgressBar" style="width: 7.9%;"></div>
           </div>
 
-          <!-- Breakdown by Workflows (Image 1 metrics) -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1 pb-1 text-[11px] font-mono">
+          <!-- Breakdown by Workflows (Dynamically populated via telemetry.js) -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1 pb-1 text-[11px] font-mono" id="quotaWorkflowBreakdown">
             <div class="p-2 rounded-lg bg-white border border-slate-200">
               <div class="text-ink-muted text-[10px]">deploy_pages.yml</div>
               <div class="font-bold text-slate-700">615분 <span class="text-[10px] font-normal text-ink-muted">(136회)</span></div>

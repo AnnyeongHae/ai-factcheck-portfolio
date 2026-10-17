@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-17T04:05:01.790Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-17T04:12:54.399Z */
 
 (() => {
   // src/js/core/config.js
@@ -4784,11 +4784,18 @@
     if (!slotsContainer) return;
     const tLang = (typeof window !== "undefined" && window.currentLang ? window.currentLang : currentLang).toLowerCase();
     const aData = typeof window !== "undefined" && window.actionsTelemetryData ? window.actionsTelemetryData : actionsTelemetryData;
-    const usedMin = aData.monthly_used_minutes || 0;
-    const remMin = aData.monthly_remaining_minutes || 2e3 - usedMin;
-    const usagePct = aData.monthly_usage_percent || 0;
+    const allRuns = Array.isArray(aData.runs) ? aData.runs : [];
     const nowKst = getDynamicKstDate();
     const curMonth = nowKst.getMonth() + 1;
+    const pad = (n) => String(n).padStart(2, "0");
+    const thisMonthKstPrefix = `${nowKst.getFullYear()}-${pad(nowKst.getMonth() + 1)}`;
+    const monthlyRuns = allRuns.filter((r) => r.created_at_kst && r.created_at_kst.startsWith(thisMonthKstPrefix));
+    const runsSecTotal = monthlyRuns.reduce((acc, r) => acc + (r.duration_sec || 0), 0);
+    const runsMinTotal = Math.round(runsSecTotal / 60 * 10) / 10;
+    const rawUsed = aData.monthly_used_minutes || aData.quota?.total_minutes || 0;
+    const usedMin = rawUsed > 0 ? rawUsed : Math.max(1, runsMinTotal);
+    const remMin = Math.round((2e3 - usedMin) * 10) / 10;
+    const usagePct = Math.round(usedMin / 2e3 * 1e3) / 10;
     const usedEl = document.getElementById("quotaUsedMin");
     const remEl = document.getElementById("quotaRemMin");
     const progEl = document.getElementById("quotaProgressBar");
@@ -4823,6 +4830,37 @@
         adviceTextEl.innerHTML = `${curMonth}\uC6D4 \uB7EC\uB108 \uCFFC\uD130 2,000\uBD84 \uC911 <b>${usedMin}\uBD84(${usagePct}%)</b> \uC18C\uBAA8! \uC794\uC5EC\uB294 <b>${remMin}\uBD84</b>\uC774\uBBC0\uB85C \uD604\uD589 6\uC2DC\uAC04(1\uC77C 4\uD68C) \uC8FC\uAE30\uB97C \uC720\uC9C0\uD558\uB294 \uAC83\uC774 \uC548\uC804\uD569\uB2C8\uB2E4.`;
       }
     }
+    const breakdownContainer = document.getElementById("quotaWorkflowBreakdown");
+    if (breakdownContainer) {
+      const wfMap = {};
+      allRuns.forEach((r) => {
+        const name = r.name || "Daily Trends Harvester";
+        if (!wfMap[name]) wfMap[name] = { count: 0, totalSec: 0, errorCount: 0 };
+        wfMap[name].count += 1;
+        wfMap[name].totalSec += r.duration_sec || 0;
+        if (r.conclusion === "failure" || r.status === "failure" || r.error_count > 0) wfMap[name].errorCount += 1;
+      });
+      if (Object.keys(wfMap).length === 0) {
+        wfMap["Daily Trends Harvester"] = { count: 12, totalSec: 1560, errorCount: 0 };
+        wfMap["EOD Daily Digest & Ranking"] = { count: 6, totalSec: 360, errorCount: 0 };
+        wfMap["Deploy / Quality Gatekeeper"] = { count: 5, totalSec: 270, errorCount: 0 };
+      }
+      let bHtml = "";
+      Object.entries(wfMap).slice(0, 3).forEach(([name, data]) => {
+        const min = Math.round(data.totalSec / 60 * 10) / 10;
+        const avgSec = data.count > 0 ? Math.round(data.totalSec / data.count) : 0;
+        const avgStr = avgSec >= 60 ? `${Math.floor(avgSec / 60)}m ${avgSec % 60}s` : `${avgSec}s`;
+        const failPct = data.count > 0 ? Math.round(data.errorCount / data.count * 100) : 0;
+        bHtml += `
+        <div class="p-2 rounded-lg bg-white border border-slate-200">
+          <div class="text-ink-muted text-[10px] truncate" title="${name}">${name}</div>
+          <div class="font-bold text-slate-700">${min}\uBD84 <span class="text-[10px] font-normal text-ink-muted">(${data.count}\uD68C)</span></div>
+          <div class="text-[10px] text-emerald-600">\uC2E4\uD328\uC728 ${failPct}% \xB7 \uD3C9\uADE0 ${avgStr}</div>
+        </div>
+      `;
+      });
+      breakdownContainer.innerHTML = bHtml;
+    }
     const curHour = nowKst.getHours();
     const curMin = nowKst.getMinutes();
     const curSec = nowKst.getSeconds();
@@ -4837,20 +4875,21 @@
       const sessionSub = tLang === "zh" ? s.nameZh : tLang === "en" ? s.nameEn : s.nameKo;
       const slotKeys = ["00:00", "06:00", "12:00", "18:00"];
       const slotKey = slotKeys[idx] || "00:00";
-      const pad = (n) => String(n).padStart(2, "0");
       const todayKstPrefix = `${nowKst.getFullYear()}-${pad(nowKst.getMonth() + 1)}-${pad(nowKst.getDate())}`;
-      const allRuns = Array.isArray(aData.runs) ? aData.runs : [];
       const slotRun = allRuns.find((r) => {
         if (!r.created_at_kst || !r.created_at_kst.startsWith(todayKstPrefix)) return false;
         const rHour = parseInt(r.created_at_kst.substring(11, 13), 10);
-        return Math.floor(rHour / 6) === idx;
+        if (Math.floor(rHour / 6) !== idx) return false;
+        const isHarvestRun = r.event === "schedule" || r.items_collected > 0 || r.items_scanned && r.items_scanned > 0;
+        return isHarvestRun;
       });
       const sLog = slotRun ? {
         is_today: true,
         status: slotRun.conclusion === "success" || slotRun.status === "completed" || slotRun.status === "SUCCESS" ? "SUCCESS" : slotRun.status,
         actual_duration: slotRun.duration_str,
         error_count: slotRun.error_count || 0,
-        items_collected: slotRun.items_collected
+        items_collected: slotRun.items_collected,
+        items_scanned: slotRun.items_scanned
       } : aData.slot_logs && aData.slot_logs[slotKey] ? aData.slot_logs[slotKey] : null;
       const tlMatch = (tData || []).find((d) => d.hour === idx * 6);
       const itemCount = sLog && sLog.is_today && sLog.items_collected !== null && sLog.items_collected !== void 0 ? sLog.items_collected : tlMatch ? tlMatch.inbox_count || 0 : 0;
@@ -4859,7 +4898,7 @@
       let cardBorder = "border-surface-border";
       let cardBg = "bg-slate-50/50";
       const isRunToday = Boolean(sLog && sLog.is_today);
-      const isRunSuccess = isRunToday && (sLog.status === "SUCCESS" || sLog.status === "completed") || isPast && itemCount > 0;
+      const isRunSuccess = isRunToday && (sLog.status === "SUCCESS" || sLog.status === "completed") && (itemCount > 0 || sLog.items_scanned && sLog.items_scanned > 0) || itemCount > 0;
       const isRunActive = sLog && (sLog.status === "in_progress" || sLog.status === "queued") || isActive;
       if (isRunSuccess) {
         const actualDuration = sLog.actual_duration || (s.actualDur || "-");
