@@ -597,12 +597,19 @@ export function renderRunsTable() {
 let lastPolledTime = 0;
 export async function checkLiveActionsRuns() {
   const now = Date.now();
-  if (now - lastPolledTime < 45000 || (typeof document !== 'undefined' && document.hidden)) return;
+  if (typeof document !== 'undefined' && document.hidden) return;
+
+  const existingRuns = (typeof window !== 'undefined' && window.actionsTelemetryData?.runs) || actionsTelemetryData.runs || [];
+  const hasActiveJob = existingRuns.some(r => r.status === 'in_progress' || r.status === 'queued');
+  
+  // High-performance optimization: Don't poll GitHub API if DB runs are already fresh and no active runs
+  if (!hasActiveJob && (now - lastPolledTime < 180000) && existingRuns.length > 0) return;
   lastPolledTime = now;
+
   const ctrl = new AbortController();
   const tid = setTimeout(() => ctrl.abort(), 2500);
   try {
-    const resp = await fetch('https://api.github.com/repos/AnnyeongHae/ai-factcheck-portfolio/actions/runs?per_page=6', {
+    const resp = await fetch('https://api.github.com/repos/AnnyeongHae/ai-factcheck-portfolio/actions/runs?per_page=8', {
       headers: { 'Accept': 'application/vnd.github.v3+json' },
       signal: ctrl.signal
     });
@@ -614,7 +621,7 @@ export async function checkLiveActionsRuns() {
 
     const kstTz = 9 * 60;
     const pad = (n) => String(n).padStart(2, '0');
-    const runs = liveRuns.map(r => {
+    const liveMapped = liveRuns.map(r => {
       const cDate = new Date(r.created_at);
       const uDate = new Date(r.updated_at);
       const durSec = Math.max(1, Math.floor((uDate - cDate) / 1000));
@@ -626,8 +633,21 @@ export async function checkLiveActionsRuns() {
       const isCancelled = r.conclusion === 'cancelled';
       const isFailure = r.conclusion === 'failure' || r.conclusion === 'timed_out';
       const errCount = isFailure ? 1 : 0;
-      const existingRuns = (typeof window !== 'undefined' && window.actionsTelemetryData?.runs) || actionsTelemetryData.runs || [];
-      const existingRun = existingRuns.find(x => String(x.id) === String(r.id));
+      
+      const dbRun = (typeof window !== 'undefined' && window._dbActionsRunsMap?.get(String(r.id))) || null;
+      const existingRun = existingRuns.find(x => String(x.id) === String(r.id)) || dbRun;
+
+      const itemsCollected = existingRun?.items_collected !== undefined && existingRun?.items_collected !== null
+        ? existingRun.items_collected
+        : (dbRun?.items_collected !== undefined ? dbRun.items_collected : null);
+
+      const itemsScanned = existingRun?.items_scanned !== undefined && existingRun?.items_scanned !== null
+        ? existingRun.items_scanned
+        : (dbRun?.items_scanned !== undefined ? dbRun.items_scanned : null);
+
+      const finalDurStr = (dbRun && dbRun.duration_str && isSuccess) ? dbRun.duration_str : durStr;
+      const finalDurSec = (dbRun && dbRun.duration_sec && isSuccess) ? dbRun.duration_sec : durSec;
+      const finalKst = (dbRun && dbRun.created_at_kst) ? dbRun.created_at_kst : kstStr;
 
       return {
         id: String(r.id),
@@ -635,15 +655,26 @@ export async function checkLiveActionsRuns() {
         event: r.event,
         status: r.status,
         conclusion: r.conclusion || r.status,
-        duration_str: durStr,
-        duration_sec: durSec,
-        items_collected: existingRun?.items_collected || null,
-        items_scanned: existingRun?.items_scanned || null,
-        created_at_kst: kstStr,
+        duration_str: finalDurStr,
+        duration_sec: finalDurSec,
+        items_collected: itemsCollected,
+        items_scanned: itemsScanned,
+        created_at_kst: finalKst,
         html_url: r.html_url,
         error_count: errCount
       };
     });
+
+    // Merge live runs with existing runs to preserve older DB runs
+    const mergedMap = new Map();
+    liveMapped.forEach(r => mergedMap.set(String(r.id), r));
+    existingRuns.forEach(r => {
+      if (!mergedMap.has(String(r.id))) {
+        mergedMap.set(String(r.id), r);
+      }
+    });
+
+    const runs = Array.from(mergedMap.values());
 
     if (typeof window !== 'undefined') {
       window.actionsTelemetryData = window.actionsTelemetryData || {};

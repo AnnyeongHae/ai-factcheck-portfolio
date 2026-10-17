@@ -29,6 +29,133 @@ import { getDynamicKstHour, getDynamicKstDate } from '../utils/dateTime.js';
 import { showToast } from '../components/toast.js';
 import { ClientCache } from './cache.js';
 
+export function applyAiEnrichUi(unclass) {
+  if (unclass === undefined || unclass === null) return;
+  window._inboxUnclassified = unclass;
+  const btn = document.getElementById('btnTriggerWorker');
+  const txt = document.getElementById('btnWorkerText');
+  if (!btn || !txt) return;
+
+  if (unclass === 0) {
+    window._allClassifiedCompleted = true;
+    txt.textContent = '✨ 모든 항목 AI 요약 완료됨';
+    btn.disabled = true;
+    btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
+    btn.title = "모든 인박스 항목의 AI 요약이 완료되었습니다.";
+  } else {
+    window._allClassifiedCompleted = false;
+    if (!window._autoWorkerRunning) {
+      txt.textContent = `⚡ AI 요약 실행 (${unclass.toLocaleString()}건 대기)`;
+      btn.disabled = false;
+      btn.className = "px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer hover:bg-indigo-100";
+      btn.title = `총 ${unclass.toLocaleString()}건의 미요약 항목이 대기 중입니다. 클릭 시 자동 연속 요약 실행`;
+    } else if (window._autoWorkerRunning && !window._autoWorkerPaused) {
+      txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI 요약 중 (잔여: ${unclass.toLocaleString()}건)`;
+    }
+  }
+}
+
+export async function checkAiEnrichStatus() {
+  const btn = document.getElementById('btnTriggerWorker');
+  const txt = document.getElementById('btnWorkerText');
+  if (!btn || !txt) return;
+
+  if (window._inboxUnclassified !== undefined) {
+    applyAiEnrichUi(window._inboxUnclassified);
+  }
+
+  try {
+    const res = await fetch(APP_CONFIG.apiUrl('/api/stats'), { cache: 'default' });
+    if (res.ok) {
+      const data = await res.json();
+      if (data?.counts?.inbox_unclassified !== undefined) {
+        applyAiEnrichUi(data.counts.inbox_unclassified);
+      }
+    }
+  } catch (err) {
+    console.warn('[AI Enrich Status Check Skipped]:', err.message);
+  }
+}
+
+export function handleLiveStatsData(statsData) {
+  if (!statsData || statsData.status !== 'success' || !statsData.counts) return;
+  const c = statsData.counts;
+  const liveInbox = c.inbox_deduped || c.inbox_total || 0;
+  const liveModels = c.models_total || 0;
+  const liveNews = c.news_total || liveInbox;
+  const liveVerified = c.factchecks_verified || (AppStore.getCases() || []).length || 58;
+
+  Object.assign(snapshotStats, {
+    total_cases: liveVerified,
+    news_total_count: liveNews,
+    models_total_count: liveModels,
+    inbox_total_count: liveInbox
+  });
+  if (statsData.db_provider) {
+    APP_CONFIG.setDbProvider(statsData.db_provider);
+  }
+
+  // Populate persistent DB run map
+  if (Array.isArray(statsData.actions_runs)) {
+    window._dbActionsRunsMap = window._dbActionsRunsMap || new Map();
+    statsData.actions_runs.forEach(r => {
+      if (r.id) window._dbActionsRunsMap.set(String(r.id), r);
+    });
+  }
+
+  // Bind live 24h collection timeline immediately on first pass
+  const curKstH = getDynamicKstHour();
+  if (Array.isArray(statsData.timeline_24h_live) && statsData.timeline_24h_live.length > 0) {
+    const liveHasData = statsData.timeline_24h_live.some(s => (s.inbox_count > 0 || s.enriched_count > 0));
+    if (liveHasData) {
+      window.timeline24hData = statsData.timeline_24h_live.map(liveSlot => ({
+        ...liveSlot,
+        is_current: (liveSlot.hour <= curKstH && curKstH < liveSlot.hour + 6),
+        is_future: (liveSlot.hour > curKstH)
+      }));
+      window._timelineIsPendingToday = false;
+    } else if (Array.isArray(statsData.timeline_24h_baseline) && statsData.timeline_24h_baseline.length > 0) {
+      window.timeline24hData = statsData.timeline_24h_baseline.map(bSlot => ({
+        ...bSlot,
+        is_current: (bSlot.hour <= curKstH && curKstH < bSlot.hour + 6),
+        is_future: (bSlot.hour > curKstH),
+        is_pending_today: (bSlot.hour <= curKstH && curKstH < bSlot.hour + 6)
+      }));
+      window._timelineIsPendingToday = true;
+    } else {
+      window.timeline24hData = statsData.timeline_24h_live;
+    }
+  }
+
+  // Bind live Actions & Vercel telemetry for Admin view
+  window.actionsTelemetryData = {
+    ...(window.actionsTelemetryData || {}),
+    quota: statsData.actions_quota || window.actionsTelemetryData?.quota || {},
+    runs: statsData.actions_runs || window.actionsTelemetryData?.runs || [],
+    latest_run: statsData.latest_run || window.actionsTelemetryData?.latest_run || null,
+    vercel_telemetry: statsData.vercel_telemetry || null,
+    vercel_worker_runs: statsData.vercel_worker_runs || [],
+    voyage_worker_runs: statsData.voyage_worker_runs || []
+  };
+
+  if (statsData.vercel_worker_runs && Array.isArray(statsData.vercel_worker_runs)) {
+    window.vercelWorkerRunsData = statsData.vercel_worker_runs;
+  }
+  if (statsData.voyage_worker_runs && Array.isArray(statsData.voyage_worker_runs)) {
+    window.voyageWorkerRunsData = statsData.voyage_worker_runs;
+    try { localStorage.setItem('voyage_runs_history_v1', JSON.stringify(statsData.voyage_worker_runs)); } catch(e) {}
+  }
+
+  if (statsData.counts?.inbox_unclassified !== undefined) {
+    applyAiEnrichUi(statsData.counts.inbox_unclassified);
+  }
+
+  if (typeof window.renderRunsTable === 'function') window.renderRunsTable();
+  if (typeof window.renderPipelineTelemetryCards === 'function') window.renderPipelineTelemetryCards();
+  if (typeof window.renderTelemetryCharts === 'function') window.renderTelemetryCharts();
+  updateGlobalStatsUI();
+}
+
 export async function bootstrapApplicationData() {
   console.log('[Bootstrap] 🚀 Initializing Single-Pass DB-First data hydration...');
 
@@ -40,7 +167,11 @@ export async function bootstrapApplicationData() {
   const statsPromise = (async () => {
     try {
       const res = await fetch(statsApiUrl, { cache: 'default' });
-      if (res.ok) return await res.json();
+      if (res.ok) {
+        const data = await res.json();
+        handleLiveStatsData(data);
+        return data;
+      }
     } catch (e) {
       console.warn('[Bootstrap] /api/stats fetch failed:', e.message);
     }
@@ -177,56 +308,7 @@ export async function bootstrapApplicationData() {
 
   // 4. Hydrate Live Stats, 24h Timeline & Telemetry directly from DB Engine (SQL GROUP BY SSOT)
   if (statsData?.status === 'success' && statsData.counts) {
-    const c = statsData.counts;
-    const liveInbox = c.inbox_deduped || c.inbox_total || 0;
-    const liveModels = c.models_total || 0;
-    const liveNews = c.news_total || liveInbox;
-    const liveVerified = c.factchecks_verified || (AppStore.getCases() || []).length || 58;
-
-    Object.assign(snapshotStats, {
-      total_cases: liveVerified,
-      news_total_count: liveNews,
-      models_total_count: liveModels,
-      inbox_total_count: liveInbox
-    });
-    if (statsData.db_provider) {
-      APP_CONFIG.setDbProvider(statsData.db_provider);
-    }
-
-    // Bind live 24h collection timeline immediately on first pass
-    const curKstH = getDynamicKstHour();
-    if (Array.isArray(statsData.timeline_24h_live) && statsData.timeline_24h_live.length > 0) {
-      const liveHasData = statsData.timeline_24h_live.some(s => (s.inbox_count > 0 || s.enriched_count > 0));
-      if (liveHasData) {
-        window.timeline24hData = statsData.timeline_24h_live.map(liveSlot => ({
-          ...liveSlot,
-          is_current: (liveSlot.hour <= curKstH && curKstH < liveSlot.hour + 6),
-          is_future: (liveSlot.hour > curKstH)
-        }));
-        window._timelineIsPendingToday = false;
-      } else if (Array.isArray(statsData.timeline_24h_baseline) && statsData.timeline_24h_baseline.length > 0) {
-        window.timeline24hData = statsData.timeline_24h_baseline.map(bSlot => ({
-          ...bSlot,
-          is_current: (bSlot.hour <= curKstH && curKstH < bSlot.hour + 6),
-          is_future: (bSlot.hour > curKstH),
-          is_pending_today: (bSlot.hour <= curKstH && curKstH < bSlot.hour + 6)
-        }));
-        window._timelineIsPendingToday = true;
-      } else {
-        window.timeline24hData = statsData.timeline_24h_live;
-      }
-    }
-
-    // Bind live Actions & Vercel telemetry for Admin view
-    window.actionsTelemetryData = {
-      ...(window.actionsTelemetryData || {}),
-      quota: statsData.actions_quota || window.actionsTelemetryData?.quota || {},
-      runs: statsData.actions_runs || window.actionsTelemetryData?.runs || [],
-      latest_run: statsData.latest_run || window.actionsTelemetryData?.latest_run || null,
-      vercel_telemetry: statsData.vercel_telemetry || null,
-      vercel_worker_runs: statsData.vercel_worker_runs || [],
-      voyage_worker_runs: statsData.voyage_worker_runs || []
-    };
+    handleLiveStatsData(statsData);
   } else if (staticData) {
     Object.assign(snapshotStats, {
       total_cases: staticData.total_cases || (staticData.cases ? staticData.cases.length : 58),
@@ -566,29 +648,7 @@ export async function syncFromLiveDB(force = false) {
         if (inbHdr && liveInbox) inbHdr.textContent = `총 ${liveInbox.toLocaleString()}건`;
 
         if (data.counts.inbox_unclassified !== undefined) {
-          const unclass = data.counts.inbox_unclassified;
-          const btn = document.getElementById('btnTriggerWorker');
-          const txt = document.getElementById('btnWorkerText');
-
-          if (unclass === 0) {
-            window._allClassifiedCompleted = true;
-            if (txt) txt.textContent = '✨ 모든 항목 AI 요약 완료됨';
-            if (btn) {
-              btn.disabled = true;
-              btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
-            }
-          } else {
-            window._allClassifiedCompleted = false;
-            if (txt && !window._autoWorkerRunning) {
-              txt.textContent = `⚡ AI 요약 실행 (${unclass.toLocaleString()}건 대기)`;
-            } else if (window._autoWorkerRunning && !window._autoWorkerPaused) {
-              if (txt) txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI 요약 중 (잔여: ${unclass.toLocaleString()}건)`;
-            }
-            if (btn && !window._autoWorkerRunning) {
-              btn.disabled = false;
-              btn.className = "px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer hover:bg-indigo-100";
-            }
-          }
+          applyAiEnrichUi(data.counts.inbox_unclassified);
         }
 
         if (data.counts.tier1_counts || data.tier1_counts) {
@@ -708,8 +768,11 @@ export async function syncFromLiveDB(force = false) {
           window.actionsTelemetryData = window.actionsTelemetryData || {};
           window.actionsTelemetryData.monthly_used_minutes = data.actions_quota.total_minutes;
           window.actionsTelemetryData.monthly_remaining_minutes = data.actions_quota.remaining_minutes;
-          window.actionsTelemetryData.monthly_usage_percent = data.actions_quota.burn_rate_percent;
           if (data.actions_runs && Array.isArray(data.actions_runs) && data.actions_runs.length > 0) {
+            window._dbActionsRunsMap = window._dbActionsRunsMap || new Map();
+            data.actions_runs.forEach(r => {
+              if (r.id) window._dbActionsRunsMap.set(String(r.id), r);
+            });
             window.actionsTelemetryData.runs = data.actions_runs;
           }
           if (typeof window.renderPipelineTelemetryCards === 'function') window.renderPipelineTelemetryCards();

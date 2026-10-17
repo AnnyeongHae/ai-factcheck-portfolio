@@ -235,6 +235,8 @@ export function switchView(view, pushHistory = true, preserveFilters = false) {
     renderPipelineTelemetryCards();
     renderRunsTable();
     updateCronCountdown();
+    if (typeof window.checkAiEnrichStatus === 'function') window.checkAiEnrichStatus();
+    if (typeof window.checkVoyageEmbeddingStatus === 'function') window.checkVoyageEmbeddingStatus();
   }
 
   if (pushHistory && window.scrollY > 60) {

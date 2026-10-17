@@ -33,6 +33,8 @@ import { i18n, setLanguage } from './core/i18n.js';
 import {
   bootstrapApplicationData,
   checkVoyageEmbeddingStatus,
+  checkAiEnrichStatus,
+  applyAiEnrichUi,
   toggleVoyageEmbeddingWorker,
   startContinuousVoyageWorker,
   startContinuousAiWorker,
@@ -270,6 +272,8 @@ if (typeof window !== 'undefined') {
 
   // Workers & Verification
   window.checkVoyageEmbeddingStatus = checkVoyageEmbeddingStatus;
+  window.checkAiEnrichStatus = checkAiEnrichStatus;
+  window.applyAiEnrichUi = applyAiEnrichUi;
   window.toggleVoyageEmbeddingWorker = toggleVoyageEmbeddingWorker;
   window.startContinuousVoyageWorker = startContinuousVoyageWorker;
   window.toggleAiEnrichWorker = toggleAiEnrichWorker;
@@ -355,8 +359,9 @@ if (typeof document !== 'undefined') {
     setInterval(updateCronCountdown, 1000);
     updateCronCountdown();
 
-    // Initial check of Voyage embedding status
+    // Initial check of Voyage embedding & AI summary status
     setTimeout(checkVoyageEmbeddingStatus, 800);
+    setTimeout(checkAiEnrichStatus, 800);
 
     // Initial check and hydration of Admin Auth state
     updateAdminAuthUI();

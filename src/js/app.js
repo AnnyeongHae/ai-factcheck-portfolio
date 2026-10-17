@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-16T16:27:03.475Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-17T03:33:17.268Z */
 
 (() => {
   // src/js/core/config.js
@@ -1256,6 +1256,120 @@
   };
 
   // src/js/core/api.js
+  function applyAiEnrichUi(unclass) {
+    if (unclass === void 0 || unclass === null) return;
+    window._inboxUnclassified = unclass;
+    const btn = document.getElementById("btnTriggerWorker");
+    const txt = document.getElementById("btnWorkerText");
+    if (!btn || !txt) return;
+    if (unclass === 0) {
+      window._allClassifiedCompleted = true;
+      txt.textContent = "\u2728 \uBAA8\uB4E0 \uD56D\uBAA9 AI \uC694\uC57D \uC644\uB8CC\uB428";
+      btn.disabled = true;
+      btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
+      btn.title = "\uBAA8\uB4E0 \uC778\uBC15\uC2A4 \uD56D\uBAA9\uC758 AI \uC694\uC57D\uC774 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.";
+    } else {
+      window._allClassifiedCompleted = false;
+      if (!window._autoWorkerRunning) {
+        txt.textContent = `\u26A1 AI \uC694\uC57D \uC2E4\uD589 (${unclass.toLocaleString()}\uAC74 \uB300\uAE30)`;
+        btn.disabled = false;
+        btn.className = "px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer hover:bg-indigo-100";
+        btn.title = `\uCD1D ${unclass.toLocaleString()}\uAC74\uC758 \uBBF8\uC694\uC57D \uD56D\uBAA9\uC774 \uB300\uAE30 \uC911\uC785\uB2C8\uB2E4. \uD074\uB9AD \uC2DC \uC790\uB3D9 \uC5F0\uC18D \uC694\uC57D \uC2E4\uD589`;
+      } else if (window._autoWorkerRunning && !window._autoWorkerPaused) {
+        txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI \uC694\uC57D \uC911 (\uC794\uC5EC: ${unclass.toLocaleString()}\uAC74)`;
+      }
+    }
+  }
+  async function checkAiEnrichStatus() {
+    const btn = document.getElementById("btnTriggerWorker");
+    const txt = document.getElementById("btnWorkerText");
+    if (!btn || !txt) return;
+    if (window._inboxUnclassified !== void 0) {
+      applyAiEnrichUi(window._inboxUnclassified);
+    }
+    try {
+      const res = await fetch(APP_CONFIG.apiUrl("/api/stats"), { cache: "default" });
+      if (res.ok) {
+        const data = await res.json();
+        if (data?.counts?.inbox_unclassified !== void 0) {
+          applyAiEnrichUi(data.counts.inbox_unclassified);
+        }
+      }
+    } catch (err) {
+      console.warn("[AI Enrich Status Check Skipped]:", err.message);
+    }
+  }
+  function handleLiveStatsData(statsData) {
+    if (!statsData || statsData.status !== "success" || !statsData.counts) return;
+    const c = statsData.counts;
+    const liveInbox = c.inbox_deduped || c.inbox_total || 0;
+    const liveModels = c.models_total || 0;
+    const liveNews = c.news_total || liveInbox;
+    const liveVerified = c.factchecks_verified || (AppStore.getCases() || []).length || 58;
+    Object.assign(snapshotStats, {
+      total_cases: liveVerified,
+      news_total_count: liveNews,
+      models_total_count: liveModels,
+      inbox_total_count: liveInbox
+    });
+    if (statsData.db_provider) {
+      APP_CONFIG.setDbProvider(statsData.db_provider);
+    }
+    if (Array.isArray(statsData.actions_runs)) {
+      window._dbActionsRunsMap = window._dbActionsRunsMap || /* @__PURE__ */ new Map();
+      statsData.actions_runs.forEach((r) => {
+        if (r.id) window._dbActionsRunsMap.set(String(r.id), r);
+      });
+    }
+    const curKstH = getDynamicKstHour();
+    if (Array.isArray(statsData.timeline_24h_live) && statsData.timeline_24h_live.length > 0) {
+      const liveHasData = statsData.timeline_24h_live.some((s) => s.inbox_count > 0 || s.enriched_count > 0);
+      if (liveHasData) {
+        window.timeline24hData = statsData.timeline_24h_live.map((liveSlot) => ({
+          ...liveSlot,
+          is_current: liveSlot.hour <= curKstH && curKstH < liveSlot.hour + 6,
+          is_future: liveSlot.hour > curKstH
+        }));
+        window._timelineIsPendingToday = false;
+      } else if (Array.isArray(statsData.timeline_24h_baseline) && statsData.timeline_24h_baseline.length > 0) {
+        window.timeline24hData = statsData.timeline_24h_baseline.map((bSlot) => ({
+          ...bSlot,
+          is_current: bSlot.hour <= curKstH && curKstH < bSlot.hour + 6,
+          is_future: bSlot.hour > curKstH,
+          is_pending_today: bSlot.hour <= curKstH && curKstH < bSlot.hour + 6
+        }));
+        window._timelineIsPendingToday = true;
+      } else {
+        window.timeline24hData = statsData.timeline_24h_live;
+      }
+    }
+    window.actionsTelemetryData = {
+      ...window.actionsTelemetryData || {},
+      quota: statsData.actions_quota || window.actionsTelemetryData?.quota || {},
+      runs: statsData.actions_runs || window.actionsTelemetryData?.runs || [],
+      latest_run: statsData.latest_run || window.actionsTelemetryData?.latest_run || null,
+      vercel_telemetry: statsData.vercel_telemetry || null,
+      vercel_worker_runs: statsData.vercel_worker_runs || [],
+      voyage_worker_runs: statsData.voyage_worker_runs || []
+    };
+    if (statsData.vercel_worker_runs && Array.isArray(statsData.vercel_worker_runs)) {
+      window.vercelWorkerRunsData = statsData.vercel_worker_runs;
+    }
+    if (statsData.voyage_worker_runs && Array.isArray(statsData.voyage_worker_runs)) {
+      window.voyageWorkerRunsData = statsData.voyage_worker_runs;
+      try {
+        localStorage.setItem("voyage_runs_history_v1", JSON.stringify(statsData.voyage_worker_runs));
+      } catch (e) {
+      }
+    }
+    if (statsData.counts?.inbox_unclassified !== void 0) {
+      applyAiEnrichUi(statsData.counts.inbox_unclassified);
+    }
+    if (typeof window.renderRunsTable === "function") window.renderRunsTable();
+    if (typeof window.renderPipelineTelemetryCards === "function") window.renderPipelineTelemetryCards();
+    if (typeof window.renderTelemetryCharts === "function") window.renderTelemetryCharts();
+    updateGlobalStatsUI();
+  }
   async function bootstrapApplicationData() {
     console.log("[Bootstrap] \u{1F680} Initializing Single-Pass DB-First data hydration...");
     const statsApiUrl = APP_CONFIG.apiUrl("/api/stats");
@@ -1264,7 +1378,11 @@
     const statsPromise = (async () => {
       try {
         const res = await fetch(statsApiUrl, { cache: "default" });
-        if (res.ok) return await res.json();
+        if (res.ok) {
+          const data = await res.json();
+          handleLiveStatsData(data);
+          return data;
+        }
       } catch (e) {
         console.warn("[Bootstrap] /api/stats fetch failed:", e.message);
       }
@@ -1385,51 +1503,7 @@
       window.casesData = staticData.cases;
     }
     if (statsData?.status === "success" && statsData.counts) {
-      const c = statsData.counts;
-      const liveInbox = c.inbox_deduped || c.inbox_total || 0;
-      const liveModels = c.models_total || 0;
-      const liveNews = c.news_total || liveInbox;
-      const liveVerified = c.factchecks_verified || (AppStore.getCases() || []).length || 58;
-      Object.assign(snapshotStats, {
-        total_cases: liveVerified,
-        news_total_count: liveNews,
-        models_total_count: liveModels,
-        inbox_total_count: liveInbox
-      });
-      if (statsData.db_provider) {
-        APP_CONFIG.setDbProvider(statsData.db_provider);
-      }
-      const curKstH = getDynamicKstHour();
-      if (Array.isArray(statsData.timeline_24h_live) && statsData.timeline_24h_live.length > 0) {
-        const liveHasData = statsData.timeline_24h_live.some((s) => s.inbox_count > 0 || s.enriched_count > 0);
-        if (liveHasData) {
-          window.timeline24hData = statsData.timeline_24h_live.map((liveSlot) => ({
-            ...liveSlot,
-            is_current: liveSlot.hour <= curKstH && curKstH < liveSlot.hour + 6,
-            is_future: liveSlot.hour > curKstH
-          }));
-          window._timelineIsPendingToday = false;
-        } else if (Array.isArray(statsData.timeline_24h_baseline) && statsData.timeline_24h_baseline.length > 0) {
-          window.timeline24hData = statsData.timeline_24h_baseline.map((bSlot) => ({
-            ...bSlot,
-            is_current: bSlot.hour <= curKstH && curKstH < bSlot.hour + 6,
-            is_future: bSlot.hour > curKstH,
-            is_pending_today: bSlot.hour <= curKstH && curKstH < bSlot.hour + 6
-          }));
-          window._timelineIsPendingToday = true;
-        } else {
-          window.timeline24hData = statsData.timeline_24h_live;
-        }
-      }
-      window.actionsTelemetryData = {
-        ...window.actionsTelemetryData || {},
-        quota: statsData.actions_quota || window.actionsTelemetryData?.quota || {},
-        runs: statsData.actions_runs || window.actionsTelemetryData?.runs || [],
-        latest_run: statsData.latest_run || window.actionsTelemetryData?.latest_run || null,
-        vercel_telemetry: statsData.vercel_telemetry || null,
-        vercel_worker_runs: statsData.vercel_worker_runs || [],
-        voyage_worker_runs: statsData.voyage_worker_runs || []
-      };
+      handleLiveStatsData(statsData);
     } else if (staticData) {
       Object.assign(snapshotStats, {
         total_cases: staticData.total_cases || (staticData.cases ? staticData.cases.length : 58),
@@ -1731,28 +1805,7 @@
           const inbHdr = document.getElementById("inboxHeaderCount");
           if (inbHdr && liveInbox) inbHdr.textContent = `\uCD1D ${liveInbox.toLocaleString()}\uAC74`;
           if (data.counts.inbox_unclassified !== void 0) {
-            const unclass = data.counts.inbox_unclassified;
-            const btn = document.getElementById("btnTriggerWorker");
-            const txt = document.getElementById("btnWorkerText");
-            if (unclass === 0) {
-              window._allClassifiedCompleted = true;
-              if (txt) txt.textContent = "\u2728 \uBAA8\uB4E0 \uD56D\uBAA9 AI \uC694\uC57D \uC644\uB8CC\uB428";
-              if (btn) {
-                btn.disabled = true;
-                btn.className = "px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold font-mono text-[11px] border border-emerald-200 transition shadow-xs flex items-center gap-1.5 cursor-default";
-              }
-            } else {
-              window._allClassifiedCompleted = false;
-              if (txt && !window._autoWorkerRunning) {
-                txt.textContent = `\u26A1 AI \uC694\uC57D \uC2E4\uD589 (${unclass.toLocaleString()}\uAC74 \uB300\uAE30)`;
-              } else if (window._autoWorkerRunning && !window._autoWorkerPaused) {
-                if (txt) txt.innerHTML = `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-1"></span> AI \uC694\uC57D \uC911 (\uC794\uC5EC: ${unclass.toLocaleString()}\uAC74)`;
-              }
-              if (btn && !window._autoWorkerRunning) {
-                btn.disabled = false;
-                btn.className = "px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 font-bold font-mono text-[11px] border border-indigo-200 transition shadow-xs flex items-center gap-1.5 cursor-pointer hover:bg-indigo-100";
-              }
-            }
+            applyAiEnrichUi(data.counts.inbox_unclassified);
           }
           if (data.counts.tier1_counts || data.tier1_counts) {
             snapshotStats.tier1_counts = data.counts.tier1_counts || data.tier1_counts;
@@ -1865,8 +1918,11 @@
             window.actionsTelemetryData = window.actionsTelemetryData || {};
             window.actionsTelemetryData.monthly_used_minutes = data.actions_quota.total_minutes;
             window.actionsTelemetryData.monthly_remaining_minutes = data.actions_quota.remaining_minutes;
-            window.actionsTelemetryData.monthly_usage_percent = data.actions_quota.burn_rate_percent;
             if (data.actions_runs && Array.isArray(data.actions_runs) && data.actions_runs.length > 0) {
+              window._dbActionsRunsMap = window._dbActionsRunsMap || /* @__PURE__ */ new Map();
+              data.actions_runs.forEach((r) => {
+                if (r.id) window._dbActionsRunsMap.set(String(r.id), r);
+              });
               window.actionsTelemetryData.runs = data.actions_runs;
             }
             if (typeof window.renderPipelineTelemetryCards === "function") window.renderPipelineTelemetryCards();
@@ -5087,12 +5143,15 @@
   var lastPolledTime = 0;
   async function checkLiveActionsRuns() {
     const now = Date.now();
-    if (now - lastPolledTime < 45e3 || typeof document !== "undefined" && document.hidden) return;
+    if (typeof document !== "undefined" && document.hidden) return;
+    const existingRuns = typeof window !== "undefined" && window.actionsTelemetryData?.runs || actionsTelemetryData.runs || [];
+    const hasActiveJob = existingRuns.some((r) => r.status === "in_progress" || r.status === "queued");
+    if (!hasActiveJob && now - lastPolledTime < 18e4 && existingRuns.length > 0) return;
     lastPolledTime = now;
     const ctrl = new AbortController();
     const tid = setTimeout(() => ctrl.abort(), 2500);
     try {
-      const resp = await fetch("https://api.github.com/repos/AnnyeongHae/ai-factcheck-portfolio/actions/runs?per_page=6", {
+      const resp = await fetch("https://api.github.com/repos/AnnyeongHae/ai-factcheck-portfolio/actions/runs?per_page=8", {
         headers: { "Accept": "application/vnd.github.v3+json" },
         signal: ctrl.signal
       });
@@ -5103,7 +5162,7 @@
       if (!liveRuns.length) return;
       const kstTz = 9 * 60;
       const pad = (n) => String(n).padStart(2, "0");
-      const runs = liveRuns.map((r) => {
+      const liveMapped = liveRuns.map((r) => {
         const cDate = new Date(r.created_at);
         const uDate = new Date(r.updated_at);
         const durSec = Math.max(1, Math.floor((uDate - cDate) / 1e3));
@@ -5114,23 +5173,36 @@
         const isCancelled = r.conclusion === "cancelled";
         const isFailure = r.conclusion === "failure" || r.conclusion === "timed_out";
         const errCount = isFailure ? 1 : 0;
-        const existingRuns = typeof window !== "undefined" && window.actionsTelemetryData?.runs || actionsTelemetryData.runs || [];
-        const existingRun = existingRuns.find((x) => String(x.id) === String(r.id));
+        const dbRun = typeof window !== "undefined" && window._dbActionsRunsMap?.get(String(r.id)) || null;
+        const existingRun = existingRuns.find((x) => String(x.id) === String(r.id)) || dbRun;
+        const itemsCollected = existingRun?.items_collected !== void 0 && existingRun?.items_collected !== null ? existingRun.items_collected : dbRun?.items_collected !== void 0 ? dbRun.items_collected : null;
+        const itemsScanned = existingRun?.items_scanned !== void 0 && existingRun?.items_scanned !== null ? existingRun.items_scanned : dbRun?.items_scanned !== void 0 ? dbRun.items_scanned : null;
+        const finalDurStr = dbRun && dbRun.duration_str && isSuccess ? dbRun.duration_str : durStr;
+        const finalDurSec = dbRun && dbRun.duration_sec && isSuccess ? dbRun.duration_sec : durSec;
+        const finalKst = dbRun && dbRun.created_at_kst ? dbRun.created_at_kst : kstStr;
         return {
           id: String(r.id),
           name: r.name,
           event: r.event,
           status: r.status,
           conclusion: r.conclusion || r.status,
-          duration_str: durStr,
-          duration_sec: durSec,
-          items_collected: existingRun?.items_collected || null,
-          items_scanned: existingRun?.items_scanned || null,
-          created_at_kst: kstStr,
+          duration_str: finalDurStr,
+          duration_sec: finalDurSec,
+          items_collected: itemsCollected,
+          items_scanned: itemsScanned,
+          created_at_kst: finalKst,
           html_url: r.html_url,
           error_count: errCount
         };
       });
+      const mergedMap = /* @__PURE__ */ new Map();
+      liveMapped.forEach((r) => mergedMap.set(String(r.id), r));
+      existingRuns.forEach((r) => {
+        if (!mergedMap.has(String(r.id))) {
+          mergedMap.set(String(r.id), r);
+        }
+      });
+      const runs = Array.from(mergedMap.values());
       if (typeof window !== "undefined") {
         window.actionsTelemetryData = window.actionsTelemetryData || {};
         window.actionsTelemetryData.runs = runs;
@@ -6524,6 +6596,8 @@
       renderPipelineTelemetryCards();
       renderRunsTable();
       updateCronCountdown();
+      if (typeof window.checkAiEnrichStatus === "function") window.checkAiEnrichStatus();
+      if (typeof window.checkVoyageEmbeddingStatus === "function") window.checkVoyageEmbeddingStatus();
     }
     if (pushHistory && window.scrollY > 60) {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -6701,6 +6775,8 @@
     window.filterGraphGroup = filterGraphGroup;
     window.showToast = showToast;
     window.checkVoyageEmbeddingStatus = checkVoyageEmbeddingStatus;
+    window.checkAiEnrichStatus = checkAiEnrichStatus;
+    window.applyAiEnrichUi = applyAiEnrichUi;
     window.toggleVoyageEmbeddingWorker = toggleVoyageEmbeddingWorker;
     window.startContinuousVoyageWorker = startContinuousVoyageWorker;
     window.toggleAiEnrichWorker = toggleAiEnrichWorker;
@@ -6767,6 +6843,7 @@
       setInterval(updateCronCountdown, 1e3);
       updateCronCountdown();
       setTimeout(checkVoyageEmbeddingStatus, 800);
+      setTimeout(checkAiEnrichStatus, 800);
       updateAdminAuthUI();
       window.__APP_INITIALIZED__ = true;
       console.log("[App] \u{1F680} Modular architecture hydrated and fully ready.");
