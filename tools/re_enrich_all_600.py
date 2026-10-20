@@ -60,8 +60,9 @@ def get_openrouter_api_key():
 # ==============================================================================
 GEMINI_MODEL = "gemini-3.6-flash"
 OPENROUTER_FREE_MODELS = [
-    "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
     "nvidia/nemotron-3.5-lightning:free",
+    "minimax/minimax-m3.1-flash:free",
+    "google/gemma-4-26b-a4b-it:free",
     "liquid/lfm-2.5-2.6b:free"
 ]
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
