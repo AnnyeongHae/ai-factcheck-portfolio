@@ -131,6 +131,8 @@ export function handleLiveStatsData(statsData) {
   window.actionsTelemetryData = {
     ...(window.actionsTelemetryData || {}),
     quota: statsData.actions_quota || window.actionsTelemetryData?.quota || {},
+    monthly_used_minutes: statsData.actions_quota?.total_minutes || window.actionsTelemetryData?.monthly_used_minutes,
+    monthly_remaining_minutes: statsData.actions_quota?.remaining_minutes || window.actionsTelemetryData?.monthly_remaining_minutes,
     runs: statsData.actions_runs || window.actionsTelemetryData?.runs || [],
     latest_run: statsData.latest_run || window.actionsTelemetryData?.latest_run || null,
     vercel_telemetry: statsData.vercel_telemetry || null,

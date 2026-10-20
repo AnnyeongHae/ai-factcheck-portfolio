@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-20T16:31:41.773Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-20T16:41:06.043Z */
 
 (() => {
   // src/js/core/config.js
@@ -325,7 +325,7 @@
     if (!item) return 0;
     let raw = "";
     if (preferField === "audit") {
-      raw = item.ai_enrichment?.enriched_at || item.enriched_at || item.audited_at || item.investigation_date;
+      raw = item.ai_enrichment?.enriched_at || item.enriched_at || item.updated_at || item.audited_at || item.investigation_date;
       if (!raw) return 0;
       const ms = new Date(raw).getTime();
       return isNaN(ms) ? 0 : ms;
@@ -1346,6 +1346,8 @@
     window.actionsTelemetryData = {
       ...window.actionsTelemetryData || {},
       quota: statsData.actions_quota || window.actionsTelemetryData?.quota || {},
+      monthly_used_minutes: statsData.actions_quota?.total_minutes || window.actionsTelemetryData?.monthly_used_minutes,
+      monthly_remaining_minutes: statsData.actions_quota?.remaining_minutes || window.actionsTelemetryData?.monthly_remaining_minutes,
       runs: statsData.actions_runs || window.actionsTelemetryData?.runs || [],
       latest_run: statsData.latest_run || window.actionsTelemetryData?.latest_run || null,
       vercel_telemetry: statsData.vercel_telemetry || null,
@@ -5091,7 +5093,7 @@
           rowsHtml += `
           <tr class="hover:bg-slate-50/80 transition">
             <td class="py-2.5 px-3 font-bold text-ink-primary text-[11px]">${r.created_at_kst}</td>
-            <td class="py-2.5 px-3 font-medium text-ink-secondary">${r.name.length > 32 ? r.name.slice(0, 30) + "..." : r.name}</td>
+            <td class="py-2.5 px-3 font-medium text-ink-secondary">${(r.name || r.workflow_name || "Workflow").length > 32 ? (r.name || r.workflow_name || "Workflow").slice(0, 30) + "..." : r.name || r.workflow_name || "Workflow"}</td>
             <td class="py-2.5 px-3 text-ink-muted"><span class="px-1.5 py-0.5 rounded bg-slate-100 text-[10px] border border-slate-200">${r.event}</span></td>
             <td class="py-2.5 px-3 font-bold text-ink-primary">${r.duration_str}</td>
             <td class="py-2.5 px-3 font-mono font-semibold">${itemsCell}</td>
@@ -5112,7 +5114,7 @@
       thead.innerHTML = `
       <tr>
         <th class="py-2.5 px-3">\uC2E4\uD589 \uC2DC\uAC01 (KST)</th>
-        <th class="py-2.5 px-3">\uC11C\uBC84\uB9AC\uC2A4 \uC6CC\uCEE4</th>
+        <th class="py-2.5 px-3">\uC2E4\uD589 \uC8FC\uCCB4</th>
         <th class="py-2.5 px-3">AI \uBAA8\uB378</th>
         <th class="py-2.5 px-3">\uC18C\uC694 \uC2DC\uAC04</th>
         <th class="py-2.5 px-3">\uCC98\uB9AC \uAC74\uC218</th>
@@ -5147,7 +5149,7 @@
         });
         tbody.innerHTML = rowsHtml;
       } else {
-        tbody.innerHTML = `<tr><td colspan="7" class="py-4 text-center text-ink-muted">\uCD5C\uADFC Vercel Serverless AI \uC6CC\uCEE4 \uC2E4\uD589 \uAE30\uB85D \uB300\uAE30 \uC911...</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="7" class="py-4 text-center text-ink-muted">\uCD5C\uADFC AI \uC694\uC57D \uAE30\uB85D \uB300\uAE30 \uC911...</td></tr>`;
       }
     } else if (curTab === "voyage") {
       thead.innerHTML = `

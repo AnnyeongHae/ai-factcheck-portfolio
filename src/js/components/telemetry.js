@@ -548,7 +548,7 @@ export function renderRunsTable() {
         rowsHtml += `
           <tr class="hover:bg-slate-50/80 transition">
             <td class="py-2.5 px-3 font-bold text-ink-primary text-[11px]">${r.created_at_kst}</td>
-            <td class="py-2.5 px-3 font-medium text-ink-secondary">${r.name.length > 32 ? r.name.slice(0, 30) + '...' : r.name}</td>
+            <td class="py-2.5 px-3 font-medium text-ink-secondary">${(r.name || r.workflow_name || 'Workflow').length > 32 ? (r.name || r.workflow_name || 'Workflow').slice(0, 30) + '...' : (r.name || r.workflow_name || 'Workflow')}</td>
             <td class="py-2.5 px-3 text-ink-muted"><span class="px-1.5 py-0.5 rounded bg-slate-100 text-[10px] border border-slate-200">${r.event}</span></td>
             <td class="py-2.5 px-3 font-bold text-ink-primary">${r.duration_str}</td>
             <td class="py-2.5 px-3 font-mono font-semibold">${itemsCell}</td>
@@ -569,7 +569,7 @@ export function renderRunsTable() {
     thead.innerHTML = `
       <tr>
         <th class="py-2.5 px-3">실행 시각 (KST)</th>
-        <th class="py-2.5 px-3">서버리스 워커</th>
+        <th class="py-2.5 px-3">실행 주체</th>
         <th class="py-2.5 px-3">AI 모델</th>
         <th class="py-2.5 px-3">소요 시간</th>
         <th class="py-2.5 px-3">처리 건수</th>
@@ -604,7 +604,7 @@ export function renderRunsTable() {
       });
       tbody.innerHTML = rowsHtml;
     } else {
-      tbody.innerHTML = `<tr><td colspan="7" class="py-4 text-center text-ink-muted">최근 Vercel Serverless AI 워커 실행 기록 대기 중...</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="7" class="py-4 text-center text-ink-muted">최근 AI 요약 기록 대기 중...</td></tr>`;
     }
   } else if (curTab === 'voyage') {
     thead.innerHTML = `

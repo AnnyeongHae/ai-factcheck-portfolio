@@ -10,7 +10,7 @@ export function parseItemTimestamp(item, preferField) {
   let raw = '';
   if (preferField === 'audit') {
     // AI 분석일(Audit Date) must strictly reflect actual AI enrichment/audit time!
-    raw = item.ai_enrichment?.enriched_at || item.enriched_at || item.audited_at || item.investigation_date;
+    raw = item.ai_enrichment?.enriched_at || item.enriched_at || item.updated_at || item.audited_at || item.investigation_date;
     if (!raw) return 0;
     const ms = new Date(raw).getTime();
     return isNaN(ms) ? 0 : ms;
