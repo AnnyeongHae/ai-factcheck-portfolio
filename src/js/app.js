@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-17T04:12:54.399Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-20T15:28:29.441Z */
 
 (() => {
   // src/js/core/config.js
@@ -34,7 +34,7 @@
     graph: "/graph",
     inbox: "/inbox"
   };
-  function getBasePath() {
+  function getBasePath2() {
     if (typeof window === "undefined") return "";
     const pathname = window.location.pathname;
     if (pathname.startsWith("/ai-factcheck-portfolio")) {
@@ -44,7 +44,7 @@
   }
   function resolveRoute(routeKey) {
     const path = ROUTES[routeKey] || "/" + (routeKey === "home" ? "" : routeKey);
-    const base = getBasePath();
+    const base = getBasePath2();
     if (path === "/") return base || "/";
     return base + path;
   }
@@ -52,7 +52,7 @@
     window.APP_CONFIG = APP_CONFIG;
     window.API_BASE = API_BASE;
     window.ROUTES = ROUTES;
-    window.getBasePath = getBasePath;
+    window.getBasePath = getBasePath2;
     window.resolveRoute = resolveRoute;
   }
 
@@ -1416,18 +1416,26 @@
       }
       return null;
     })();
+    const basePath = getBasePath();
+    const staticDataUrl = (basePath ? basePath + "/" : "") + "data.json";
     const staticPromise = (async () => {
       try {
-        const res = await fetch("data.json", { cache: "default" });
+        const res = await fetch(staticDataUrl, { cache: "default" });
         if (res.ok) return await res.json();
+      } catch (e) {
+      }
+      try {
+        const resFallback = await fetch("data.json", { cache: "default" });
+        if (resFallback.ok) return await resFallback.json();
       } catch (e) {
       }
       return null;
     })();
-    const [statsData, portfoliosResult, crossSpikeData] = await Promise.all([
+    const [statsData, portfoliosResult, crossSpikeData, staticData] = await Promise.all([
       statsPromise,
       portfoliosPromise,
-      crossSpikePromise
+      crossSpikePromise,
+      staticPromise
     ]);
     const applyStaticData = (staticData2) => {
       if (!staticData2) return;
@@ -1474,15 +1482,8 @@
         window.renderModels();
       }
     };
-    const fastStatic = await Promise.race([
-      staticPromise,
-      new Promise((resolve) => setTimeout(() => resolve(null), 80))
-    ]);
-    if (fastStatic) {
-      applyStaticData(fastStatic);
-    } else {
-      staticPromise.then(applyStaticData).catch(() => {
-      });
+    if (staticData) {
+      applyStaticData(staticData);
     }
     if (crossSpikeData?.items && Array.isArray(crossSpikeData.items) && crossSpikeData.items.length > 0) {
       window.homeCrossSpikeItems = crossSpikeData.items.slice(0, 4);
@@ -1522,6 +1523,9 @@
       ].map((s) => ({ ...s, is_current: s.hour <= curKstH && curKstH < s.hour + 6, is_future: s.hour > curKstH }));
     }
     updateGlobalStatsUI();
+    if (typeof window.renderRunsTable === "function") window.renderRunsTable();
+    if (typeof window.renderPipelineTelemetryCards === "function") window.renderPipelineTelemetryCards();
+    if (typeof window.renderTelemetryCharts === "function") window.renderTelemetryCharts();
     try {
       const savedLang = localStorage.getItem("factcheck_lang") || "KO";
       if (["KO", "ZH", "EN"].includes(savedLang) && typeof window.setLanguage === "function") {
@@ -3009,7 +3013,7 @@
     if (typeof window.renderCards === "function") window.renderCards();
     document.getElementById("portfolioView")?.scrollIntoView({ behavior: "smooth" });
     if (pushHistory && typeof history !== "undefined") {
-      const base = getBasePath();
+      const base = getBasePath2();
       const targetUrl = base + (page > 1 ? "/factchecks?page=" + page : "/factchecks");
       const curPath = window.location.pathname + window.location.search;
       if (curPath !== targetUrl) {
@@ -3025,7 +3029,7 @@
     if (typeof window.renderModels === "function") window.renderModels();
     document.getElementById("modelsView")?.scrollIntoView({ behavior: "smooth" });
     if (pushHistory && typeof history !== "undefined") {
-      const base = getBasePath();
+      const base = getBasePath2();
       const targetUrl = base + (page > 1 ? "/models?page=" + page : "/models");
       const curPath = window.location.pathname + window.location.search;
       if (curPath !== targetUrl) {
@@ -3050,7 +3054,7 @@
           qs += `&date=${encodeURIComponent(curSpkDate)}`;
         }
       }
-      const base = getBasePath();
+      const base = getBasePath2();
       const targetUrl = base + (qs ? `/news?${qs}` : "/news");
       const curPath = window.location.pathname + window.location.search;
       if (curPath !== targetUrl) {
@@ -3066,7 +3070,7 @@
     if (typeof window.renderInbox === "function") window.renderInbox();
     document.getElementById("inboxView")?.scrollIntoView({ behavior: "smooth" });
     if (pushHistory && typeof history !== "undefined") {
-      const base = getBasePath();
+      const base = getBasePath2();
       const targetUrl = base + (page > 1 ? "/inbox?page=" + page : "/inbox");
       const curPath = window.location.pathname + window.location.search;
       if (curPath !== targetUrl) {
@@ -6688,7 +6692,7 @@
       }
     }
     closeModal(false);
-    const basePath = getBasePath();
+    const basePath = getBasePath2();
     let cleanPath = pathname;
     if (basePath && cleanPath.startsWith(basePath)) {
       cleanPath = cleanPath.slice(basePath.length);

@@ -208,19 +208,26 @@ export async function bootstrapApplicationData() {
     return null;
   })();
 
+  const basePath = getBasePath();
+  const staticDataUrl = (basePath ? basePath + '/' : '') + 'data.json';
   const staticPromise = (async () => {
     try {
-      const res = await fetch('data.json', { cache: 'default' });
+      const res = await fetch(staticDataUrl, { cache: 'default' });
       if (res.ok) return await res.json();
+    } catch (e) {}
+    try {
+      const resFallback = await fetch('data.json', { cache: 'default' });
+      if (resFallback.ok) return await resFallback.json();
     } catch (e) {}
     return null;
   })();
 
-  // 1. Critical Path: Fast Edge CDN Live DB APIs
-  const [statsData, portfoliosResult, crossSpikeData] = await Promise.all([
+  // 1. Critical Path: Fast Edge CDN Live DB APIs & Baseline Datasets
+  const [statsData, portfoliosResult, crossSpikeData, staticData] = await Promise.all([
     statsPromise,
     portfoliosPromise,
-    crossSpikePromise
+    crossSpikePromise,
+    staticPromise
   ]);
 
   // 2. Hydrate feeds, timeline, and telemetry from static datasets asynchronously without blocking first paint
@@ -273,15 +280,8 @@ export async function bootstrapApplicationData() {
     }
   };
 
-  // If static data responds within 80ms (or already cached in memory), apply immediately; otherwise hydrate asynchronously
-  const fastStatic = await Promise.race([
-    staticPromise,
-    new Promise(resolve => setTimeout(() => resolve(null), 80))
-  ]);
-  if (fastStatic) {
-    applyStaticData(fastStatic);
-  } else {
-    staticPromise.then(applyStaticData).catch(() => {});
+  if (staticData) {
+    applyStaticData(staticData);
   }
 
   // 2b. Hydrate Home Cross-Viral Top 4 directly from live DB (or fallback to static news)
@@ -331,6 +331,9 @@ export async function bootstrapApplicationData() {
 
   // 5. Update UI Once (Single Pass, Zero Flickering)
   updateGlobalStatsUI();
+  if (typeof window.renderRunsTable === 'function') window.renderRunsTable();
+  if (typeof window.renderPipelineTelemetryCards === 'function') window.renderPipelineTelemetryCards();
+  if (typeof window.renderTelemetryCharts === 'function') window.renderTelemetryCharts();
 
   // Restore user saved language preference
   try {
