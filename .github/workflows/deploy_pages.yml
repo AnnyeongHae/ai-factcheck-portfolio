@@ -66,7 +66,8 @@ jobs:
 
       - name: "Stage 2: Real-Time Cross-Viral Spike Scoring & Daily 23:00 KST EOD Digest"
         run: |
-          if [ "${{ github.event.schedule }}" = "0 14 * * *" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          CURRENT_HOUR=$(date -u +%H)
+          if [ "$CURRENT_HOUR" = "14" ] || [ "${{ github.event.schedule }}" = "0 14 * * *" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             python -u tools/run_eod_digest.py --top 10
           else
             python -u tools/recompute_spike_scores.py --commit
