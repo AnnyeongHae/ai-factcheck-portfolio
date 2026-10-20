@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-20T15:28:29.441Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-20T15:57:05.147Z */
 
 (() => {
   // src/js/core/config.js
@@ -1288,7 +1288,7 @@
       applyAiEnrichUi(window._inboxUnclassified);
     }
     try {
-      const res = await fetch(APP_CONFIG.apiUrl("/api/stats"), { cache: "default" });
+      const res = await fetch(APP_CONFIG.apiUrl("/api/stats?_cb=" + Date.now()), { cache: "no-store" });
       if (res.ok) {
         const data = await res.json();
         if (data?.counts?.inbox_unclassified !== void 0) {

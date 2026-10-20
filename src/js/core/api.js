@@ -65,7 +65,7 @@ export async function checkAiEnrichStatus() {
   }
 
   try {
-    const res = await fetch(APP_CONFIG.apiUrl('/api/stats'), { cache: 'default' });
+    const res = await fetch(APP_CONFIG.apiUrl('/api/stats?_cb=' + Date.now()), { cache: 'no-store' });
     if (res.ok) {
       const data = await res.json();
       if (data?.counts?.inbox_unclassified !== undefined) {
