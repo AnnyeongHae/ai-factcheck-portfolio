@@ -80,27 +80,21 @@ def main():
             [sys.executable, "-u", os.path.join(tools_dir, "re_enrich_all_600.py"), "--mode", "local-gemini", "--batch-size", "25", "--concurrency", "3"]
         )
         if not ok:
-            print("[!] AI Enrichment step had errors. Checking fallback...")
+            print("[!] AI Enrichment step had errors. Please check logs.")
     else:
         print("\n✓ No unclassified items found. All items already enriched!")
-        # If there are any remaining unembedded classified items, trigger Voyage
-        if unembedded_count > 0:
-            run_step(
-                "Step 2: Voyage Semantic Embedding",
-                [sys.executable, "-u", os.path.join(tools_dir, "drain_voyage_embeddings.py")]
-            )
-            run_step(
-                "Step 3: H-V-D Tripod Spike Scores",
-                [sys.executable, "-u", os.path.join(tools_dir, "recompute_spike_scores.py"), "--commit"]
-            )
 
-    # Step 4: Run EOD Digest
-    eod_script = os.path.join(tools_dir, "run_eod_digest.py")
-    if os.path.exists(eod_script):
-        run_step(
-            "Step 4: EOD Daily Hot Digest (23:00 KST)",
-            [sys.executable, "-u", eod_script]
-        )
+    # Step 2: Voyage Semantic Embedding (Runs strictly after enrichment)
+    run_step(
+        "Step 2: Voyage Semantic Embedding",
+        [sys.executable, "-u", os.path.join(tools_dir, "drain_voyage_embeddings.py")]
+    )
+
+    # Step 3: H-V-D Tripod Spike Scores & EOD Top 10 Daily Hot Curation (Single-Pass SSOT)
+    run_step(
+        "Step 3: H-V-D Tripod Spike Scores & EOD Daily Hot 10 (Single-Pass)",
+        [sys.executable, "-u", os.path.join(tools_dir, "recompute_spike_scores.py"), "--commit"]
+    )
 
     print("\n" + "=" * 70)
     print("🎉 [Nightly Local Pipeline] All tasks completed successfully!")

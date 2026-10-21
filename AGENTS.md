@@ -47,8 +47,12 @@ AI 다국어 요약·번역·분류 작업은 실행 환경과 토큰 상황에 
    - **GitHub Actions 내에서 LLM 호출 및 AI 번역/요약 실행을 엄격히 영구 금지**합니다.
 2. **Vercel Serverless (`/api/enrich-worker`): 원격 웹 모드(Mode 2) 전담**:
    - 웹 배포 환경에서는 OpenRouter 무료 모델로 1건씩(`limit=1`) 처리하며, 프런트엔드 UI 1회 클릭 시 잔여 건수가 모두 완료될 때까지 연속 실행됩니다.
-3. **Local CLI (`tools/re_enrich_all_600.py`): 로컬 고속 대량 처리(Mode 1 & Mode 3) 전담**:
-   - 대량 미분류 건은 로컬에서 Mode 1(`gemini-3.6-flash`, 10건 배치) 또는 Mode 3(Gemini 토큰 부족 시 OpenRouter 무료, 3건 배치)로 고속 처리합니다.
+3. **Local CLI & In-Session Flash: 초고속 병렬 배치 처리 불변식 (Parallel Wave x3, 340초 완수)**:
+   - **단일 에이전트 순차 처리 금지**: 100건 이상 대량 미분류 건 처리 시 1개 서브에이전트가 순차 루프(15~20턴, 25분 이상 소요)를 도는 행위를 엄격히 금지합니다.
+   - **Parallel Wave x3 가동**: 반드시 `tools/export_subagent_waves.py`로 25건 단위 청크 큐(`data/subagent_queue/batch_XXX.json`)를 생성한 뒤, **`google/gemini-3.6-flash` 서브에이전트 3개를 병렬(Parallel x3)로 동시 스폰**하여 각 워커가 전담 청크를 가공하고, `tools/subagent_queue_manager.py --apply`로 일괄 커밋하여 **1,000건 기준 340초 이내에 100% 전수 완수**해야 합니다.
+4. **EOD 바이럴 랭킹 단일 엔진 원칙 (Consolidated Single SSOT Engine)**:
+   - `run_eod_digest.py`와 `recompute_spike_scores.py`의 이중 실행을 폐지하고, `tools/recompute_spike_scores.py`가 실시간 크로스 바이럴 랭킹과 **상위 10개 EOD 데일리 핫 큐레이션(`curation_tier = 'DAILY_HOT'`, `editorial_pick_date = CURRENT_DATE`) 마킹을 단일 패스(Single-Pass)로 원자적 동시 처리**합니다.
+   - DDL 락 경합 방지를 위해 스키마 확인은 0.001초 Fast-check로 수행하여 라이브 트래픽 504 타임아웃을 영구 차단합니다.
 
 ---
 

@@ -905,6 +905,15 @@ def main():
     # Upsert today's top rankings into cross_viral_daily_rankings and update peak_tracker
     if args.commit and today_ranking_candidates:
         upsert_daily_ranking_snapshot(cur, today_kst_str, today_ranking_candidates[:args.top_daily], peak_tracker)
+        # 🌟 EOD Consolidated: Mark Top 10 as today's DAILY_HOT curation (Single-Pass SSOT)
+        top_10_ids = [entry[2]["id"] for entry in today_ranking_candidates[:10]]
+        if top_10_ids:
+            cur.execute("""
+                UPDATE raw_trends_inbox
+                SET curation_tier = 'DAILY_HOT',
+                    editorial_pick_date = %s::date
+                WHERE id = ANY(%s);
+            """, (today_kst_str, top_10_ids))
 
     # Prepare raw_trends_inbox updates using strict Dirty-Check (only write rows whose multi-source state or score actually changed)
     updates = []
