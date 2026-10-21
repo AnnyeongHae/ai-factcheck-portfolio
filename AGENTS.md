@@ -43,7 +43,7 @@ AI 다국어 요약·번역·분류 작업은 실행 환경과 토큰 상황에 
 
 ## 3. 데이터 파이프라인의 명확한 역할 분리 원칙 (GitHub Actions vs Vercel Serverless vs Local CLI)
 1. **GitHub Actions: 순수 데이터 수집(Scraping) 및 랭킹 전담 (AI 실행 절대 금지)**:
-   - GitHub Actions는 오직 다중 출처 트렌드 수집(`tools/harvest_trends.py`, 72개 피드 병렬 수집 + 본문 GZIP 압축 `raw_content_vault` 적재)과 일일 23:00 KST 핫 랭킹(`tools/run_eod_digest.py`)만 실행합니다.
+   - GitHub Actions는 오직 1일 4회 다중 출처 트렌드 수집(`tools/harvest_trends.py`, 72개 피드 병렬 수집 + 본문 GZIP 압축 `raw_content_vault` 적재) 및 실시간 스파이크 갱신(`tools/recompute_spike_scores.py --commit`)만 전담합니다. 23:00 EOD 결산(AI 요약+임베딩+Top 10 확정)은 로컬 종합 체제(`tools/daily_2300_local_eod.py`)가 100% 단일 전담합니다.
    - **GitHub Actions 내에서 LLM 호출 및 AI 번역/요약 실행을 엄격히 영구 금지**합니다.
 2. **Vercel Serverless (`/api/enrich-worker`): 원격 웹 모드(Mode 2) 전담**:
    - 웹 배포 환경에서는 OpenRouter 무료 모델로 1건씩(`limit=1`) 처리하며, 프런트엔드 UI 1회 클릭 시 잔여 건수가 모두 완료될 때까지 연속 실행됩니다.

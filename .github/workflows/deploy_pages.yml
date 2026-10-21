@@ -3,14 +3,12 @@ name: Deploy AI Fact-Check Portfolio & Aiven PostgreSQL DB Sync
 on:
   workflow_dispatch:
   schedule:
-    # 🌟 1일 4회 전략 수집 + 23:00 KST EOD 핫 랭킹
+    # 🌟 1일 4회 전략 수집 (6시간 간격: 00:17 / 06:17 / 12:17 / 18:17 KST)
     # 1회차 00:17 KST (UTC 15:17) - 심야 글로벌 릴리스
     # 2회차 06:17 KST (UTC 21:17) - 모닝 브리핑
     # 3회차 12:17 KST (UTC 03:17) - 정오 레이더
     # 4회차 18:17 KST (UTC 09:17) - 저녁 라운드업
-    # 5회차 23:00 KST (UTC 14:00) - EOD 데일리 핫 랭킹
     - cron: '17 3,9,15,21 * * *'
-    - cron: '0 14 * * *'
 
 permissions:
   contents: read
@@ -64,13 +62,9 @@ jobs:
         run: |
           python -u tools/harvest_trends.py
 
-      - name: "Stage 2: Real-Time Cross-Viral Spike Scoring & Daily 23:00 KST EOD Digest"
+      - name: "Stage 2: Real-Time Cross-Viral Spike Scoring & Hub Deduplication"
         run: |
-          if [ "${{ github.event.schedule }}" = "0 14 * * *" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            python -u tools/run_eod_digest.py --top 10
-          else
-            python -u tools/recompute_spike_scores.py --commit
-          fi
+          python -u tools/recompute_spike_scores.py --commit
 
       - name: Sync GitHub Actions Telemetry to Cloud DB (Aiven PostgreSQL)
         env:
