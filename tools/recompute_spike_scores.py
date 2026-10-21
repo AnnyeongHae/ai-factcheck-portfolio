@@ -340,6 +340,10 @@ KST_TZ = timezone(timedelta(hours=9))
 
 def ensure_ranking_schema(cur):
     """Ensures cross_viral_daily_rankings table and raw_trends_inbox peak/live columns exist in PostgreSQL SSOT."""
+    # Fast-check if schema already exists to prevent AccessExclusiveLock contention on live production table
+    cur.execute("SELECT 1 FROM information_schema.tables WHERE table_name = 'cross_viral_daily_rankings';")
+    if cur.fetchone():
+        return
     cur.execute("""
         ALTER TABLE raw_trends_inbox
             ADD COLUMN IF NOT EXISTS live_spike_score NUMERIC(10, 1) DEFAULT 0.0,
