@@ -45,11 +45,21 @@ export function sortCollection(items, sortKey) {
     if (sortKey === 'title-asc') {
       return (a.title || '').localeCompare(b.title || '');
     }
-    if (sortKey === 'viral-desc') {
-      return calculateStandardizedViralScore(b) - calculateStandardizedViralScore(a);
+    if (sortKey === 'viral-desc' || sortKey === 'viral-score-desc') {
+      const scoreA = Number(a.live_spike_score || a.spike_analysis?.score || a.spike_score || calculateStandardizedViralScore(a) || 0);
+      const scoreB = Number(b.live_spike_score || b.spike_analysis?.score || b.spike_score || calculateStandardizedViralScore(b) || 0);
+      if (scoreB !== scoreA) return scoreB - scoreA;
+      const sDiff = parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
+      if (sDiff !== 0) return sDiff;
+      return idB.localeCompare(idA);
     }
     if (sortKey === 'viral-asc') {
-      return calculateStandardizedViralScore(a) - calculateStandardizedViralScore(b);
+      const scoreA = Number(a.live_spike_score || a.spike_analysis?.score || a.spike_score || calculateStandardizedViralScore(a) || 0);
+      const scoreB = Number(b.live_spike_score || b.spike_analysis?.score || b.spike_score || calculateStandardizedViralScore(b) || 0);
+      if (scoreA !== scoreB) return scoreA - scoreB;
+      const sDiff = parseItemTimestamp(a, 'source') - parseItemTimestamp(b, 'source');
+      if (sDiff !== 0) return sDiff;
+      return idA.localeCompare(idB);
     }
     const defDiff = parseItemTimestamp(b, 'source') - parseItemTimestamp(a, 'source');
     if (defDiff !== 0) return defDiff;

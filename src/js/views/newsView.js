@@ -336,9 +336,10 @@ export function updateCrossSpikeTimeMachineUI() {
       const shortDate = d.ranking_date.slice(5).replace('-', '/');
       const active = d.ranking_date === spkDate;
       const cls = active
-        ? 'px-2.5 py-1 rounded-lg text-[11px] font-mono font-extrabold bg-amber-900 text-white shadow-2xs transition shrink-0 cursor-pointer'
+        ? 'px-2.5 py-1 rounded-lg text-[11px] font-mono font-extrabold bg-amber-600 text-white shadow-sm ring-2 ring-amber-400 transition shrink-0 cursor-pointer'
         : 'px-2 py-1 rounded-lg text-[11px] font-mono font-bold bg-white/90 text-amber-900 hover:bg-amber-100 border border-amber-200 transition shrink-0 cursor-pointer';
-      return `<button type="button" onclick="setCrossSpikeDate('${d.ranking_date}')" class="${cls}" title="${(d.top_title || '').replace(/"/g, '&quot;')}">${shortDate}</button>`;
+      const inlineStyle = active ? 'style="background-color: #d97706 !important; color: #ffffff !important; font-weight: 800 !important;"' : '';
+      return `<button type="button" onclick="setCrossSpikeDate('${d.ranking_date}')" class="${cls}" ${inlineStyle} title="${(d.top_title || '').replace(/"/g, '&quot;')}">${shortDate}</button>`;
     }).join('');
   }
 
@@ -358,9 +359,9 @@ export function setCrossSpikeDate(dateStr) {
   if (typeof window !== 'undefined') {
     window.currentSpikeDate = cleanDate;
     window.currentNewsPage = 1;
-    if (cleanDate && window.currentNewsFacet !== 'CROSS_SPIKE') {
-      window.currentNewsFacet = 'CROSS_SPIKE';
-      window.currentNewsSort = 'viral-score-desc';
+    window.currentNewsFacet = 'CROSS_SPIKE';
+    window.currentNewsSort = 'viral-score-desc';
+    if (cleanDate) {
       document.querySelectorAll('.news-facet-pill').forEach(btn => {
         const f = btn.getAttribute('data-facet');
         if (f === 'CROSS_SPIKE') {

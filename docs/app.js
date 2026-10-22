@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-22T14:55:34.697Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-22T15:17:13.384Z */
 
 (() => {
   // src/js/core/config.js
@@ -2791,11 +2791,21 @@
       if (sortKey === "title-asc") {
         return (a.title || "").localeCompare(b.title || "");
       }
-      if (sortKey === "viral-desc") {
-        return calculateStandardizedViralScore(b) - calculateStandardizedViralScore(a);
+      if (sortKey === "viral-desc" || sortKey === "viral-score-desc") {
+        const scoreA = Number(a.live_spike_score || a.spike_analysis?.score || a.spike_score || calculateStandardizedViralScore(a) || 0);
+        const scoreB = Number(b.live_spike_score || b.spike_analysis?.score || b.spike_score || calculateStandardizedViralScore(b) || 0);
+        if (scoreB !== scoreA) return scoreB - scoreA;
+        const sDiff = parseItemTimestamp(b, "source") - parseItemTimestamp(a, "source");
+        if (sDiff !== 0) return sDiff;
+        return idB.localeCompare(idA);
       }
       if (sortKey === "viral-asc") {
-        return calculateStandardizedViralScore(a) - calculateStandardizedViralScore(b);
+        const scoreA = Number(a.live_spike_score || a.spike_analysis?.score || a.spike_score || calculateStandardizedViralScore(a) || 0);
+        const scoreB = Number(b.live_spike_score || b.spike_analysis?.score || b.spike_score || calculateStandardizedViralScore(b) || 0);
+        if (scoreA !== scoreB) return scoreA - scoreB;
+        const sDiff = parseItemTimestamp(a, "source") - parseItemTimestamp(b, "source");
+        if (sDiff !== 0) return sDiff;
+        return idA.localeCompare(idB);
       }
       const defDiff = parseItemTimestamp(b, "source") - parseItemTimestamp(a, "source");
       if (defDiff !== 0) return defDiff;
@@ -5569,8 +5579,9 @@
       pillsEl.innerHTML = recent6.map((d) => {
         const shortDate = d.ranking_date.slice(5).replace("-", "/");
         const active = d.ranking_date === spkDate;
-        const cls = active ? "px-2.5 py-1 rounded-lg text-[11px] font-mono font-extrabold bg-amber-900 text-white shadow-2xs transition shrink-0 cursor-pointer" : "px-2 py-1 rounded-lg text-[11px] font-mono font-bold bg-white/90 text-amber-900 hover:bg-amber-100 border border-amber-200 transition shrink-0 cursor-pointer";
-        return `<button type="button" onclick="setCrossSpikeDate('${d.ranking_date}')" class="${cls}" title="${(d.top_title || "").replace(/"/g, "&quot;")}">${shortDate}</button>`;
+        const cls = active ? "px-2.5 py-1 rounded-lg text-[11px] font-mono font-extrabold bg-amber-600 text-white shadow-sm ring-2 ring-amber-400 transition shrink-0 cursor-pointer" : "px-2 py-1 rounded-lg text-[11px] font-mono font-bold bg-white/90 text-amber-900 hover:bg-amber-100 border border-amber-200 transition shrink-0 cursor-pointer";
+        const inlineStyle = active ? 'style="background-color: #d97706 !important; color: #ffffff !important; font-weight: 800 !important;"' : "";
+        return `<button type="button" onclick="setCrossSpikeDate('${d.ranking_date}')" class="${cls}" ${inlineStyle} title="${(d.top_title || "").replace(/"/g, "&quot;")}">${shortDate}</button>`;
       }).join("");
     }
     const top1Text = document.getElementById("crossSpikeTop1Text");
@@ -5588,9 +5599,9 @@
     if (typeof window !== "undefined") {
       window.currentSpikeDate = cleanDate;
       window.currentNewsPage = 1;
-      if (cleanDate && window.currentNewsFacet !== "CROSS_SPIKE") {
-        window.currentNewsFacet = "CROSS_SPIKE";
-        window.currentNewsSort = "viral-score-desc";
+      window.currentNewsFacet = "CROSS_SPIKE";
+      window.currentNewsSort = "viral-score-desc";
+      if (cleanDate) {
         document.querySelectorAll(".news-facet-pill").forEach((btn) => {
           const f = btn.getAttribute("data-facet");
           if (f === "CROSS_SPIKE") {
