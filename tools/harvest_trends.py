@@ -1483,6 +1483,17 @@ def record_harvest_telemetry_to_cloud(harvest_report, new_saved, updated_count, 
                 )
             conn.commit()
             print(f"[+] [Cloud DB] Bulk-inserted {len(metric_snapshots)} metric snapshots into trend_metric_snapshots.")
+            
+            # 🌟 Autonomous Memory Guard: Rolling prune snapshots older than 14 days
+            try:
+                with conn.cursor() as cur:
+                    cur.execute("DELETE FROM trend_metric_snapshots WHERE recorded_at < NOW() - INTERVAL '14 days';")
+                conn.commit()
+                print("[+] [Cloud DB] Cleaned up temporary metric snapshots older than 14 days (Memory Safe).")
+            except Exception as prune_err:
+                print(f"[!] Warning rolling prune of metric snapshots: {prune_err}")
+                try: conn.rollback()
+                except Exception: pass
         except Exception as snap_err:
             print(f"[!] Warning recording metric snapshots to Cloud DB: {snap_err}")
             try: conn.rollback()
