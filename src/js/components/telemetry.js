@@ -336,7 +336,7 @@ export function renderPipelineTelemetryCards() {
     const isRunActive = (sLog && (sLog.status === 'in_progress' || sLog.status === 'queued')) || isActive;
 
     if (isRunSuccess) {
-      const actualDuration = sLog.actual_duration || (s.actualDur || '-');
+      const actualDuration = (sLog && sLog.actual_duration) ? sLog.actual_duration : (s.actualDur || '-');
       const errCount = (sLog && typeof sLog.error_count !== 'undefined') ? sLog.error_count : 0;
 
       cardBorder = 'border-emerald-200';

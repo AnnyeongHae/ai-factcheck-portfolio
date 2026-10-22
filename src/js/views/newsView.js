@@ -388,11 +388,29 @@ export function setCrossSpikeDate(dateStr) {
   renderNews();
 }
 
+export function navigateToLatestCrossSpike() {
+  switchView('news');
+  if (spikeDatesCatalog && spikeDatesCatalog.length > 0) {
+    const latestDate = spikeDatesCatalog[0].ranking_date;
+    setCrossSpikeDate(latestDate);
+  } else {
+    setNewsFacetFilter('CROSS_SPIKE');
+  }
+}
+
 export function stepCrossSpikeDate(deltaIdx) {
-  if (!spikeDatesCatalog || spikeDatesCatalog.length === 0) return;
+  if (!spikeDatesCatalog || spikeDatesCatalog.length === 0) {
+    loadCrossSpikeDatesList().then(() => {
+      if (spikeDatesCatalog && spikeDatesCatalog.length > 0) stepCrossSpikeDate(deltaIdx);
+    });
+    return;
+  }
   const spkDate = window.currentSpikeDate !== undefined ? window.currentSpikeDate : currentSpikeDate;
   if (!spkDate) {
-    setCrossSpikeDate(spikeDatesCatalog[0].ranking_date);
+    // Currently on Live. Moving to past (deltaIdx > 0) goes to latest date catalog[0].
+    if (deltaIdx > 0) {
+      setCrossSpikeDate(spikeDatesCatalog[0].ranking_date);
+    }
     return;
   }
   const curIdx = spikeDatesCatalog.findIndex(d => d.ranking_date === spkDate);
@@ -404,6 +422,7 @@ export function stepCrossSpikeDate(deltaIdx) {
   if (nextIdx >= 0 && nextIdx < spikeDatesCatalog.length) {
     setCrossSpikeDate(spikeDatesCatalog[nextIdx].ranking_date);
   } else if (nextIdx < 0) {
+    // Reached past the latest date -> switch back to Live!
     setCrossSpikeDate('');
   }
 }
@@ -673,6 +692,7 @@ export function prefetchNewsFilter(filterChanges = {}) {
 
 if (typeof window !== 'undefined') {
   window.setCrossSpikeDate = setCrossSpikeDate;
+  window.navigateToLatestCrossSpike = navigateToLatestCrossSpike;
   window.stepCrossSpikeDate = stepCrossSpikeDate;
   window.loadCrossSpikeDatesList = loadCrossSpikeDatesList;
   window.updateCrossSpikeTimeMachineUI = updateCrossSpikeTimeMachineUI;

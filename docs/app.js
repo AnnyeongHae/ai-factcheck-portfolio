@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-22T15:17:13.384Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-22T15:28:57.055Z */
 
 (() => {
   // src/js/core/config.js
@@ -4917,7 +4917,7 @@
       const isRunSuccess = isRunToday && (sLog.status === "SUCCESS" || sLog.status === "completed") && (itemCount > 0 || sLog.items_scanned && sLog.items_scanned > 0) || itemCount > 0;
       const isRunActive = sLog && (sLog.status === "in_progress" || sLog.status === "queued") || isActive;
       if (isRunSuccess) {
-        const actualDuration = sLog.actual_duration || (s.actualDur || "-");
+        const actualDuration = sLog && sLog.actual_duration ? sLog.actual_duration : s.actualDur || "-";
         const errCount = sLog && typeof sLog.error_count !== "undefined" ? sLog.error_count : 0;
         cardBorder = "border-emerald-200";
         cardBg = "bg-emerald-50/30";
@@ -5630,11 +5630,27 @@
     if (grid) renderNewsSkeleton2(grid, 6);
     renderNews();
   }
+  function navigateToLatestCrossSpike() {
+    switchView("news");
+    if (spikeDatesCatalog && spikeDatesCatalog.length > 0) {
+      const latestDate = spikeDatesCatalog[0].ranking_date;
+      setCrossSpikeDate(latestDate);
+    } else {
+      setNewsFacetFilter("CROSS_SPIKE");
+    }
+  }
   function stepCrossSpikeDate(deltaIdx) {
-    if (!spikeDatesCatalog || spikeDatesCatalog.length === 0) return;
+    if (!spikeDatesCatalog || spikeDatesCatalog.length === 0) {
+      loadCrossSpikeDatesList().then(() => {
+        if (spikeDatesCatalog && spikeDatesCatalog.length > 0) stepCrossSpikeDate(deltaIdx);
+      });
+      return;
+    }
     const spkDate = window.currentSpikeDate !== void 0 ? window.currentSpikeDate : currentSpikeDate;
     if (!spkDate) {
-      setCrossSpikeDate(spikeDatesCatalog[0].ranking_date);
+      if (deltaIdx > 0) {
+        setCrossSpikeDate(spikeDatesCatalog[0].ranking_date);
+      }
       return;
     }
     const curIdx = spikeDatesCatalog.findIndex((d) => d.ranking_date === spkDate);
@@ -5890,6 +5906,7 @@
   }
   if (typeof window !== "undefined") {
     window.setCrossSpikeDate = setCrossSpikeDate;
+    window.navigateToLatestCrossSpike = navigateToLatestCrossSpike;
     window.stepCrossSpikeDate = stepCrossSpikeDate;
     window.loadCrossSpikeDatesList = loadCrossSpikeDatesList;
     window.updateCrossSpikeTimeMachineUI = updateCrossSpikeTimeMachineUI;
@@ -5968,7 +5985,7 @@
   }
   function navigateFromRadar(view, searchKey, inboxId) {
     window.targetSelectedInboxId = inboxId || "";
-    switchView(view);
+    switchView2(view);
     const cleanQ = (searchKey || "").trim();
     if (view === "models") {
       window.currentModelsPage = 1;
@@ -6593,7 +6610,7 @@
       }
     });
   }
-  function switchView(view, pushHistory = true, preserveFilters = false) {
+  function switchView2(view, pushHistory = true, preserveFilters = false) {
     if (view === "graph") {
       view = "home";
     }
@@ -6696,7 +6713,7 @@
       targetCaseId = decodeURIComponent(hash.replace("#case/", ""));
     }
     if (targetCaseId) {
-      switchView("portfolio", false, true);
+      switchView2("portfolio", false, true);
       const pool = window.liveCasesData || liveCasesData || casesData || [];
       const target = pool.find((c) => c.case_id === targetCaseId || c.investigation_id === targetCaseId);
       if (target) {
@@ -6727,7 +6744,7 @@
     }
     const curView = window.currentView || currentView || "home";
     if (curView !== targetView) {
-      switchView(targetView, false, false);
+      switchView2(targetView, false, false);
     } else if (targetView === "home") {
       renderTelemetryCharts();
       updateCronCountdown();
@@ -6785,7 +6802,7 @@
     window.AppStore = AppStore;
     window.i18n = i18n;
     window.setLanguage = setLanguage;
-    window.switchView = switchView;
+    window.switchView = switchView2;
     window.resetAllFiltersAndSearch = resetAllFiltersAndSearch;
     window.handleHashRoute = handleHashRoute;
     window.renderHomeTopPicks = renderHomeTopPicks;
@@ -6808,7 +6825,7 @@
     window.setNewsTier2Filter = setNewsTier2Filter;
     window.setNewsFacetFilter = setNewsFacetFilter;
     window.switchNewsFacet = function(facet) {
-      switchView("news");
+      switchView2("news");
       setNewsFacetFilter(facet || "ALL");
     };
     window.setNewsSourceFilter = setNewsSourceFilter;
