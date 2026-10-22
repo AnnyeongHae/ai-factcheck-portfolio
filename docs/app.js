@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-22T15:28:57.055Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-22T15:41:31.521Z */
 
 (() => {
   // src/js/core/config.js
@@ -3846,9 +3846,15 @@
     const updLabel = lang === "KO" ? "\uCD5C\uC2E0 \uAC31\uC2E0" : lang === "ZH" ? "\u6700\u65B0\u66F4\u65B0" : "Updated";
     const srcLabel = lang === "KO" ? "\uAE30\uC0AC \uC6D0\uBB38" : lang === "ZH" ? "\u6587\u7AE0\u539F\u6587" : "Source";
     const pendingLabel = lang === "KO" ? "AI\uC694\uC57D \uB300\uAE30\uC911" : lang === "ZH" ? "AI\u5206\u6790\u6392\u961F\u4E2D" : "Pending AI";
-    const pubDate = formatDateTimeFull(it.published_at || it.created_at || it.harvested_at);
-    const earliestHrv = it.earliest_harvested_at || it.initial_harvested_at || it.harvested_at || it.harvested_date || it.created_at;
-    const hrvDate = formatDateTimeFull(earliestHrv);
+    let rawPub = it.published_at || it.created_at || it.harvested_at;
+    let rawHrv = it.earliest_harvested_at || it.initial_harvested_at || it.harvested_at || it.created_at;
+    const tPub = new Date(rawPub).getTime();
+    const tHrv = new Date(rawHrv).getTime();
+    if (!isNaN(tPub) && !isNaN(tHrv) && tHrv < tPub) {
+      rawHrv = rawPub;
+    }
+    const pubDate = formatDateTimeFull(rawPub);
+    const hrvDate = formatDateTimeFull(rawHrv);
     const hasUpdate = it.updated_at && formatDateTimeFull(it.updated_at) !== hrvDate;
     const updDate = hasUpdate ? formatDateTimeShort(it.updated_at) : "";
     let auditHtml = `

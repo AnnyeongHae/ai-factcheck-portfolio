@@ -234,9 +234,19 @@ export function renderCardStandardFooter(it, lang = currentLang, extraActionHtml
   const srcLabel = lang === 'KO' ? '기사 원문' : (lang === 'ZH' ? '文章原文' : 'Source');
   const pendingLabel = lang === 'KO' ? 'AI요약 대기중' : (lang === 'ZH' ? 'AI分析排队中' : 'Pending AI');
 
-  const pubDate = formatDateTimeFull(it.published_at || it.created_at || it.harvested_at);
-  const earliestHrv = it.earliest_harvested_at || it.initial_harvested_at || it.harvested_at || it.harvested_date || it.created_at;
-  const hrvDate = formatDateTimeFull(earliestHrv);
+  let rawPub = it.published_at || it.created_at || it.harvested_at;
+  let rawHrv = it.earliest_harvested_at || it.initial_harvested_at || it.harvested_at || it.created_at;
+
+  const tPub = new Date(rawPub).getTime();
+  const tHrv = new Date(rawHrv).getTime();
+  // Invariant: First Spotted (포착) cannot be earlier than Published (발행).
+  // If harvest timestamp is earlier than publication, anchor harvest to published timestamp.
+  if (!isNaN(tPub) && !isNaN(tHrv) && tHrv < tPub) {
+    rawHrv = rawPub;
+  }
+
+  const pubDate = formatDateTimeFull(rawPub);
+  const hrvDate = formatDateTimeFull(rawHrv);
   const hasUpdate = it.updated_at && formatDateTimeFull(it.updated_at) !== hrvDate;
   const updDate = hasUpdate ? formatDateTimeShort(it.updated_at) : '';
 

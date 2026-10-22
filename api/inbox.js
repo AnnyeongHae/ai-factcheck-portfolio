@@ -530,30 +530,56 @@ module.exports = async (req, res) => {
         };
       }
 
-      // 🌟 Earliest Harvested / First Spotted SSOT
+      // 🌟 Earliest Harvested / First Spotted SSOT & True Source Published SSOT
+      // 1. Gather all published timestamps across merged sources to find the true origin publication date
+      const pubCandidates = [];
+      if (p.published_at) pubCandidates.push(new Date(p.published_at).getTime());
+      if (p.published_date) pubCandidates.push(new Date(p.published_date).getTime());
+      if (Array.isArray(p.sources)) {
+        p.sources.forEach(s => {
+          if (s.published_at || s.published_date) {
+            pubCandidates.push(new Date(s.published_at || s.published_date).getTime());
+          }
+        });
+      }
+      const validPubs = pubCandidates.filter(t => !isNaN(t) && t > 0);
+
+      // 2. Gather harvest/created timestamps
       const dateCandidates = [];
-      if (r.harvested_date) dateCandidates.push(new Date(r.harvested_date).getTime());
       if (r.created_at) dateCandidates.push(new Date(r.created_at).getTime());
       if (p.initial_harvested_date || p.earliest_harvested_date) {
         dateCandidates.push(new Date(p.initial_harvested_date || p.earliest_harvested_date).getTime());
       }
       if (Array.isArray(p.sources)) {
         p.sources.forEach(s => {
-          if (s.harvested_date || s.created_at || s.captured_at) {
-            dateCandidates.push(new Date(s.harvested_date || s.created_at || s.captured_at).getTime());
+          if (s.created_at || s.captured_at) {
+            dateCandidates.push(new Date(s.created_at || s.captured_at).getTime());
           }
         });
       }
       if (Array.isArray(p.cross_posts)) {
         p.cross_posts.forEach(cp => {
-          if (cp.captured_at || cp.harvested_date || cp.created_at) {
-            dateCandidates.push(new Date(cp.captured_at || cp.harvested_date || cp.created_at).getTime());
+          if (cp.captured_at || cp.created_at) {
+            dateCandidates.push(new Date(cp.captured_at || cp.created_at).getTime());
           }
         });
       }
       const validDates = dateCandidates.filter(t => !isNaN(t) && t > 0);
-      const earliestTimestamp = validDates.length > 0 ? Math.min(...validDates) : (r.created_at ? new Date(r.created_at).getTime() : Date.now());
-      const earliestHarvestedAt = new Date(earliestTimestamp).toISOString();
+      
+      // Determine earliest published date (if sources exist, earliest source publication)
+      const earliestPubTimestamp = validPubs.length > 0 ? Math.min(...validPubs) : null;
+      const earliestHarvestTimestamp = validDates.length > 0 ? Math.min(...validDates) : (r.created_at ? new Date(r.created_at).getTime() : Date.now());
+      
+      // Invariant: An article cannot be spotted by the harvester BEFORE it was published.
+      // If harvest timestamp is somehow earlier than publication, anchor harvest to published timestamp.
+      const finalHarvestTimestamp = (earliestPubTimestamp && earliestHarvestTimestamp < earliestPubTimestamp)
+        ? earliestPubTimestamp
+        : earliestHarvestTimestamp;
+
+      const earliestHarvestedAt = new Date(finalHarvestTimestamp).toISOString();
+      const earliestPublishedAt = earliestPubTimestamp 
+        ? new Date(earliestPubTimestamp).toISOString() 
+        : (p.published_at || p.published_date || r.created_at);
 
       // 🌟 Cross-Spike Breakdown (Press vs Community)
       const allSourcesList = Array.isArray(p.sources) ? [...p.sources] : [];
@@ -661,7 +687,7 @@ module.exports = async (req, res) => {
         harvested_date: r.harvested_date,
         initial_harvested_at: earliestHarvestedAt,
         earliest_harvested_at: earliestHarvestedAt,
-        published_at: p.published_at || p.published_date || r.harvested_date,
+        published_at: earliestPublishedAt,
         created_at: r.created_at,
         updated_at: r.updated_at,
         multilingual: multi,
