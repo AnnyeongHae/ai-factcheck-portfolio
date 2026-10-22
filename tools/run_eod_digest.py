@@ -84,6 +84,15 @@ def sync_eod_voyage_embeddings(conn):
         print(f"[!] [EOD Voyage Sync Error]: {e}")
 
 def run_eod_digest(top_n=10):
+    # Synchronize Cross-Platform Release Clusters & H-V-D Tripod Spike Scores first
+    try:
+        import subprocess
+        spike_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "recompute_spike_scores.py")
+        if os.path.exists(spike_script):
+            subprocess.run([sys.executable, spike_script, "--commit"], check=False)
+    except Exception as spk_err:
+        print(f"[!] [EOD Spike Sync Warning]: {spk_err}")
+
     try:
         from tools.db_bridge import get_db_connection
     except Exception:
@@ -101,15 +110,6 @@ def run_eod_digest(top_n=10):
     # Run Voyage Embedding sync backup if key is present
     sync_eod_voyage_embeddings(conn)
 
-    # Synchronize Cross-Platform Release Clusters & H-V-D Tripod Spike Scores
-    try:
-        import subprocess
-        spike_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "recompute_spike_scores.py")
-        if os.path.exists(spike_script):
-            subprocess.run([sys.executable, spike_script, "--commit"], check=False)
-    except Exception as spk_err:
-        print(f"[!] [EOD Spike Sync Warning]: {spk_err}")
-
     now_utc = datetime.datetime.now(datetime.timezone.utc)
     kst_tz = datetime.timezone(datetime.timedelta(hours=9))
     now_kst = now_utc.astimezone(kst_tz)
@@ -123,12 +123,14 @@ def run_eod_digest(top_n=10):
     try:
         cur = conn.cursor()
 
-        # Step 1: Ensure columns exist in raw_trends_inbox
-        cur.execute("""
-            ALTER TABLE raw_trends_inbox ADD COLUMN IF NOT EXISTS curation_tier VARCHAR(50);
-            ALTER TABLE raw_trends_inbox ADD COLUMN IF NOT EXISTS editorial_pick_date DATE;
-            ALTER TABLE raw_trends_inbox ADD COLUMN IF NOT EXISTS daily_hot_rank INT;
-        """)
+        # Step 1: Ensure columns exist in raw_trends_inbox (fast-check)
+        cur.execute("SELECT 1 FROM information_schema.columns WHERE table_name = 'raw_trends_inbox' AND column_name = 'daily_hot_rank';")
+        if not cur.fetchone():
+            cur.execute("""
+                ALTER TABLE raw_trends_inbox ADD COLUMN IF NOT EXISTS curation_tier VARCHAR(50);
+                ALTER TABLE raw_trends_inbox ADD COLUMN IF NOT EXISTS editorial_pick_date DATE;
+                ALTER TABLE raw_trends_inbox ADD COLUMN IF NOT EXISTS daily_hot_rank INT;
+            """)
 
         # Step 2: Reset yesterday's active 'DAILY_HOT' flags to 'ARCHIVED_HOT'
         cur.execute("""
