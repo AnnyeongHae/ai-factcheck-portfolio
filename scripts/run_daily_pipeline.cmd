@@ -10,9 +10,12 @@ echo ===========================================================================
 set "PROJECT_DIR=D:\2026.06.21_Antigravity\2026-08-31_WEB_Factcheck"
 cd /d "%PROJECT_DIR%"
 
+set "PYTHON_EXE=C:\Users\user\AppData\Local\Programs\Python\Python313\python.exe"
+if not exist "%PYTHON_EXE%" set "PYTHON_EXE=python"
+
 echo.
 echo [*] Running Nightly 23:00 KST Consolidated Local EOD Pipeline...
-python -u tools\daily_2300_local_eod.py
+"%PYTHON_EXE%" -u tools\daily_2300_local_eod.py
 if %ERRORLEVEL% neq 0 (
     echo [!] Local EOD pipeline encountered an error (code: %ERRORLEVEL%).
     exit /b %ERRORLEVEL%

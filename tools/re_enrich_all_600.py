@@ -161,56 +161,13 @@ def build_translation_prompt(items_to_translate: list) -> str:
     compact_input = json.dumps(items_to_translate, ensure_ascii=False, separators=(',', ':'))
     return f"{SYSTEM_INSTRUCTION_KO}\n입력:{compact_input}"
 
-def get_or_init_worker_cid(exe_path, worker_id: int = 0) -> str:
-    """Reuses a dedicated persistent worker conversation per thread to prevent chat spawning and leverage prompt caching."""
-    runtime_dir = os.path.join(ROOT_DIR, "runtime", "worker_sessions")
-    os.makedirs(runtime_dir, exist_ok=True)
-    session_file = os.path.join(runtime_dir, f"worker_{worker_id}.txt")
-
-    if os.path.exists(session_file):
-        try:
-            with open(session_file, "r", encoding="utf-8") as f:
-                saved_cid = f.read().strip()
-            if saved_cid:
-                meta_cmd = [exe_path, "agentapi" if exe_path.endswith(".exe") else "", "get-conversation-metadata", saved_cid]
-                meta_cmd = [c for c in meta_cmd if c]
-                res = subprocess.run(meta_cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=8)
-                if res.returncode == 0:
-                    return saved_cid
-        except Exception:
-            pass
-
-    # Create new persistent worker session
-    cmd = [
-        exe_path,
-        "agentapi" if exe_path.endswith(".exe") else "",
-        "new-conversation",
-        "--model=flash",
-        f"--title=AI-Enricher-Worker-{worker_id}",
-        "당신은 글로벌 최고 수준의 다국어 AI 기술 분석가 및 번역가입니다."
-    ]
-    cmd = [c for c in cmd if c]
-    try:
-        res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=20)
-        conv_data = json.loads(res.stdout)
-        cid = conv_data.get("response", {}).get("newConversation", {}).get("conversationId")
-        if cid:
-            with open(session_file, "w", encoding="utf-8") as f:
-                f.write(cid)
-            return cid
-    except Exception as e:
-        print(f"    [!] Failed to create persistent worker conversation: {e}")
-    return None
-
-def translate_titles_antigravity_cli(items: list, worker_id: int = 0, timeout_sec: int = 75):
+def translate_titles_gemini_rest(items: list, gemini_key: str, model: str = "gemini-2.5-flash"):
     """
-    Mode 1 (Local Primary - Antigravity CLI Gemini Flash):
-    Executes native `language_server.exe agentapi send-message <cid>` reusing dedicated worker sessions.
-    Bypasses external paid Google AI Studio API limits ($0 cost, native quota).
+    Mode 1 (Local Primary - Direct Gemini REST API):
+    Calls Google Gemini REST API directly using standard HTTPS (Zero GUI / Zero Sub-Chatting).
     Enforces strictly ZERO THINKING for instantaneous pure JSON generation.
     Enforces 2-line deep engineering impact hook with NO title redundancy.
     """
-    import subprocess
     items_to_translate = []
     for it in items:
         clean_t = clean_title(it.get('title', ''))
@@ -219,11 +176,9 @@ def translate_titles_antigravity_cli(items: list, worker_id: int = 0, timeout_se
             "platform": it.get('source_platform', 'Web'),
             "title": clean_t
         }
-        # Inject rich context: description snippet (up to 220 chars)
         desc = (it.get('description') or it.get('existing_payload', {}).get('description') or '').strip()
         if desc and desc != clean_t:
             entry["desc"] = desc[:220]
-        # Inject rich context: top community comment
         comments = it.get('existing_payload', {}).get('raw_comments') or []
         if comments and isinstance(comments, list):
             top_cm = comments[0].get('text', '') if isinstance(comments[0], dict) else str(comments[0])
@@ -246,77 +201,43 @@ def translate_titles_antigravity_cli(items: list, worker_id: int = 0, timeout_se
         f"입력:{compact_input}"
     )
 
-    exe_path = os.path.join(os.environ.get("LOCALAPPDATA", ""), "Programs", "antigravity", "resources", "bin", "language_server.exe")
-    if not os.path.exists(exe_path):
-        exe_path = r"C:\Users\user\.gemini\antigravity\bin\agentapi.bat"
-
-    cid = get_or_init_worker_cid(exe_path, worker_id=worker_id)
-    if cid:
-        cmd = [exe_path, "agentapi" if exe_path.endswith(".exe") else "", "send-message", cid, prompt]
-    else:
-        cmd = [exe_path, "agentapi" if exe_path.endswith(".exe") else "", "new-conversation", "--model=flash", prompt]
-    cmd = [c for c in cmd if c]
-
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={gemini_key}"
+    payload = {
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {
+            "temperature": 0.2,
+            "responseMimeType": "application/json"
+        }
+    }
+    req_data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+    req = urllib.request.Request(url, data=req_data, headers={"Content-Type": "application/json"})
     try:
-        res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=30)
-        if res.returncode != 0:
-            print(f"    [!] agentapi process error (code {res.returncode}): {res.stderr[:200]}")
-            return results, {}, True
-
-        if not cid:
-            conv_data = json.loads(res.stdout)
-            cid = conv_data.get("response", {}).get("newConversation", {}).get("conversationId")
-        if not cid:
-            print("    [!] agentapi failed to return conversationId")
-            return results, {}, True
-
-        transcript_path = os.path.expanduser(f"~/.gemini/antigravity/brain/{cid}/.system_generated/logs/transcript_full.jsonl")
-        transcript_compact = os.path.expanduser(f"~/.gemini/antigravity/brain/{cid}/.system_generated/logs/transcript.jsonl")
-
-        start = time.time()
-        raw_text = None
-        while time.time() - start < timeout_sec:
-            target = transcript_path if os.path.exists(transcript_path) else transcript_compact
-            if os.path.exists(target):
-                try:
-                    with open(target, "r", encoding="utf-8", errors="replace") as f:
-                        for line in reversed(f.readlines()):
-                            entry = json.loads(line)
-                            if entry.get("type") == "PLANNER_RESPONSE" and entry.get("content"):
-                                raw_text = entry.get("content")
-                                break
-                except Exception:
-                    pass
-            if raw_text:
-                break
-            time.sleep(1)
-
-        if not raw_text:
-            print(f"    [!] Timeout waiting for transcript response ({cid[:8]})")
-            return results, {}, True
-
-        parsed = sanitize_json(raw_text)
-        if parsed and isinstance(parsed, list):
-            for p in parsed:
-                if isinstance(p, dict) and 'id' in p:
-                    results[p['id']] = {
-                        "title_en": p.get("title_en") or "",
-                        "title_ko": p.get("title_ko") or "",
-                        "title_zh": p.get("title_zh") or "",
-                        "hook_en": p.get("hook_en") or "",
-                        "hook_ko": p.get("hook_ko") or "",
-                        "hook_zh": p.get("hook_zh") or ""
-                    }
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            cand = data.get("candidates", [])[0]
+            raw_text = cand.get("content", {}).get("parts", [])[0].get("text", "")
+            usage_meta = data.get("usageMetadata", {})
             usage = {
-                "promptTokenCount": len(prompt) // 4,
-                "candidatesTokenCount": len(raw_text) // 4,
+                "promptTokenCount": usage_meta.get("promptTokenCount", 0),
+                "candidatesTokenCount": usage_meta.get("candidatesTokenCount", 0),
                 "thoughtsTokenCount": 0,
-                "totalTokenCount": (len(prompt) + len(raw_text)) // 4
+                "totalTokenCount": usage_meta.get("totalTokenCount", 0)
             }
-            return results, usage, False
-
+            parsed = sanitize_json(raw_text)
+            if parsed and isinstance(parsed, list):
+                for p in parsed:
+                    if isinstance(p, dict) and 'id' in p:
+                        results[p['id']] = {
+                            "title_en": p.get("title_en") or "",
+                            "title_ko": p.get("title_ko") or "",
+                            "title_zh": p.get("title_zh") or "",
+                            "hook_en": p.get("hook_en") or "",
+                            "hook_ko": p.get("hook_ko") or "",
+                            "hook_zh": p.get("hook_zh") or ""
+                        }
+                return results, usage, False
     except Exception as e:
-        print(f"    [!] Error during agentapi call: {e}")
+        print(f"    [!] Gemini REST API call failed: {e}")
 
     return results, {}, True
 
@@ -525,8 +446,10 @@ def run_re_enrichment(mode: str = "local-gemini", batch_size: int = None, limit:
         current_model = f"google/{GEMINI_MODEL}"
 
         if current_mode == "local-gemini":
-            worker_slot = chunk_idx % concurrency
-            translations, usage, cli_failed = translate_titles_antigravity_cli(chunk, worker_id=worker_slot, timeout_sec=80)
+            if gemini_key:
+                translations, usage, cli_failed = translate_titles_gemini_rest(chunk, gemini_key=gemini_key)
+            else:
+                cli_failed = True
             if cli_failed or not translations:
                 if openrouter_key:
                     with lock:
