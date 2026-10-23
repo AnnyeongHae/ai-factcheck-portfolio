@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-23T15:45:59.714Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-23T16:32:55.245Z */
 
 (() => {
   // src/js/core/config.js
@@ -3732,10 +3732,9 @@
   function renderHookCallout(displayHook, lang = currentLang) {
     if (!displayHook) return "";
     return `
-    <div class="p-2.5 rounded-xl bg-amber-50/75 border border-amber-200/80 border-l-4 border-l-amber-500 text-[11.5px] text-amber-950 font-medium leading-relaxed shadow-2xs flex items-start gap-1.5">
-      <span class="shrink-0 select-none font-bold text-amber-800">\u{1FA9D}</span>
-      <span class="flex-1">${displayHook}</span>
-    </div>
+    <blockquote class="border-l-2 border-stone-900 pl-3.5 py-1 my-3 text-[12.5px] text-stone-700 leading-relaxed font-normal bg-stone-50/60 rounded-r-md">
+      "${displayHook}"
+    </blockquote>
   `;
   }
   function renderNewsSkeleton(grid, count = 6) {
@@ -3883,30 +3882,38 @@
       \u{1F4C4} ${srcLabel} <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
     </a>
   ` : "";
+    const hrvShortLabel = lang === "KO" ? "\uD3EC\uCC29" : lang === "ZH" ? "\u6355\u83B7" : "Spotted";
+    const updShortLabel = lang === "KO" ? "\uAC31\uC2E0" : lang === "ZH" ? "\u66F4\u65B0" : "Updated";
+    const srcStandardLabel = lang === "KO" ? "\uC6D0\uBB38 \uBCF4\uAE30" : lang === "ZH" ? "\u67E5\u770B\u539F\u6587" : "View Source";
+    const modelTag = ai?.enriched_by_model ? formatModelAttribution(ai.enriched_by_model) : "flash-internal";
+    const sourceBtnHtml = it.source_url ? `
+    <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-900 font-extrabold border border-stone-300/80 transition shrink-0 flex items-center gap-1 text-[11px] font-mono">
+      <span>${srcStandardLabel}</span>
+      <span class="text-[10px]">\u2197</span>
+    </a>
+  ` : "";
     return `
-    <div class="pt-2.5 border-t border-surface-border space-y-1 text-xs font-mono">
-      <div class="text-[10.5px] text-ink-muted flex items-center justify-between gap-1 flex-wrap">
-        <div class="flex items-center gap-1.5 flex-wrap">
-          <span>\u{1F4F0} ${pubLabel}: ${pubDate}</span>
-          <span class="text-slate-300">\xB7</span>
-          <span>\u{1F4E5} ${hrvLabel}: ${hrvDate}</span>
-          ${hasUpdate ? `<span class="text-indigo-600 font-bold" title="${updLabel}">(\u{1F504} ${updDate})</span>` : ""}
-        </div>
+    <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-[11px] font-mono text-stone-500 gap-2 flex-wrap">
+      <div class="flex items-center gap-1.5 flex-wrap min-w-0">
+        <span class="font-medium text-stone-600 shrink-0">${hrvShortLabel} ${formatDateTimeShort(rawHrv)}</span>
+        ${hasUpdate ? `
+          <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200/80 shadow-2xs shrink-0">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+            <span>${updShortLabel} ${updDate}</span>
+          </span>
+        ` : ""}
+        <span class="text-stone-400 font-normal shrink-0">(${modelTag})</span>
       </div>
-      <div class="flex items-center justify-between gap-1.5 pt-0.5 font-sans flex-wrap">
-        <div class="min-w-0 max-w-full">
-          ${auditHtml}
-        </div>
-        <div class="flex items-center justify-end gap-1.5 flex-wrap ml-auto max-w-full">
-          ${extraActionHtml || defaultSourceLink}
-        </div>
+      <div class="flex items-center gap-2 shrink-0 ml-auto">
+        ${sourceBtnHtml}
+        ${extraActionHtml}
       </div>
     </div>
   `;
   }
   function createNewsCardElement(it, currentLang2) {
     const card = document.createElement("div");
-    card.className = "executive-card p-4 sm:p-5 flex flex-col justify-between space-y-4";
+    card.className = "rounded-xl border border-stone-250 bg-[#FCFCFD] p-5 shadow-2xs hover:border-stone-400 hover:shadow-sm transition-all flex flex-col justify-between group cursor-pointer";
     const t = i18n[currentLang2] || i18n.KO;
     const ai = it.ai_enrichment;
     const { displayTitle, displayHook, displayDesc, displayTakeaways } = getLocalizedContent(it, currentLang2);
@@ -4102,17 +4109,24 @@
     if (!isCrossSpikeTab) {
       const primaryPlat = getPrimaryImpactPlatform(it, allSources);
       const isMultiSource = allSources.length > 1;
+      const pubFullLabel = currentLang2 === "KO" ? "\uBC1C\uD589: " : currentLang2 === "ZH" ? "\u53D1\u5E03: " : "PUB: ";
+      const rawPubForHeader = it.published_at || it.created_at || it.harvested_at;
+      const pubFullFormatted = formatDateTimeFull(rawPubForHeader);
       topHeaderRowHtml = `
-      <div class="flex items-center justify-between text-xs font-mono gap-1.5 min-w-0">
-        <div class="flex items-center gap-1.5 min-w-0">
-          <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${catInfo.cls} shrink-0 whitespace-nowrap" title="${catInfo.label}">
+      <div class="flex items-center justify-between text-xs font-mono gap-2 min-w-0 pb-1.5 border-b border-stone-150">
+        <div class="flex items-center gap-1.5 min-w-0 flex-wrap">
+          <span class="font-extrabold text-stone-900 tracking-wide uppercase text-[11.5px] truncate max-w-[130px]" title="${primaryPlat}">
+            ${primaryPlat}
+          </span>
+          <span class="text-stone-300">/</span>
+          <span class="px-1.5 py-0.2 rounded text-[10px] font-medium border ${catInfo.cls} shrink-0 whitespace-nowrap" title="${catInfo.label}">
             ${catInfo.label}
           </span>
-          <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-primary font-bold border border-surface-border text-[10px] flex items-center gap-1 shrink-0 whitespace-nowrap" title="${primaryPlat}">
-            <span class="truncate max-w-[130px]">${primaryPlat}</span>
-            ${isMultiSource ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-500 text-white font-black shadow-2xs shrink-0">+${allSources.length - 1}</span>` : ""}
-          </span>
+          ${isMultiSource ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-500 text-white font-black shadow-2xs shrink-0">+${allSources.length - 1}</span>` : ""}
         </div>
+        <span class="text-stone-500 font-semibold text-[11px] tracking-tight shrink-0 whitespace-nowrap">
+          ${pubFullLabel}${pubFullFormatted}
+        </span>
       </div>
     `;
     }
