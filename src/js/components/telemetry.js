@@ -152,14 +152,14 @@ export function renderTelemetryCharts() {
         </div>
 
         <div class="flex items-center gap-1 text-[9px] sm:text-[10px] font-mono font-bold mb-1">
-          <span class="${isCurrent ? 'text-indigo-600 font-extrabold' : 'text-ink-muted'}" title="수집 건수">${d.inbox_count || 0}</span>
+          <span class="${isCurrent ? 'text-indigo-600 font-extrabold' : 'text-ink-muted'}" title="수집 건수">${(isPending || isFuture) ? 0 : (d.inbox_count || 0)}</span>
           <span class="text-slate-300">/</span>
-          <span class="${isCurrent ? 'text-emerald-600 font-extrabold' : 'text-emerald-600/80'}" title="AI 요약 건수">${enrichedCount}</span>
+          <span class="${isCurrent ? 'text-emerald-600 font-extrabold' : 'text-emerald-600/80'}" title="AI 요약 건수">${(isPending || isFuture) ? 0 : enrichedCount}</span>
         </div>
 
         <div class="w-full max-w-[58px] sm:max-w-[76px] flex items-end justify-center gap-1 sm:gap-1.5 h-24 ${isFuture ? 'opacity-30' : ''}">
-          <div class="flex-1 ${isCurrent ? 'bg-indigo-500 ring-2 ring-indigo-400 animate-pulse' : 'bg-indigo-600'} rounded-t-sm sm:rounded-t-md transition-all duration-500 hover:bg-indigo-700" style="height: ${hPct}%; min-height: 0;" title="수집량: ${d.inbox_count || 0}건"></div>
-          <div class="flex-1 ${isCurrent ? 'bg-emerald-400 ring-1 ring-emerald-300' : 'bg-emerald-500'} rounded-t-sm sm:rounded-t-md transition-all duration-500 hover:bg-emerald-600" style="height: ${hEnrichedPct}%; min-height: 0;" title="AI 요약완료: ${enrichedCount}건"></div>
+          <div class="flex-1 ${(isCurrent && isPending) ? 'bg-indigo-300 ring-2 ring-indigo-400 animate-pulse' : (isCurrent ? 'bg-indigo-500 ring-2 ring-indigo-400 animate-pulse' : 'bg-indigo-600')} rounded-t-sm sm:rounded-t-md transition-all duration-500 hover:bg-indigo-700" style="height: ${(isPending || isFuture) ? 4 : hPct}%; min-height: ${(isCurrent && isPending) ? '4px' : '0'};" title="수집량: ${(isPending || isFuture) ? 0 : (d.inbox_count || 0)}건"></div>
+          <div class="flex-1 ${(isCurrent && isPending) ? 'bg-emerald-200 ring-1 ring-emerald-300 animate-pulse' : (isCurrent ? 'bg-emerald-400 ring-1 ring-emerald-300' : 'bg-emerald-500')} rounded-t-sm sm:rounded-t-md transition-all duration-500 hover:bg-emerald-600" style="height: ${(isPending || isFuture) ? 4 : hEnrichedPct}%; min-height: ${(isCurrent && isPending) ? '4px' : '0'};" title="AI 요약완료: ${(isPending || isFuture) ? 0 : enrichedCount}건"></div>
         </div>
 
         <span class="text-[10px] sm:text-[11px] font-mono font-bold ${isCurrent ? 'text-indigo-600 font-extrabold' : 'text-ink-muted'} mt-2 group-hover:text-indigo-600 transition text-center">

@@ -247,8 +247,27 @@ export function renderCardStandardFooter(it, lang = currentLang, extraActionHtml
 
   const pubDate = formatDateTimeFull(rawPub);
   const hrvDate = formatDateTimeFull(rawHrv);
-  const hasUpdate = it.updated_at && formatDateTimeFull(it.updated_at) !== hrvDate;
-  const updDate = hasUpdate ? formatDateTimeShort(it.updated_at) : '';
+
+  // 🌟 True External Update vs Internal DB Recompute Invariant:
+  // Routine spike score recalculation updates updated_at in bulk.
+  // 🔄 Update mark must only show when genuine new sources were merged or latest source was captured later than initial harvest!
+  let trueLatestUpdate = null;
+  if (Array.isArray(it.sources) && it.sources.length > 1) {
+    const srcDates = it.sources
+      .map(s => s.captured_at || s.created_at || s.harvested_at)
+      .filter(Boolean)
+      .map(d => new Date(d).getTime())
+      .filter(t => !isNaN(t) && t > 0);
+    if (srcDates.length > 0) {
+      const maxSrcTime = Math.max(...srcDates);
+      if (maxSrcTime - tHrv > 15 * 60 * 1000) { // Merged at least 15 mins after initial harvest
+        trueLatestUpdate = new Date(maxSrcTime).toISOString();
+      }
+    }
+  }
+
+  const hasUpdate = Boolean(trueLatestUpdate);
+  const updDate = hasUpdate ? formatDateTimeShort(trueLatestUpdate) : '';
 
   let auditHtml = `
     <span class="text-[10.5px] text-ink-muted">🔬 ${pendingLabel}</span>

@@ -138,11 +138,12 @@ module.exports = async (req, res) => {
         AND created_at <  (date_trunc('day', CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Seoul') + interval '15 hours')
       GROUP BY 1;`,
       `SELECT 
-          floor(extract(hour from (COALESCE(NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz, updated_at) + interval '9 hours')) / 6) * 6 as slot_hour,
+          floor(extract(hour from (NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz + interval '9 hours')) / 6) * 6 as slot_hour,
           count(*) as total_enriched
       FROM raw_trends_inbox
       WHERE is_classified = true 
-        AND (COALESCE(NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz, updated_at) + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
+        AND raw_payload->'ai_enrichment'->>'enriched_at' IS NOT NULL
+        AND (NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
       GROUP BY 1;`,
       `SELECT COALESCE(raw_payload->>'tier1_category', 'TECH_COMPUTING') as cat, COUNT(*) as cnt
       FROM raw_trends_inbox

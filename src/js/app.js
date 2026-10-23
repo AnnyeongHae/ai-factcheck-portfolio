@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-23T15:14:43.637Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-23T15:41:27.410Z */
 
 (() => {
   // src/js/core/config.js
@@ -3855,8 +3855,18 @@
     }
     const pubDate = formatDateTimeFull(rawPub);
     const hrvDate = formatDateTimeFull(rawHrv);
-    const hasUpdate = it.updated_at && formatDateTimeFull(it.updated_at) !== hrvDate;
-    const updDate = hasUpdate ? formatDateTimeShort(it.updated_at) : "";
+    let trueLatestUpdate = null;
+    if (Array.isArray(it.sources) && it.sources.length > 1) {
+      const srcDates = it.sources.map((s) => s.captured_at || s.created_at || s.harvested_at).filter(Boolean).map((d) => new Date(d).getTime()).filter((t) => !isNaN(t) && t > 0);
+      if (srcDates.length > 0) {
+        const maxSrcTime = Math.max(...srcDates);
+        if (maxSrcTime - tHrv > 15 * 60 * 1e3) {
+          trueLatestUpdate = new Date(maxSrcTime).toISOString();
+        }
+      }
+    }
+    const hasUpdate = Boolean(trueLatestUpdate);
+    const updDate = hasUpdate ? formatDateTimeShort(trueLatestUpdate) : "";
     let auditHtml = `
     <span class="text-[10.5px] text-ink-muted">\u{1F52C} ${pendingLabel}</span>
   `;
@@ -4768,14 +4778,14 @@
         </div>
 
         <div class="flex items-center gap-1 text-[9px] sm:text-[10px] font-mono font-bold mb-1">
-          <span class="${isCurrent ? "text-indigo-600 font-extrabold" : "text-ink-muted"}" title="\uC218\uC9D1 \uAC74\uC218">${d.inbox_count || 0}</span>
+          <span class="${isCurrent ? "text-indigo-600 font-extrabold" : "text-ink-muted"}" title="\uC218\uC9D1 \uAC74\uC218">${isPending || isFuture ? 0 : d.inbox_count || 0}</span>
           <span class="text-slate-300">/</span>
-          <span class="${isCurrent ? "text-emerald-600 font-extrabold" : "text-emerald-600/80"}" title="AI \uC694\uC57D \uAC74\uC218">${enrichedCount}</span>
+          <span class="${isCurrent ? "text-emerald-600 font-extrabold" : "text-emerald-600/80"}" title="AI \uC694\uC57D \uAC74\uC218">${isPending || isFuture ? 0 : enrichedCount}</span>
         </div>
 
         <div class="w-full max-w-[58px] sm:max-w-[76px] flex items-end justify-center gap-1 sm:gap-1.5 h-24 ${isFuture ? "opacity-30" : ""}">
-          <div class="flex-1 ${isCurrent ? "bg-indigo-500 ring-2 ring-indigo-400 animate-pulse" : "bg-indigo-600"} rounded-t-sm sm:rounded-t-md transition-all duration-500 hover:bg-indigo-700" style="height: ${hPct}%; min-height: 0;" title="\uC218\uC9D1\uB7C9: ${d.inbox_count || 0}\uAC74"></div>
-          <div class="flex-1 ${isCurrent ? "bg-emerald-400 ring-1 ring-emerald-300" : "bg-emerald-500"} rounded-t-sm sm:rounded-t-md transition-all duration-500 hover:bg-emerald-600" style="height: ${hEnrichedPct}%; min-height: 0;" title="AI \uC694\uC57D\uC644\uB8CC: ${enrichedCount}\uAC74"></div>
+          <div class="flex-1 ${isCurrent && isPending ? "bg-indigo-300 ring-2 ring-indigo-400 animate-pulse" : isCurrent ? "bg-indigo-500 ring-2 ring-indigo-400 animate-pulse" : "bg-indigo-600"} rounded-t-sm sm:rounded-t-md transition-all duration-500 hover:bg-indigo-700" style="height: ${isPending || isFuture ? 4 : hPct}%; min-height: ${isCurrent && isPending ? "4px" : "0"};" title="\uC218\uC9D1\uB7C9: ${isPending || isFuture ? 0 : d.inbox_count || 0}\uAC74"></div>
+          <div class="flex-1 ${isCurrent && isPending ? "bg-emerald-200 ring-1 ring-emerald-300 animate-pulse" : isCurrent ? "bg-emerald-400 ring-1 ring-emerald-300" : "bg-emerald-500"} rounded-t-sm sm:rounded-t-md transition-all duration-500 hover:bg-emerald-600" style="height: ${isPending || isFuture ? 4 : hEnrichedPct}%; min-height: ${isCurrent && isPending ? "4px" : "0"};" title="AI \uC694\uC57D\uC644\uB8CC: ${isPending || isFuture ? 0 : enrichedCount}\uAC74"></div>
         </div>
 
         <span class="text-[10px] sm:text-[11px] font-mono font-bold ${isCurrent ? "text-indigo-600 font-extrabold" : "text-ink-muted"} mt-2 group-hover:text-indigo-600 transition text-center">
