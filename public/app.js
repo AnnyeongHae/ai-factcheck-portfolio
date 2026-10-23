@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-23T16:44:32.346Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-23T17:03:55.487Z */
 
 (() => {
   // src/js/core/config.js
@@ -3732,7 +3732,7 @@
   function renderHookCallout(displayHook, lang = currentLang) {
     if (!displayHook) return "";
     return `
-    <blockquote class="pl-3.5 py-1.5 my-3 text-[12.5px] text-stone-700 leading-relaxed font-normal bg-stone-50/70 rounded-r-md" style="border-left: 2.5px solid #1c1917 !important;">
+    <blockquote class="pl-5 pr-3 py-2.5 my-3.5 text-[12.5px] text-stone-700 leading-relaxed font-normal bg-stone-50/70 rounded-r-md" style="border-left: 2.5px solid #1c1917 !important;">
       "${displayHook}"
     </blockquote>
   `;
@@ -3882,10 +3882,10 @@
       \u{1F4C4} ${srcLabel} <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
     </a>
   ` : "";
-    const hrvShortLabel = lang === "KO" ? "\uD3EC\uCC29" : lang === "ZH" ? "\u6355\u83B7" : "Spotted";
+    const hrvShortLabel = lang === "KO" ? "\uD3EC\uCC29:" : lang === "ZH" ? "\u6355\u83B7" : "Spotted";
     const updShortLabel = lang === "KO" ? "\uAC31\uC2E0" : lang === "ZH" ? "\u66F4\u65B0" : "Updated";
     const srcStandardLabel = lang === "KO" ? "\uC6D0\uBB38 \uBCF4\uAE30" : lang === "ZH" ? "\u67E5\u770B\u539F\u6587" : "View Source";
-    const modelTag = ai?.enriched_by_model ? formatModelAttribution(ai.enriched_by_model) : "flash-internal";
+    const modelTag = ai?.enriched_by_model ? formatModelAttribution(ai.enriched_by_model) : "gemini-3.6-flash";
     return `
     <div class="mt-3.5 pt-2.5 border-t border-stone-200 space-y-2 text-[11px] font-mono text-stone-500">
       <!-- Row 1: Spotted, Pulse Update Badge, AI Model -->
@@ -3897,7 +3897,7 @@
             <span>${updShortLabel} ${updDate}</span>
           </span>
         ` : ""}
-        <span class="text-stone-400 font-normal shrink-0">(${modelTag})</span>
+        <span class="text-stone-400 font-normal shrink-0">(\u{1F916} ${modelTag})</span>
       </div>
       <!-- Row 2: Action Buttons (Right-aligned without duplicate '\uC6D0\uBB38 \uBCF4\uAE30') -->
       ${extraActionHtml ? `
@@ -4109,21 +4109,23 @@
       const pubFullLabel = currentLang2 === "KO" ? "\uBC1C\uD589: " : currentLang2 === "ZH" ? "\u53D1\u5E03: " : "PUB: ";
       const rawPubForHeader = it.published_at || it.created_at || it.harvested_at;
       const pubFullFormatted = formatDateTimeFull(rawPubForHeader);
+      const langBadgeStr = detectedLang && detectedLang !== "UNKNOWN" ? `<span class="px-1.5 py-0.2 rounded text-[9.5px] font-mono font-bold bg-stone-100 text-stone-500 shrink-0">${detectedLang}</span>` : "";
       topHeaderRowHtml = `
-      <div class="flex items-center justify-between text-xs font-mono gap-2 min-w-0 pb-1.5 border-b border-stone-150">
-        <div class="flex items-center gap-1.5 min-w-0 flex-1 overflow-hidden">
-          <span class="font-extrabold text-stone-900 tracking-wide uppercase text-[11px] sm:text-[11.5px] truncate shrink-0 max-w-[120px] sm:max-w-[170px]" title="${primaryPlat}">
+      <div class="space-y-1 pb-2 border-b border-stone-150 font-mono text-xs">
+        <div class="flex items-center gap-1.5 flex-wrap min-w-0">
+          <span class="font-extrabold text-stone-900 tracking-wide uppercase text-[11.5px]" title="${primaryPlat}">
             ${primaryPlat}
           </span>
-          <span class="text-stone-300 shrink-0">/</span>
+          <span class="text-stone-300">/</span>
           <span class="px-1.5 py-0.2 rounded text-[10px] font-medium border ${catInfo.cls} shrink-0 whitespace-nowrap" title="${catInfo.label}">
             ${catInfo.label}
           </span>
+          ${langBadgeStr}
           ${isMultiSource ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-500 text-white font-black shadow-2xs shrink-0">+${allSources.length - 1}</span>` : ""}
         </div>
-        <span class="text-stone-500 font-semibold text-[10.5px] sm:text-[11px] tracking-tight shrink-0 whitespace-nowrap ml-auto">
-          ${pubFullLabel}${pubFullFormatted}
-        </span>
+        <div class="flex items-center justify-end text-[11px] text-stone-500 font-semibold tracking-tight">
+          <span>${pubFullLabel}${pubFullFormatted}</span>
+        </div>
       </div>
     `;
     }
@@ -4131,7 +4133,6 @@
     <div class="space-y-2.5">
       ${topHeaderRowHtml}
       ${crossRollupHtml}
-      ${!isCrossSpikeTab ? aiBadgeHtml : ""}
 
       <h3 class="font-bold text-[14px] sm:text-[15px] text-ink-primary hover:text-indigo-600 transition leading-snug break-words line-clamp-2" title="${(displayTitle || "").replace(/"/g, "&quot;")}">
         ${displayTitle}
