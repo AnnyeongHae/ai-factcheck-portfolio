@@ -111,8 +111,8 @@ export function getLocalizedContent(it, lang = currentLang) {
 export function renderHookCallout(displayHook, lang = currentLang) {
   if (!displayHook) return '';
   return `
-    <blockquote class="pl-5 pr-3 py-2.5 my-3.5 text-[12.5px] text-stone-700 leading-relaxed font-normal bg-stone-50/70 rounded-r-md" style="border-left: 2.5px solid #1c1917 !important;">
-      "${displayHook}"
+    <blockquote class="my-3.5 text-[12.5px] text-stone-700 leading-relaxed font-normal bg-stone-50/70 rounded-r-md select-text" style="border-left: 3px solid #1c1917 !important; padding-left: 20px !important; padding-right: 14px !important; padding-top: 10px !important; padding-bottom: 10px !important;">
+      ${displayHook}
     </blockquote>
   `;
 }
@@ -316,10 +316,11 @@ export function renderCardStandardFooter(it, lang = currentLang, extraActionHtml
 
 export function createNewsCardElement(it, currentLang) {
   const card = document.createElement('div');
-  card.className = 'rounded-xl border border-stone-250 bg-[#FCFCFD] p-5 shadow-2xs hover:border-stone-400 hover:shadow-sm transition-all flex flex-col justify-between group cursor-pointer';
+  card.className = 'rounded-xl border border-stone-250 bg-[#FCFCFD] p-5 shadow-2xs hover:border-stone-400 hover:shadow-sm transition-all flex flex-col justify-between group cursor-default select-text';
   const t = i18n[currentLang] || i18n.KO;
 
   const ai = it.ai_enrichment;
+  const detectedLang = ((ai?.source_lang || it.source_lang || it.raw_payload?.source_lang || '').toUpperCase()) || '';
   const { displayTitle, displayHook, displayDesc, displayTakeaways } = getLocalizedContent(it, currentLang);
   const showDesc = !displayHook && displayDesc;
 
@@ -569,7 +570,7 @@ export function createNewsCardElement(it, currentLang) {
       ${topHeaderRowHtml}
       ${crossRollupHtml}
 
-      <h3 class="font-bold text-[14px] sm:text-[15px] text-ink-primary hover:text-indigo-600 transition leading-snug break-words line-clamp-2" title="${(displayTitle || '').replace(/"/g, '&quot;')}">
+      <h3 class="font-bold text-[14.5px] sm:text-[15.5px] text-stone-900 leading-snug break-words line-clamp-2 select-text" title="${(displayTitle || '').replace(/"/g, '&quot;')}">
         ${displayTitle}
       </h3>
 
