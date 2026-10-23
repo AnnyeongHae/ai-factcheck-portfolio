@@ -111,7 +111,7 @@ export function getLocalizedContent(it, lang = currentLang) {
 export function renderHookCallout(displayHook, lang = currentLang) {
   if (!displayHook) return '';
   return `
-    <blockquote class="border-l-2 border-stone-900 pl-3.5 py-1 my-3 text-[12.5px] text-stone-700 leading-relaxed font-normal bg-stone-50/60 rounded-r-md">
+    <blockquote class="pl-3.5 py-1.5 my-3 text-[12.5px] text-stone-700 leading-relaxed font-normal bg-stone-50/70 rounded-r-md" style="border-left: 2.5px solid #1c1917 !important;">
       "${displayHook}"
     </blockquote>
   `;
@@ -291,15 +291,9 @@ export function renderCardStandardFooter(it, lang = currentLang, extraActionHtml
   const srcStandardLabel = lang === 'KO' ? '원문 보기' : (lang === 'ZH' ? '查看原文' : 'View Source');
   const modelTag = ai?.enriched_by_model ? formatModelAttribution(ai.enriched_by_model) : 'flash-internal';
 
-  const sourceBtnHtml = it.source_url ? `
-    <a href="${it.source_url}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-900 font-extrabold border border-stone-300/80 transition shrink-0 flex items-center gap-1 text-[11px] font-mono">
-      <span>${srcStandardLabel}</span>
-      <span class="text-[10px]">↗</span>
-    </a>
-  ` : '';
-
   return `
-    <div class="mt-4 pt-3 border-t border-stone-200 flex items-center justify-between text-[11px] font-mono text-stone-500 gap-2 flex-wrap">
+    <div class="mt-3.5 pt-2.5 border-t border-stone-200 space-y-2 text-[11px] font-mono text-stone-500">
+      <!-- Row 1: Spotted, Pulse Update Badge, AI Model -->
       <div class="flex items-center gap-1.5 flex-wrap min-w-0">
         <span class="font-medium text-stone-600 shrink-0">${hrvShortLabel} ${formatDateTimeShort(rawHrv)}</span>
         ${hasUpdate ? `
@@ -310,10 +304,12 @@ export function renderCardStandardFooter(it, lang = currentLang, extraActionHtml
         ` : ''}
         <span class="text-stone-400 font-normal shrink-0">(${modelTag})</span>
       </div>
-      <div class="flex items-center gap-2 shrink-0 ml-auto">
-        ${sourceBtnHtml}
-        ${extraActionHtml}
-      </div>
+      <!-- Row 2: Action Buttons (Right-aligned without duplicate '원문 보기') -->
+      ${extraActionHtml ? `
+        <div class="flex items-center justify-end gap-1.5 flex-wrap pt-0.5">
+          ${extraActionHtml}
+        </div>
+      ` : ''}
     </div>
   `;
 }
@@ -548,17 +544,17 @@ export function createNewsCardElement(it, currentLang) {
 
     topHeaderRowHtml = `
       <div class="flex items-center justify-between text-xs font-mono gap-2 min-w-0 pb-1.5 border-b border-stone-150">
-        <div class="flex items-center gap-1.5 min-w-0 flex-wrap">
-          <span class="font-extrabold text-stone-900 tracking-wide uppercase text-[11.5px] truncate max-w-[130px]" title="${primaryPlat}">
+        <div class="flex items-center gap-1.5 min-w-0 flex-1 overflow-hidden">
+          <span class="font-extrabold text-stone-900 tracking-wide uppercase text-[11px] sm:text-[11.5px] truncate shrink-0 max-w-[120px] sm:max-w-[170px]" title="${primaryPlat}">
             ${primaryPlat}
           </span>
-          <span class="text-stone-300">/</span>
+          <span class="text-stone-300 shrink-0">/</span>
           <span class="px-1.5 py-0.2 rounded text-[10px] font-medium border ${catInfo.cls} shrink-0 whitespace-nowrap" title="${catInfo.label}">
             ${catInfo.label}
           </span>
           ${isMultiSource ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-500 text-white font-black shadow-2xs shrink-0">+${allSources.length - 1}</span>` : ''}
         </div>
-        <span class="text-stone-500 font-semibold text-[11px] tracking-tight shrink-0 whitespace-nowrap">
+        <span class="text-stone-500 font-semibold text-[10.5px] sm:text-[11px] tracking-tight shrink-0 whitespace-nowrap ml-auto">
           ${pubFullLabel}${pubFullFormatted}
         </span>
       </div>
