@@ -251,18 +251,24 @@ export function renderCardStandardFooter(it, lang = currentLang, extraActionHtml
   // Routine spike score recalculation updates updated_at in bulk.
   // 🔄 Update mark must only show when genuine new sources were merged or latest source was captured later than initial harvest!
   let trueLatestUpdate = null;
-  if (Array.isArray(it.sources) && it.sources.length > 1) {
-    const srcDates = it.sources
-      .map(s => s.captured_at || s.created_at || s.harvested_at)
+  const allSrc = [...(it.sources || []), ...(it.cross_posts || [])];
+  if (allSrc.length > 1) {
+    const srcDates = allSrc
+      .map(s => s.captured_at || s.created_at || s.harvested_at || s.updated_at)
       .filter(Boolean)
       .map(d => new Date(d).getTime())
       .filter(t => !isNaN(t) && t > 0);
     if (srcDates.length > 0) {
       const maxSrcTime = Math.max(...srcDates);
-      if (maxSrcTime - tHrv > 15 * 60 * 1000) { // Merged at least 15 mins after initial harvest
+      if (maxSrcTime > tHrv + 60 * 1000) {
         trueLatestUpdate = new Date(maxSrcTime).toISOString();
       }
     }
+    if (!trueLatestUpdate && it.updated_at && new Date(it.updated_at).getTime() > tHrv + 60 * 1000) {
+      trueLatestUpdate = it.updated_at;
+    }
+  } else if (it.updated_at && new Date(it.updated_at).getTime() - tHrv > 30 * 60 * 1000) {
+    trueLatestUpdate = it.updated_at;
   }
 
   const hasUpdate = Boolean(trueLatestUpdate);
@@ -472,60 +478,16 @@ export function createNewsCardElement(it, currentLang) {
       badgeBg = 'bg-gradient-to-r from-amber-500/15 via-orange-500/12 to-amber-500/10 border-amber-500/35 text-amber-950';
       flameColor = 'text-amber-600';
     }
-
-    // Pure Text-Free Linear Sparkline Graph (SVG) for Daily Point Decay Trajectory
-    let decayLineSvgHtml = '';
-    const rawHist = Array.isArray(it.spike_history) ? it.spike_history : [];
-    const ptsList = rawHist.map(h => Number(h.score || 0)).filter(v => Number.isFinite(v) && v > 0);
-    if (ptsList.length === 1 && spkScore > 0 && Math.abs(ptsList[0] - spkScore) >= 0.1) {
-      ptsList.push(spkScore);
-    } else if (ptsList.length === 0 && Number(it.peak_spike_score || 0) > spkScore && spkScore > 0) {
-      ptsList.push(Number(it.peak_spike_score), spkScore);
-    }
-    if (ptsList.length >= 2) {
-      const w = 54;
-      const h = 18;
-      const pad = 2.5;
-      const maxV = Math.max(...ptsList, 1);
-      const minV = 0;
-      const coords = ptsList.map((val, idx) => {
-        const x = pad + (idx / (ptsList.length - 1)) * (w - pad * 2);
-        const y = (h - pad) - ((val - minV) / (maxV - minV || 1)) * (h - pad * 2);
-        return [Number(x.toFixed(1)), Number(y.toFixed(1))];
-      });
-      const polyPoints = coords.map(c => `${c[0]},${c[1]}`).join(' ');
-      const areaPoints = `${coords[0][0]},${h - 1} ${polyPoints} ${coords[coords.length - 1][0]},${h - 1}`;
-      const lastPt = coords[coords.length - 1];
-      const firstPt = coords[0];
-      const strokeHex = isSuperSpike ? '#e11d48' : '#d97706';
-      const fillHex = isSuperSpike ? 'rgba(225,29,72,0.16)' : 'rgba(217,119,6,0.16)';
-      const tipText = rawHist.length >= 2
-        ? rawHist.map(item => `${item.date.slice(5)}: ${item.score}p`).join(' → ')
-        : ptsList.map(v => `${v}p`).join(' → ');
-
-      decayLineSvgHtml = `
-        <span class="inline-flex items-center px-1.5 py-0.5 rounded-lg bg-white/90 border border-amber-300/80 shadow-2xs shrink-0" title="${tipText}">
-          <svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" class="overflow-visible">
-            <polygon points="${areaPoints}" fill="${fillHex}" />
-            <polyline points="${polyPoints}" fill="none" stroke="${strokeHex}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-            <circle cx="${firstPt[0]}" cy="${firstPt[1]}" r="1.8" fill="${strokeHex}" />
-            <circle cx="${lastPt[0]}" cy="${lastPt[1]}" r="2.2" fill="${strokeHex}" />
-          </svg>
-        </span>
-      `;
-    }
-
     crossRollupHtml = `
       <div class="flex flex-wrap items-center justify-between px-2.5 py-1.5 rounded-xl ${badgeBg} border text-xs shadow-2xs gap-x-2 gap-y-1.5">
-        <div class="flex flex-wrap items-center gap-1.5 min-w-0">
+        <div class="flex items-center gap-1.5 min-w-0">
           <i data-lucide="flame" class="w-3.5 h-3.5 ${flameColor} shrink-0 ${isSpike ? 'animate-pulse' : ''}"></i>
-          ${spkScore > 0 ? `<span class="px-2 py-0.5 rounded-lg bg-amber-500 text-white font-mono font-black text-[11px] shadow-xs border border-amber-400 flex items-center gap-1 shrink-0 whitespace-nowrap"><i data-lucide="zap" class="w-3 h-3 text-amber-200 fill-amber-200"></i><span>${spkScore} pts</span></span>` : ''}
-          ${decayLineSvgHtml}
+          ${spkScore > 0 ? `<span class="px-2.5 py-0.5 rounded-lg bg-amber-500 text-white font-mono font-black text-[11px] shadow-xs border border-amber-400 shrink-0 whitespace-nowrap">${spkScore} pts</span>` : ''}
         </div>
-        <div class="flex flex-wrap items-center gap-1 shrink-0 font-mono text-[10px] font-bold ml-auto">
-          ${pCount > 0 ? `<span class="px-1.5 py-0.5 rounded bg-white/90 text-emerald-800 border border-emerald-300 shadow-2xs whitespace-nowrap">📰 언론 ${pCount}</span>` : ''}
-          ${cCount > 0 ? `<span class="px-1.5 py-0.5 rounded bg-white/90 text-orange-800 border border-orange-300 shadow-2xs whitespace-nowrap">💬 커뮤니티 ${cCount}</span>` : ''}
-          ${kCount > 0 ? `<span class="px-1.5 py-0.5 rounded bg-white/90 text-indigo-800 border border-indigo-300 shadow-2xs whitespace-nowrap">💻 코드 ${kCount}</span>` : ''}
+        <div class="flex items-center gap-1 shrink-0 font-mono text-[10px] font-bold ml-auto">
+          ${pCount > 0 ? `<span class="px-1.5 py-0.5 rounded bg-white/90 text-emerald-800 border border-emerald-300 shadow-2xs whitespace-nowrap" title="언론 ${pCount}건">📰 ${pCount}</span>` : ''}
+          ${cCount > 0 ? `<span class="px-1.5 py-0.5 rounded bg-white/90 text-orange-800 border border-orange-300 shadow-2xs whitespace-nowrap" title="커뮤니티 ${cCount}건">💬 ${cCount}</span>` : ''}
+          ${kCount > 0 ? `<span class="px-1.5 py-0.5 rounded bg-white/90 text-indigo-800 border border-indigo-300 shadow-2xs whitespace-nowrap" title="코드 ${kCount}건">💻 ${kCount}</span>` : ''}
         </div>
       </div>
     `;

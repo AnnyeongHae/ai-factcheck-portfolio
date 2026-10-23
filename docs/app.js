@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-23T17:16:01.772Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-23T17:30:08.063Z */
 
 (() => {
   // src/js/core/config.js
@@ -470,10 +470,14 @@
     return 4;
   }
   function formatModelAttribution(modelStr) {
-    if (!modelStr) return "AI \uAC80\uC99D";
-    let s = String(modelStr).replace(/^models\//, "").replace(/:free$/, "");
+    if (!modelStr) return "gemini-3.6-flash";
+    let s = String(modelStr).trim();
+    if (s.includes("flash-internal") || s.includes("gemini-3.6") || s.includes("gemini-3.8") || s.includes("local-agent") || s.includes("trilingual")) {
+      return "gemini-3.6-flash";
+    }
+    s = s.replace(/^models\//, "").replace(/:free$/, "");
     if (s.includes("/")) s = s.split("/").pop();
-    return "\u{1F916} " + s;
+    return s;
   }
   if (typeof window !== "undefined") {
     window.parseItemTimestamp = parseItemTimestamp;
@@ -3855,14 +3859,20 @@
     const pubDate = formatDateTimeFull(rawPub);
     const hrvDate = formatDateTimeFull(rawHrv);
     let trueLatestUpdate = null;
-    if (Array.isArray(it.sources) && it.sources.length > 1) {
-      const srcDates = it.sources.map((s) => s.captured_at || s.created_at || s.harvested_at).filter(Boolean).map((d) => new Date(d).getTime()).filter((t) => !isNaN(t) && t > 0);
+    const allSrc = [...it.sources || [], ...it.cross_posts || []];
+    if (allSrc.length > 1) {
+      const srcDates = allSrc.map((s) => s.captured_at || s.created_at || s.harvested_at || s.updated_at).filter(Boolean).map((d) => new Date(d).getTime()).filter((t) => !isNaN(t) && t > 0);
       if (srcDates.length > 0) {
         const maxSrcTime = Math.max(...srcDates);
-        if (maxSrcTime - tHrv > 15 * 60 * 1e3) {
+        if (maxSrcTime > tHrv + 60 * 1e3) {
           trueLatestUpdate = new Date(maxSrcTime).toISOString();
         }
       }
+      if (!trueLatestUpdate && it.updated_at && new Date(it.updated_at).getTime() > tHrv + 60 * 1e3) {
+        trueLatestUpdate = it.updated_at;
+      }
+    } else if (it.updated_at && new Date(it.updated_at).getTime() - tHrv > 30 * 60 * 1e3) {
+      trueLatestUpdate = it.updated_at;
     }
     const hasUpdate = Boolean(trueLatestUpdate);
     const updDate = hasUpdate ? formatDateTimeShort(trueLatestUpdate) : "";
@@ -4049,54 +4059,16 @@
         badgeBg = "bg-gradient-to-r from-amber-500/15 via-orange-500/12 to-amber-500/10 border-amber-500/35 text-amber-950";
         flameColor = "text-amber-600";
       }
-      let decayLineSvgHtml = "";
-      const rawHist = Array.isArray(it.spike_history) ? it.spike_history : [];
-      const ptsList = rawHist.map((h) => Number(h.score || 0)).filter((v) => Number.isFinite(v) && v > 0);
-      if (ptsList.length === 1 && spkScore > 0 && Math.abs(ptsList[0] - spkScore) >= 0.1) {
-        ptsList.push(spkScore);
-      } else if (ptsList.length === 0 && Number(it.peak_spike_score || 0) > spkScore && spkScore > 0) {
-        ptsList.push(Number(it.peak_spike_score), spkScore);
-      }
-      if (ptsList.length >= 2) {
-        const w = 54;
-        const h = 18;
-        const pad = 2.5;
-        const maxV = Math.max(...ptsList, 1);
-        const minV = 0;
-        const coords = ptsList.map((val, idx) => {
-          const x = pad + idx / (ptsList.length - 1) * (w - pad * 2);
-          const y = h - pad - (val - minV) / (maxV - minV || 1) * (h - pad * 2);
-          return [Number(x.toFixed(1)), Number(y.toFixed(1))];
-        });
-        const polyPoints = coords.map((c) => `${c[0]},${c[1]}`).join(" ");
-        const areaPoints = `${coords[0][0]},${h - 1} ${polyPoints} ${coords[coords.length - 1][0]},${h - 1}`;
-        const lastPt = coords[coords.length - 1];
-        const firstPt = coords[0];
-        const strokeHex = isSuperSpike ? "#e11d48" : "#d97706";
-        const fillHex = isSuperSpike ? "rgba(225,29,72,0.16)" : "rgba(217,119,6,0.16)";
-        const tipText = rawHist.length >= 2 ? rawHist.map((item) => `${item.date.slice(5)}: ${item.score}p`).join(" \u2192 ") : ptsList.map((v) => `${v}p`).join(" \u2192 ");
-        decayLineSvgHtml = `
-        <span class="inline-flex items-center px-1.5 py-0.5 rounded-lg bg-white/90 border border-amber-300/80 shadow-2xs shrink-0" title="${tipText}">
-          <svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" class="overflow-visible">
-            <polygon points="${areaPoints}" fill="${fillHex}" />
-            <polyline points="${polyPoints}" fill="none" stroke="${strokeHex}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-            <circle cx="${firstPt[0]}" cy="${firstPt[1]}" r="1.8" fill="${strokeHex}" />
-            <circle cx="${lastPt[0]}" cy="${lastPt[1]}" r="2.2" fill="${strokeHex}" />
-          </svg>
-        </span>
-      `;
-      }
       crossRollupHtml = `
       <div class="flex flex-wrap items-center justify-between px-2.5 py-1.5 rounded-xl ${badgeBg} border text-xs shadow-2xs gap-x-2 gap-y-1.5">
-        <div class="flex flex-wrap items-center gap-1.5 min-w-0">
+        <div class="flex items-center gap-1.5 min-w-0">
           <i data-lucide="flame" class="w-3.5 h-3.5 ${flameColor} shrink-0 ${isSpike ? "animate-pulse" : ""}"></i>
-          ${spkScore > 0 ? `<span class="px-2 py-0.5 rounded-lg bg-amber-500 text-white font-mono font-black text-[11px] shadow-xs border border-amber-400 flex items-center gap-1 shrink-0 whitespace-nowrap"><i data-lucide="zap" class="w-3 h-3 text-amber-200 fill-amber-200"></i><span>${spkScore} pts</span></span>` : ""}
-          ${decayLineSvgHtml}
+          ${spkScore > 0 ? `<span class="px-2.5 py-0.5 rounded-lg bg-amber-500 text-white font-mono font-black text-[11px] shadow-xs border border-amber-400 shrink-0 whitespace-nowrap">${spkScore} pts</span>` : ""}
         </div>
-        <div class="flex flex-wrap items-center gap-1 shrink-0 font-mono text-[10px] font-bold ml-auto">
-          ${pCount > 0 ? `<span class="px-1.5 py-0.5 rounded bg-white/90 text-emerald-800 border border-emerald-300 shadow-2xs whitespace-nowrap">\u{1F4F0} \uC5B8\uB860 ${pCount}</span>` : ""}
-          ${cCount > 0 ? `<span class="px-1.5 py-0.5 rounded bg-white/90 text-orange-800 border border-orange-300 shadow-2xs whitespace-nowrap">\u{1F4AC} \uCEE4\uBBA4\uB2C8\uD2F0 ${cCount}</span>` : ""}
-          ${kCount > 0 ? `<span class="px-1.5 py-0.5 rounded bg-white/90 text-indigo-800 border border-indigo-300 shadow-2xs whitespace-nowrap">\u{1F4BB} \uCF54\uB4DC ${kCount}</span>` : ""}
+        <div class="flex items-center gap-1 shrink-0 font-mono text-[10px] font-bold ml-auto">
+          ${pCount > 0 ? `<span class="px-1.5 py-0.5 rounded bg-white/90 text-emerald-800 border border-emerald-300 shadow-2xs whitespace-nowrap" title="\uC5B8\uB860 ${pCount}\uAC74">\u{1F4F0} ${pCount}</span>` : ""}
+          ${cCount > 0 ? `<span class="px-1.5 py-0.5 rounded bg-white/90 text-orange-800 border border-orange-300 shadow-2xs whitespace-nowrap" title="\uCEE4\uBBA4\uB2C8\uD2F0 ${cCount}\uAC74">\u{1F4AC} ${cCount}</span>` : ""}
+          ${kCount > 0 ? `<span class="px-1.5 py-0.5 rounded bg-white/90 text-indigo-800 border border-indigo-300 shadow-2xs whitespace-nowrap" title="\uCF54\uB4DC ${kCount}\uAC74">\u{1F4BB} ${kCount}</span>` : ""}
         </div>
       </div>
     `;

@@ -165,10 +165,14 @@ export function getDynamicKstSession() {
 }
 
 export function formatModelAttribution(modelStr) {
-  if (!modelStr) return 'AI 검증';
-  let s = String(modelStr).replace(/^models\//, '').replace(/:free$/, '');
+  if (!modelStr) return 'gemini-3.6-flash';
+  let s = String(modelStr).trim();
+  if (s.includes('flash-internal') || s.includes('gemini-3.6') || s.includes('gemini-3.8') || s.includes('local-agent') || s.includes('trilingual')) {
+    return 'gemini-3.6-flash';
+  }
+  s = s.replace(/^models\//, '').replace(/:free$/, '');
   if (s.includes('/')) s = s.split('/').pop();
-  return '🤖 ' + s;
+  return s;
 }
 
 if (typeof window !== 'undefined') {
