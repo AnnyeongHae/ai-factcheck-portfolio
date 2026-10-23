@@ -146,9 +146,9 @@ export function renderTelemetryCharts() {
       col.innerHTML = `
         <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-16 z-20 pointer-events-none bg-ink-primary text-white text-[10px] font-mono py-1.5 px-2.5 rounded-lg shadow-lg whitespace-nowrap">
           <div class="font-bold text-indigo-300">${d.range}</div>
-          <div class="text-indigo-200">📥 수집: ${d.inbox_count || 0}건</div>
-          <div class="text-emerald-300">✨ AI요약: ${enrichedCount}건${d.backlog_cleared ? ` <span class="text-emerald-400 text-[9px] font-normal">(+${d.backlog_cleared} 백로그)</span>` : ''}</div>
-          ${isCurrent ? (isPending ? '<div class="text-emerald-400 font-bold mt-0.5">⚡ 1회차 세션 파이프라인 인입 중</div>' : '<div class="text-emerald-400 font-bold mt-0.5">● 현재 세션 인입 중</div>') : (isFuture ? '<div class="text-slate-400 mt-0.5">예정 세션</div>' : '<div class="text-slate-300 mt-0.5">수집 완료</div>')}
+          <div class="text-indigo-200">📥 수집: ${(isPending || isFuture) ? 0 : (d.inbox_count || 0)}건</div>
+          <div class="text-emerald-300">✨ AI요약: ${(isPending || isFuture) ? 0 : enrichedCount}건${(!isPending && !isFuture && d.backlog_cleared) ? ` <span class="text-emerald-400 text-[9px] font-normal">(+${d.backlog_cleared} 백로그)</span>` : ''}</div>
+          ${isCurrent ? (isPending ? '<div class="text-emerald-400 font-bold mt-0.5">⚡ 1회차 세션 파이프라인 인입 중</div>' : '<div class="text-emerald-400 font-bold mt-0.5">● 현재 세션 인입 중</div>') : (isFuture ? '<div class="text-slate-400 mt-0.5">예정 세션 (대기)</div>' : '<div class="text-slate-300 mt-0.5">수집 완료</div>')}
         </div>
 
         <div class="flex items-center gap-1 text-[9px] sm:text-[10px] font-mono font-bold mb-1">

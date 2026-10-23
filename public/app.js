@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-23T15:41:27.410Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-23T15:45:59.714Z */
 
 (() => {
   // src/js/core/config.js
@@ -4772,9 +4772,9 @@
         col.innerHTML = `
         <div class="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-16 z-20 pointer-events-none bg-ink-primary text-white text-[10px] font-mono py-1.5 px-2.5 rounded-lg shadow-lg whitespace-nowrap">
           <div class="font-bold text-indigo-300">${d.range}</div>
-          <div class="text-indigo-200">\u{1F4E5} \uC218\uC9D1: ${d.inbox_count || 0}\uAC74</div>
-          <div class="text-emerald-300">\u2728 AI\uC694\uC57D: ${enrichedCount}\uAC74${d.backlog_cleared ? ` <span class="text-emerald-400 text-[9px] font-normal">(+${d.backlog_cleared} \uBC31\uB85C\uADF8)</span>` : ""}</div>
-          ${isCurrent ? isPending ? '<div class="text-emerald-400 font-bold mt-0.5">\u26A1 1\uD68C\uCC28 \uC138\uC158 \uD30C\uC774\uD504\uB77C\uC778 \uC778\uC785 \uC911</div>' : '<div class="text-emerald-400 font-bold mt-0.5">\u25CF \uD604\uC7AC \uC138\uC158 \uC778\uC785 \uC911</div>' : isFuture ? '<div class="text-slate-400 mt-0.5">\uC608\uC815 \uC138\uC158</div>' : '<div class="text-slate-300 mt-0.5">\uC218\uC9D1 \uC644\uB8CC</div>'}
+          <div class="text-indigo-200">\u{1F4E5} \uC218\uC9D1: ${isPending || isFuture ? 0 : d.inbox_count || 0}\uAC74</div>
+          <div class="text-emerald-300">\u2728 AI\uC694\uC57D: ${isPending || isFuture ? 0 : enrichedCount}\uAC74${!isPending && !isFuture && d.backlog_cleared ? ` <span class="text-emerald-400 text-[9px] font-normal">(+${d.backlog_cleared} \uBC31\uB85C\uADF8)</span>` : ""}</div>
+          ${isCurrent ? isPending ? '<div class="text-emerald-400 font-bold mt-0.5">\u26A1 1\uD68C\uCC28 \uC138\uC158 \uD30C\uC774\uD504\uB77C\uC778 \uC778\uC785 \uC911</div>' : '<div class="text-emerald-400 font-bold mt-0.5">\u25CF \uD604\uC7AC \uC138\uC158 \uC778\uC785 \uC911</div>' : isFuture ? '<div class="text-slate-400 mt-0.5">\uC608\uC815 \uC138\uC158 (\uB300\uAE30)</div>' : '<div class="text-slate-300 mt-0.5">\uC218\uC9D1 \uC644\uB8CC</div>'}
         </div>
 
         <div class="flex items-center gap-1 text-[9px] sm:text-[10px] font-mono font-bold mb-1">
