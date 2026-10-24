@@ -72,29 +72,17 @@ def main():
     print(f"  • Unclassified items : {unclassified_count:,} 건")
     print(f"  • Unembedded items   : {unembedded_count:,} 건")
 
-    # Step 1: AI Enrichment via Antigravity CLI Gemini Flash
-    if unclassified_count > 0:
-        print(f"\n[*] Found {unclassified_count} unclassified items. Launching Antigravity CLI Gemini Flash enricher...")
-        ok = run_step(
-            "Step 1: AI Enrichment (Antigravity CLI Gemini Flash)",
-            [sys.executable, "-u", os.path.join(tools_dir, "re_enrich_all_600.py"), "--mode", "local-gemini", "--batch-size", "25", "--concurrency", "3"]
-        )
-        if not ok:
-            print("[!] AI Enrichment step had errors. Please check logs.")
-    else:
-        print("\n✓ No unclassified items found. All items already enriched!")
-
-    # Step 2: Voyage Semantic Embedding (Runs strictly after enrichment)
-    run_step(
-        "Step 2: Voyage Semantic Embedding",
-        [sys.executable, "-u", os.path.join(tools_dir, "drain_voyage_embeddings.py")]
-    )
-
-    # Step 3: H-V-D Tripod Spike Scores & EOD Top 10 Daily Hot Curation (Single-Pass SSOT)
-    run_step(
-        "Step 3: H-V-D Tripod Spike Scores & EOD Daily Hot 10 (Single-Pass)",
+    # Pure Local SSOT Invariant: EOD is 100% Zero-External-API.
+    # It strictly computes H-V-D Tripod Spike Scores & Top 10 Daily Hot Curation directly on DB data.
+    # AI Enrichment & Voyage Embedding are decoupled into In-Session Subagents / On-demand maintenance.
+    print("\n[*] Running Pure Local SSOT Spike Scoring & EOD Top 10 Curation (Zero External API)...")
+    ok = run_step(
+        "H-V-D Tripod Spike Scores & EOD Daily Hot 10 (Single-Pass SSOT)",
         [sys.executable, "-u", os.path.join(tools_dir, "recompute_spike_scores.py"), "--commit"]
     )
+    if not ok:
+        print("[!] Spike recomputation encountered an issue.")
+        return 1
 
     print("\n" + "=" * 70)
     print("🎉 [Nightly Local Pipeline] All tasks completed successfully!")

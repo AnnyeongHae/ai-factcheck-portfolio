@@ -107,9 +107,6 @@ def run_eod_digest(top_n=10):
         print("[!] [EOD Digest] Failed to establish DB connection.")
         return False
 
-    # Run Voyage Embedding sync backup if key is present
-    sync_eod_voyage_embeddings(conn)
-
     now_utc = datetime.datetime.now(datetime.timezone.utc)
     kst_tz = datetime.timezone(datetime.timedelta(hours=9))
     now_kst = now_utc.astimezone(kst_tz)
