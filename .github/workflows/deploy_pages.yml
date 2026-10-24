@@ -16,8 +16,8 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  group: "harvest-schedule"
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
