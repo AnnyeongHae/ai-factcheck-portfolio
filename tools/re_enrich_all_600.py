@@ -54,11 +54,11 @@ def get_openrouter_api_key():
 
 # ==============================================================================
 # 3-Mode AI Enrichment Configuration (SSOT)
-# - Mode 1 (local-gemini)     : antigravity gemini-3.6-flash (batch_size = 10)
+# - Mode 1 (local-gemini)     : Google AI Studio REST gemini-2.0-flash fallback / CLI (batch_size = 10)
 # - Mode 2 (remote-web)       : OpenRouter Free via /api/enrich-worker (limit = 1, 1-click continuous)
 # - Mode 3 (local-openrouter) : OpenRouter Free fallback (batch_size = 3)
 # ==============================================================================
-GEMINI_MODEL = "gemini-3.6-flash"
+GEMINI_MODEL = "gemini-2.0-flash"
 OPENROUTER_FREE_MODELS = [
     "nvidia/nemotron-3.5-lightning:free",
     "minimax/minimax-m3.1-flash:free",
