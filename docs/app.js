@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-25T02:05:02.408Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-25T12:10:49.435Z */
 
 (() => {
   // src/js/core/config.js
@@ -2198,6 +2198,17 @@
         }
         consecutiveErrors = 0;
         const data = await res.json();
+        if (data && data.status === "disabled") {
+          _autoWorkerRunning = false;
+          window._autoWorkerRunning = false;
+          if (txt) txt.textContent = "\u{1F6E1}\uFE0F In-Session Subagent \uC804\uB2F4 ($0)";
+          if (btn) {
+            btn.disabled = true;
+            btn.className = "px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 font-bold font-mono text-[11px] border border-slate-300 transition shadow-xs flex items-center gap-1.5 cursor-default";
+          }
+          showToast("\u{1F6E1}\uFE0F \uC678\uBD80 LLM API/\uD3F4\uBC31\uC740 \uC601\uAD6C \uBE44\uD65C\uC131\uD654\uB418\uC5C8\uC2B5\uB2C8\uB2E4. AI \uC694\uC57D\uC740 In-Session Subagent\uAC00 100% \uC804\uB2F4\uD569\uB2C8\uB2E4.", "info");
+          break;
+        }
         if (data && (data.status === "success" || data.status === "noop")) {
           if (data.model_used && data.model_used.includes("fallback")) {
             consecutiveFallbacks++;

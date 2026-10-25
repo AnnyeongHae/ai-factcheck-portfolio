@@ -144,7 +144,8 @@ module.exports = async function handler(req, res) {
   if (!apiKey) {
     return res.status(500).json({ error: 'VOYAGE_API_KEY is not configured in environment' });
   }
-  const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
+  // Zero-LLM Deterministic Policy: OpenRouter calls disabled
+  const OPENROUTER_API_KEY = null;
 
   const limit = Math.min(parseInt(req.query.limit || req.body?.limit || '100', 10), 100);
 

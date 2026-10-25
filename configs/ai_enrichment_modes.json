@@ -1,84 +1,28 @@
 {
-  "version": "2026.10",
-  "description": "3-Mode AI Enrichment & Translation Execution Strategy (SSOT)",
-  "modes": {
-    "1_local_gemini_primary": {
-      "mode_id": "local-gemini",
-      "environment": "local",
-      "provider": "antigravity_gemini",
-      "model": "gemini-3.6-flash",
-      "subagent_tier": "flash_lite",
-      "thinking_budget": 0,
-      "batch_size": 10,
-      "cli_command": "python -u tools/re_enrich_all_600.py --mode local-gemini --batch-size 10",
-      "fallback_mode": "3_local_openrouter_fallback",
-      "notes": "로컬 기본 실행 모드. Antigravity Gemini 3.6 Flash(최저가 모델, thinkingBudget=0)로 10개씩 배치 처리."
-    },
-    "2_remote_web_deployed": {
-      "mode_id": "remote-web",
-      "environment": "vercel_serverless_and_web_ui",
-      "provider": "openrouter_free",
-      "primary_model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-      "fallback_model": "liquid/lfm-2.5-2.6b:free",
-      "batch_size": 1,
-      "endpoint": "/api/enrich-worker?limit=1",
-      "ui_behavior": "single_click_continuous_until_zero",
-      "circuit_breaker": {
-        "max_consecutive_errors": 3,
-        "max_consecutive_fallbacks": 3,
-        "abort_on_http_429": true
-      },
-      "notes": "원격(웹 배포 상태) 실행 모드. OpenRouter 100% 무료 모델을 사용하여 1개씩(limit=1) 배치 진행하되, UI에서 한 번의 클릭으로 잔여 건수가 0이 될 때까지 끝까지 연속 진행."
-    },
-    "3_local_openrouter_fallback": {
-      "mode_id": "local-openrouter",
-      "environment": "local_fallback",
-      "provider": "openrouter_free",
-      "primary_model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-      "fallback_model": "liquid/lfm-2.5-2.6b:free",
-      "batch_size": 3,
-      "cli_command": "python -u tools/re_enrich_all_600.py --mode local-openrouter --batch-size 3",
-      "trigger_condition": "Antigravity Gemini 토큰 부족 또는 HTTP 429 발생 시 자동/수동 전환",
-      "notes": "로컬에서 Antigravity Gemini 토큰이 부족할 경우 OpenRouter 무료 모델 방식으로 3개씩 배치 처리."
-    }
+  "version": "2026.10-SSOT",
+  "description": "Zero-External-LLM In-Session Subagent AI Enrichment Strategy (SSOT)",
+  "policy": {
+    "external_gemini_api": "DISABLED",
+    "external_openrouter_api": "DISABLED",
+    "external_fallback_cascade": "DISABLED",
+    "cost_per_item": "$0.00"
   },
-  "cross_viral_spike_engine": {
-    "engine_name": "H-V-D Tripod Decay Engine",
-    "recompute_script": "python tools/recompute_spike_scores.py --commit",
-    "auto_chained_after": [
-      "tools/re_enrich_all_600.py",
-      "tools/run_eod_digest.py",
-      "api/embed-worker.js"
-    ],
-    "active_window_days": 7,
-    "half_life_hours": 36.0,
-    "min_active_spike_score": 0.3,
-    "min_sources_or_axes": 2,
-    "heterogeneity_multipliers": {
-      "1_axis_press_cluster": 1.0,
-      "2_axis_cross_spike": 2.5,
-      "3_axis_super_spike": 5.0
-    },
-    "invariants": [
-      "primary_source_seeded_at_index_0",
-      "deterministic_token_overlap_judge_078_to_088",
-      "mandatory_english_title_en_for_ko_zh_sources",
-      "generic_regex_release_clustering_plus_multilingual_aliases",
-      "daily_ranking_snapshots_and_peak_score_persisted_in_db"
-    ],
-    "daily_ranking_table": "cross_viral_daily_rankings",
-    "inbox_peak_columns": [
-      "live_spike_score",
-      "peak_spike_score",
-      "peak_spike_date",
-      "best_spike_rank"
-    ],
-    "historical_time_machine_endpoints": {
-      "available_dates": "/api/inbox?spike_dates_list=true",
-      "by_date": "/api/inbox?facet=CROSS_SPIKE&spike_date=YYYY-MM-DD",
-      "backfill_cli": "python -u tools/recompute_spike_scores.py --commit --backfill-days 30"
-    }
+  "canonical_engine": {
+    "provider": "antigravity_in_session_subagents",
+    "model": "flash",
+    "batch_size": 25,
+    "concurrency": "parallel_wave_x3",
+    "queue_directory": "data/subagent_queue/",
+    "notes": "100% In-Session Subagents only. Zero external REST API calls, zero 404/429 errors, zero sub-chatting windows."
+  },
+  "scheduled_automation": {
+    "trigger": "antigravity_native_cron",
+    "cadence": "CRON_TZ=Asia/Seoul 0 11,23 * * *",
+    "task_id": "task-1551",
+    "scope": "in_session_notification_only"
+  },
+  "post_enrichment_pipeline": {
+    "step_1": "python tools/drain_voyage_embeddings.py",
+    "step_2": "python tools/recompute_spike_scores.py --commit"
   }
 }
-
-

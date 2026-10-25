@@ -156,6 +156,8 @@ def clean_json_response(raw_text: str):
     raise ValueError(f"Could not parse valid JSON from text: {cleaned[:120]}...")
 
 def call_openrouter_free_batch(system_prompt: str, batch_items: list, timeout: int = 25, max_retries: int = 1):
+    raise RuntimeError("External OpenRouter API calls are permanently disabled by user architecture directive. AI summarization must be executed strictly via Antigravity In-Session Subagents ($0).")
+
     """
     Calls OpenRouter Free Router using server-side models fallback and 18 RPM pacer.
     Returns: (parsed_results_list, model_name, latency_seconds)

@@ -182,10 +182,15 @@ module.exports = async (req, res) => {
     return res.status(500).json({ status: 'error', message: 'Cloud Database connection not configured' });
   }
 
-  const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
-  if (!OPENROUTER_API_KEY) {
-    return res.status(500).json({ status: 'error', message: 'OPENROUTER_API_KEY not configured' });
-  }
+  // CRITICAL ARCHITECTURAL POLICY:
+  // External OpenRouter & Gemini REST API summarization is PERMANENTLY DISABLED.
+  // AI enrichment is 100% managed via Antigravity In-Session Subagents ($0).
+  return res.status(200).json({
+    status: 'disabled',
+    message: 'External OpenRouter and Gemini API enrichment are permanently disabled. AI Enrichment is handled 100% via In-Session Subagents ($0).',
+    processed_count: 0,
+    remaining_unclassified: 0
+  });
 
   const startTime = Date.now();
 

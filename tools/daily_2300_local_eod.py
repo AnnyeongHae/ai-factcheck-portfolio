@@ -5,12 +5,12 @@ tools/daily_2300_local_eod.py
 ==============================================================================
 Nightly 23:00 KST Local End-of-Day (EOD) Automation Runner
 ------------------------------------------------------------------------------
-Strict Invariant Pipeline:
+Strict Invariant Pipeline (Zero External LLM APIs):
 1. Check unclassified items in DB (Aiven PostgreSQL SSOT)
-2. Run local AI Enrichment via Antigravity CLI Gemini Flash (Zero External API Cost)
-3. Run Voyage Embedding on enriched text (MANDATORY: strictly AFTER enrichment)
-4. Recompute H-V-D Tripod Spike Scores & Cross-Platform Clusters
-5. Run EOD Daily Digest
+   - External Gemini REST API and OpenRouter fallbacks are PERMANENTLY DISABLED.
+   - AI Enrichment is 100% strictly executed via Antigravity In-Session Subagents ($0).
+2. Run Voyage Semantic Embedding strictly on English text (`title_en` + `hook_en`)
+3. Recompute H-V-D Tripod Spike Scores & EOD Top 10 Daily Hot Curation (Single-Pass SSOT)
 ==============================================================================
 """
 
@@ -62,7 +62,7 @@ def main():
         return 1
 
     cur = conn.cursor()
-    cur.execute("SELECT COUNT(*) FROM raw_trends_inbox WHERE is_classified = FALSE;")
+    cur.execute("SELECT COUNT(*) FROM raw_trends_inbox WHERE is_classified = FALSE OR raw_payload->'ai_enrichment' IS NULL;")
     unclassified_count = cur.fetchone()[0]
     cur.execute("SELECT COUNT(*) FROM raw_trends_inbox WHERE is_classified = TRUE AND embedding IS NULL;")
     unembedded_count = cur.fetchone()[0]
@@ -72,19 +72,19 @@ def main():
     print(f"  • Unclassified items : {unclassified_count:,} 건")
     print(f"  • Unembedded items   : {unembedded_count:,} 건")
 
-    # Step 1: AI Enrichment via Antigravity CLI Gemini Flash
+    # Step 1: AI Enrichment Queue Check (Zero External LLM APIs)
     if unclassified_count > 0:
-        print(f"\n[*] Found {unclassified_count} unclassified items. Launching Antigravity CLI Gemini Flash enricher...")
-        ok = run_step(
-            "Step 1: AI Enrichment (Antigravity CLI Gemini Flash)",
-            [sys.executable, "-u", os.path.join(tools_dir, "re_enrich_all_600.py"), "--mode", "local-gemini", "--batch-size", "25", "--concurrency", "3"]
+        print(f"\n[*] Found {unclassified_count} unclassified items.")
+        print("    [!] External Gemini API and OpenRouter fallbacks are PERMANENTLY DISABLED.")
+        print("    [*] Exporting items to queue for Antigravity In-Session Subagents ($0)...")
+        run_step(
+            "Step 1: Export Subagent Queue (Zero-External-LLM)",
+            [sys.executable, "-u", os.path.join(tools_dir, "re_enrich_all_600.py"), "--batch-size", "25"]
         )
-        if not ok:
-            print("[!] AI Enrichment step had errors. Please check logs.")
     else:
         print("\n✓ No unclassified items found. All items already enriched!")
 
-    # Step 2: Voyage Semantic Embedding (Runs strictly after enrichment)
+    # Step 2: Voyage Semantic Embedding (Runs strictly on English text)
     run_step(
         "Step 2: Voyage Semantic Embedding",
         [sys.executable, "-u", os.path.join(tools_dir, "drain_voyage_embeddings.py")]

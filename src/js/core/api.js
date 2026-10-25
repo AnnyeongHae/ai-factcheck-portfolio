@@ -1081,6 +1081,18 @@ export async function startContinuousAiWorker() {
       consecutiveErrors = 0;
       const data = await res.json();
 
+      if (data && data.status === 'disabled') {
+        _autoWorkerRunning = false;
+        window._autoWorkerRunning = false;
+        if (txt) txt.textContent = '🛡️ In-Session Subagent 전담 ($0)';
+        if (btn) {
+          btn.disabled = true;
+          btn.className = "px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 font-bold font-mono text-[11px] border border-slate-300 transition shadow-xs flex items-center gap-1.5 cursor-default";
+        }
+        showToast('🛡️ 외부 LLM API/폴백은 영구 비활성화되었습니다. AI 요약은 In-Session Subagent가 100% 전담합니다.', 'info');
+        break;
+      }
+
       if (data && (data.status === 'success' || data.status === 'noop')) {
         if (data.model_used && data.model_used.includes('fallback')) {
           consecutiveFallbacks++;

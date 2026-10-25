@@ -174,22 +174,16 @@ def rule_based_entity_action_gate(title_a_en: str, title_b_en: str) -> bool:
 
 def call_jev_bulk_judge(pairs: list) -> dict:
     """
-    JEV Bulk Micro-Judge:
-    Evaluates up to 30 ambiguous headline pairs in a SINGLE bulk LLM pass.
+    Zero-LLM Deterministic Deduplication Gate (100% Free, Zero External API).
     Input: list of tuples (pair_id, title_a_en, title_b_en)
     Returns: dict {pair_id: bool}
     """
-    global JEV_API_CALL_COUNT, JEV_CONSECUTIVE_ERRORS, JEV_CIRCUIT_TRIPPED
-    if not pairs:
-        return {}
-
     results = {}
-    if JEV_CIRCUIT_TRIPPED or JEV_API_CALL_COUNT >= JEV_MAX_SESSION_CALLS:
-        for pid, t_a, t_b in pairs:
-            results[pid] = rule_based_entity_action_gate(t_a, t_b)
-        return results
+    for pid, t_a, t_b in pairs:
+        results[pid] = rule_based_entity_action_gate(t_a, t_b)
+    return results
 
-    api_key = os.getenv("OPENROUTER_API_KEY")
+    api_key = None
     if not api_key:
         for pid, t_a, t_b in pairs:
             results[pid] = rule_based_entity_action_gate(t_a, t_b)
