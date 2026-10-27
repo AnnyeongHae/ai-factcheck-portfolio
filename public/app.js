@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-25T12:10:49.435Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-10-27T15:02:27.039Z */
 
 (() => {
   // src/js/core/config.js
@@ -5256,8 +5256,8 @@
         const errCount = isFailure ? 1 : 0;
         const dbRun = typeof window !== "undefined" && window._dbActionsRunsMap?.get(String(r.id)) || null;
         const existingRun = existingRuns.find((x) => String(x.id) === String(r.id)) || dbRun;
-        const itemsCollected = existingRun?.items_collected !== void 0 && existingRun?.items_collected !== null ? existingRun.items_collected : dbRun?.items_collected !== void 0 ? dbRun.items_collected : null;
-        const itemsScanned = existingRun?.items_scanned !== void 0 && existingRun?.items_scanned !== null ? existingRun.items_scanned : dbRun?.items_scanned !== void 0 ? dbRun.items_scanned : null;
+        const itemsCollected = dbRun?.items_collected !== void 0 && dbRun?.items_collected !== null ? dbRun.items_collected : existingRun?.items_collected !== void 0 && existingRun?.items_collected !== null ? existingRun.items_collected : null;
+        const itemsScanned = dbRun?.items_scanned !== void 0 && dbRun?.items_scanned !== null ? dbRun.items_scanned : existingRun?.items_scanned !== void 0 && existingRun?.items_scanned !== null ? existingRun.items_scanned : null;
         const finalDurStr = dbRun && dbRun.duration_str && isSuccess ? dbRun.duration_str : durStr;
         const finalDurSec = dbRun && dbRun.duration_sec && isSuccess ? dbRun.duration_sec : durSec;
         const finalKst = dbRun && dbRun.created_at_kst ? dbRun.created_at_kst : kstStr;
@@ -5277,11 +5277,18 @@
         };
       });
       const mergedMap = /* @__PURE__ */ new Map();
-      liveMapped.forEach((r) => mergedMap.set(String(r.id), r));
-      existingRuns.forEach((r) => {
-        if (!mergedMap.has(String(r.id))) {
-          mergedMap.set(String(r.id), r);
+      existingRuns.forEach((r) => mergedMap.set(String(r.id), r));
+      liveMapped.forEach((r) => {
+        const prev = mergedMap.get(String(r.id));
+        if (prev) {
+          if ((r.items_collected === null || r.items_collected === void 0) && prev.items_collected !== null && prev.items_collected !== void 0) {
+            r.items_collected = prev.items_collected;
+          }
+          if ((r.items_scanned === null || r.items_scanned === void 0) && prev.items_scanned !== null && prev.items_scanned !== void 0) {
+            r.items_scanned = prev.items_scanned;
+          }
         }
+        mergedMap.set(String(r.id), r);
       });
       const runs = Array.from(mergedMap.values());
       if (typeof window !== "undefined") {

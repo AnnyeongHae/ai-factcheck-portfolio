@@ -701,13 +701,17 @@ export async function checkLiveActionsRuns() {
       const dbRun = (typeof window !== 'undefined' && window._dbActionsRunsMap?.get(String(r.id))) || null;
       const existingRun = existingRuns.find(x => String(x.id) === String(r.id)) || dbRun;
 
-      const itemsCollected = existingRun?.items_collected !== undefined && existingRun?.items_collected !== null
-        ? existingRun.items_collected
-        : (dbRun?.items_collected !== undefined ? dbRun.items_collected : null);
+      const itemsCollected = (dbRun?.items_collected !== undefined && dbRun?.items_collected !== null)
+        ? dbRun.items_collected
+        : (existingRun?.items_collected !== undefined && existingRun?.items_collected !== null
+            ? existingRun.items_collected
+            : null);
 
-      const itemsScanned = existingRun?.items_scanned !== undefined && existingRun?.items_scanned !== null
-        ? existingRun.items_scanned
-        : (dbRun?.items_scanned !== undefined ? dbRun.items_scanned : null);
+      const itemsScanned = (dbRun?.items_scanned !== undefined && dbRun?.items_scanned !== null)
+        ? dbRun.items_scanned
+        : (existingRun?.items_scanned !== undefined && existingRun?.items_scanned !== null
+            ? existingRun.items_scanned
+            : null);
 
       const finalDurStr = (dbRun && dbRun.duration_str && isSuccess) ? dbRun.duration_str : durStr;
       const finalDurSec = (dbRun && dbRun.duration_sec && isSuccess) ? dbRun.duration_sec : durSec;
@@ -729,13 +733,20 @@ export async function checkLiveActionsRuns() {
       };
     });
 
-    // Merge live runs with existing runs to preserve older DB runs
+    // Merge live runs with existing runs to preserve older DB runs and collected counts
     const mergedMap = new Map();
-    liveMapped.forEach(r => mergedMap.set(String(r.id), r));
-    existingRuns.forEach(r => {
-      if (!mergedMap.has(String(r.id))) {
-        mergedMap.set(String(r.id), r);
+    existingRuns.forEach(r => mergedMap.set(String(r.id), r));
+    liveMapped.forEach(r => {
+      const prev = mergedMap.get(String(r.id));
+      if (prev) {
+        if ((r.items_collected === null || r.items_collected === undefined) && prev.items_collected !== null && prev.items_collected !== undefined) {
+          r.items_collected = prev.items_collected;
+        }
+        if ((r.items_scanned === null || r.items_scanned === undefined) && prev.items_scanned !== null && prev.items_scanned !== undefined) {
+          r.items_scanned = prev.items_scanned;
+        }
       }
+      mergedMap.set(String(r.id), r);
     });
 
     const runs = Array.from(mergedMap.values());
