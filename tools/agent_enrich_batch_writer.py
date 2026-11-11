@@ -1,3 +1,6 @@
+import sys, os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+from config_loader import get_canonical_model_tag
 import os
 import json
 import psycopg2
@@ -34,7 +37,7 @@ def apply_batch(input_json_path):
             h_ko = item.get("hook_ko", "")
             h_en = item.get("hook_en", "")
             h_zh = item.get("hook_zh", "")
-            model = item.get("enriched_by_model", "google/gemini-3.8-flash")
+            model = item.get("enriched_by_model", get_canonical_model_tag())
 
             ai_enrichment = {
                 "category_primary": category_primary,

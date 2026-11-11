@@ -1,3 +1,6 @@
+import sys, os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+from config_loader import get_canonical_model_id
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -116,7 +119,7 @@ def main():
         print("[*] Calling Gemini 3.8 Flash with token accounting...")
         t0 = time.time()
         response = client.models.generate_content(
-            model="gemini-3.8-flash",
+            model=get_canonical_model_id(),
             contents=prompt,
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
@@ -143,7 +146,7 @@ def main():
             "timestamp": datetime.now().isoformat(),
             "inbox_id": inbox_id,
             "title": title,
-            "model": "gemini-3.8-flash",
+            "model": get_canonical_model_id(),
             "prompt_tokens": prompt_tokens,
             "candidate_tokens": cand_tokens,
             "total_tokens": total_tokens,

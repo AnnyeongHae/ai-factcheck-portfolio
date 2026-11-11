@@ -13,7 +13,10 @@
     "batch_size": 25,
     "concurrency": "parallel_wave_x3",
     "queue_directory": "data/subagent_queue/",
-    "notes": "100% In-Session Subagents only. Zero external REST API calls, zero 404/429 errors, zero sub-chatting windows."
+    "notes": "100% In-Session Subagents only. Zero external REST API calls, zero 404/429 errors, zero sub-chatting windows.",
+    "model_id": "gemini-3.8-flash",
+    "full_model_tag": "google/gemini-3.8-flash",
+    "display_name": "gemini-3.8-flash"
   },
   "scheduled_automation": {
     "trigger": "antigravity_native_cron",
