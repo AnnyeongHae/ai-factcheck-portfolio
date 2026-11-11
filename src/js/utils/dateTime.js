@@ -166,11 +166,9 @@ export function getDynamicKstSession() {
 }
 
 export function formatModelAttribution(modelStr) {
-  if (!modelStr) return CANONICAL_MODEL.display;
+  if (!modelStr) return 'AI 분석';
   let s = String(modelStr).trim();
-  if (s.includes('flash-internal') || s.includes('gemini-') || s.includes('local-agent') || s.includes('trilingual')) {
-    return CANONICAL_MODEL.display;
-  }
+  // Strip common prefix/suffix
   s = s.replace(/^models\//, '').replace(/:free$/, '');
   if (s.includes('/')) s = s.split('/').pop();
   return s;

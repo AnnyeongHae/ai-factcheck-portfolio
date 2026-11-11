@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-11-11T15:08:36.798Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-11-11T15:12:46.628Z */
 
 (() => {
   // src/js/core/config.js
@@ -477,11 +477,8 @@
     return 4;
   }
   function formatModelAttribution(modelStr) {
-    if (!modelStr) return CANONICAL_MODEL.display;
+    if (!modelStr) return "AI \uBD84\uC11D";
     let s = String(modelStr).trim();
-    if (s.includes("flash-internal") || s.includes("gemini-") || s.includes("local-agent") || s.includes("trilingual")) {
-      return CANONICAL_MODEL.display;
-    }
     s = s.replace(/^models\//, "").replace(/:free$/, "");
     if (s.includes("/")) s = s.split("/").pop();
     return s;
