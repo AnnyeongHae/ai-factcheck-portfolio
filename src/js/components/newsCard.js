@@ -295,7 +295,7 @@ export function renderCardStandardFooter(it, lang = currentLang, extraActionHtml
   const hrvShortLabel = lang === 'KO' ? '포착:' : (lang === 'ZH' ? '捕获' : 'Spotted');
   const updShortLabel = lang === 'KO' ? '갱신' : (lang === 'ZH' ? '更新' : 'Updated');
   const srcStandardLabel = lang === 'KO' ? '원문 보기' : (lang === 'ZH' ? '查看原文' : 'View Source');
-  const modelTag = ai?.enriched_by_model ? formatModelAttribution(ai.enriched_by_model) : 'gemini-3.6-flash';
+  const modelTag = ai?.enriched_by_model ? formatModelAttribution(ai.enriched_by_model) : 'gemini-3.8-flash';
 
   return `
     <div class="mt-3.5 pt-2.5 border-t border-stone-200 space-y-2 text-[11px] font-mono text-stone-500">

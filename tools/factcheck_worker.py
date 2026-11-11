@@ -5,7 +5,7 @@ tools/factcheck_worker.py
 ====================================================================
 Autonomous Fact-Check Worker & Token Economics Ledger
 - Scans for items in QUEUED_FOR_INVESTIGATION status
-- Performs deep engineering verification using Gemini 3.6 Flash
+- Performs deep engineering verification using Gemini 3.8 Flash
 - Measures exact prompt, candidate, and reasoning tokens
 - Appends usage metadata to logs/token_usage_ledger.json
 - Automatically updates inbox status and maintains token ledger
@@ -83,7 +83,7 @@ def main():
         print(f"\n[{idx+1}/{min(len(queued), args.limit)}] Target: {title} ({inbox_id})")
 
         if args.dry_run:
-            print("  [DRY-RUN] Would call Gemini 3.6 Flash to audit and promote this item.")
+            print("  [DRY-RUN] Would call Gemini 3.8 Flash to audit and promote this item.")
             continue
 
         api_key = os.getenv("GEMINI_API_KEY")
@@ -113,10 +113,10 @@ def main():
 5. confidence_score(0~100 float) 및 구체적 하드웨어/아키텍처 실측 메트릭.
 """
 
-        print("[*] Calling Gemini 3.6 Flash with token accounting...")
+        print("[*] Calling Gemini 3.8 Flash with token accounting...")
         t0 = time.time()
         response = client.models.generate_content(
-            model="gemini-3.6-flash",
+            model="gemini-3.8-flash",
             contents=prompt,
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
@@ -130,7 +130,7 @@ def main():
         cand_tokens = usage.candidates_token_count or 0
         total_tokens = usage.total_token_count or (prompt_tokens + cand_tokens)
 
-        # Gemini 3.6 Flash pricing: Input $0.15/1M, Output $0.60/1M
+        # Gemini 3.8 Flash pricing: Input $0.15/1M, Output $0.60/1M
         cost_usd = (prompt_tokens / 1_000_000) * 0.15 + (cand_tokens / 1_000_000) * 0.60
         cost_krw = cost_usd * 1380.0
 
@@ -143,7 +143,7 @@ def main():
             "timestamp": datetime.now().isoformat(),
             "inbox_id": inbox_id,
             "title": title,
-            "model": "gemini-3.6-flash",
+            "model": "gemini-3.8-flash",
             "prompt_tokens": prompt_tokens,
             "candidate_tokens": cand_tokens,
             "total_tokens": total_tokens,

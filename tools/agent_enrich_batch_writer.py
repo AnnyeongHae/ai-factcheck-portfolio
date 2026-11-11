@@ -34,7 +34,7 @@ def apply_batch(input_json_path):
             h_ko = item.get("hook_ko", "")
             h_en = item.get("hook_en", "")
             h_zh = item.get("hook_zh", "")
-            model = item.get("enriched_by_model", "google/gemini-3.6-flash")
+            model = item.get("enriched_by_model", "google/gemini-3.8-flash")
 
             ai_enrichment = {
                 "category_primary": category_primary,

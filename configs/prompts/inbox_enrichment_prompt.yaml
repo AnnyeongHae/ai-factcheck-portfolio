@@ -13,10 +13,10 @@ meta:
 execution_modes:
   mode_1_local_primary:
     mode: "local-gemini"
-    model: "gemini-3.6-flash"
+    model: "gemini-3.8-flash"
     thinking_budget: 0
     batch_size: 10
-    description: "로컬 진행 기본값: 가장 저렴한 antigravity gemini-3.6-flash 모델로 10개씩 배치 진행"
+    description: "로컬 진행 기본값: 가장 저렴한 antigravity gemini-3.8-flash 모델로 10개씩 배치 진행"
   mode_2_remote_web:
     mode: "remote-web"
     model: "inclusionai/ling-3.0-flash-sante:free"

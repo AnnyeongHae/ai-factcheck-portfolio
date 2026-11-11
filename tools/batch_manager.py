@@ -68,7 +68,7 @@ def load_batch_registry():
                     registry.append({
                         "batch_uuid": b_uuid,
                         "gemini_job_name": j_name,
-                        "model": "models/gemini-3.6-flash",
+                        "model": "models/gemini-3.8-flash",
                         "item_count": it_count,
                         "status": status,
                         "submitted_at": str(sub_at),
@@ -99,7 +99,7 @@ def record_token_ledger(entry):
     with open(LEDGER_PATH, 'w', encoding='utf-8') as f:
         json.dump(ledger, f, ensure_ascii=False, indent=2)
 
-def submit_inbox_batch(items, model="models/gemini-3.6-flash"):
+def submit_inbox_batch(items, model="models/gemini-3.8-flash"):
     """
     Submits a list of un-enriched inbox items to Gemini Batch API.
     """
@@ -332,7 +332,7 @@ def harvest_completed_batches():
                                 item_data["title_zh"] = ml["zh"]["title"]
                                 item_data["hook_zh"] = ml["zh"].get("hook", "")
 
-                            item_data["enriched_by"] = "gemini-3.6-flash-batch-api"
+                            item_data["enriched_by"] = "gemini-3.8-flash-batch-api"
                             item_data["enriched_at"] = datetime.now().isoformat()
 
                             with open(inbox_file, "w", encoding="utf-8") as f:
@@ -362,7 +362,7 @@ def harvest_completed_batches():
                     "batch_uuid": batch_uuid,
                     "gemini_job_name": job_name,
                     "type": "BATCH_API_ENRICHMENT",
-                    "model": job_record.get("model", "gemini-3.6-flash"),
+                    "model": job_record.get("model", "gemini-3.8-flash"),
                     "item_count": updated_count,
                     "prompt_tokens": total_prompt_tokens,
                     "candidate_tokens": total_candidate_tokens,
