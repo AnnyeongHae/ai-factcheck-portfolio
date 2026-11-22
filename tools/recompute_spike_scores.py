@@ -164,6 +164,15 @@ def normalize_for_tokens_py(text: str, platform: str = "") -> str:
     s = re.sub(r'\bworth\b|\bbenefits?\b', ' benefits ', s)
     return s
 
+# Technical Friction & Post-Mortem Pattern (Fact-Check Hub Leading Indicator)
+FRICTION_PATTERN = re.compile(
+    r'\b(flaw|flaws|bottleneck|bottlenecks|vulnerability|vulnerabilities|cve|leak|leaks|leaked|'
+    r'revert|reverted|overhype|overhyped|breakdown|reproduction fail|benchmark leak|oom|out of memory|'
+    r'hallucinat|infinite loop|crash|exploit|scam|security issue)\b|'
+    r'(취약점|병목|누수|한계점|결함|과장|실패|무한루프|재현 불가|해킹|메모리 부족)',
+    re.IGNORECASE
+)
+
 def extract_specific_tokens_py(text: str, platform: str = "") -> list:
     norm = normalize_for_tokens_py(text, platform)
     plat_tokens = set(re.sub(r'[^a-z0-9]+', ' ', (platform or '').lower()).split())
@@ -240,6 +249,7 @@ def compute_hvd_score(row_data, now_utc):
     """
     source_platform = row_data["source_platform"] or ""
     source_url = row_data["source_url"] or ""
+    title = row_data.get("title") or ""
     viral_score = row_data.get("viral_score") or 0
     created_at = parse_iso_or_default(row_data.get("created_at"), now_utc)
     raw_payload = row_data.get("raw_payload") or {}
@@ -306,6 +316,13 @@ def compute_hvd_score(row_data, now_utc):
     depth_inner = 10.0 + (max(0, comments_count) * 2.0) + (max(0.0, float(viral_score)) * 0.5) + (max(0.0, float(delta_metric)) * 0.5)
     depth = math.log10(max(1.0, depth_inner))
 
+    # 3-B. Friction & Post-Mortem Multiplier (Fact-Check Sensitivity Boost)
+    # Boosts depth for engineering critiques, failure retrospectives, vulnerabilities, and bottlenecks
+    combined_text = f"{title} {raw_payload.get('description', '')}"
+    has_friction = bool(FRICTION_PATTERN.search(combined_text))
+    friction_mult = 1.35 if has_friction else 1.0
+    depth = depth * friction_mult
+
     # 4. Time Decay (Half-life = 36 hours)
     decay = math.exp(- (math.log(2.0) / 36.0) * delta_hours)
 
@@ -319,6 +336,8 @@ def compute_hvd_score(row_data, now_utc):
         "score": final_spike_score,
         "raw_score": round(raw_spike, 1),
         "tier": tier_label,
+        "has_friction": has_friction,
+        "friction_multiplier": friction_mult,
         "axes_count": num_axes,
         "axes": list(axes),
         "press_count": press_count,
@@ -893,7 +912,8 @@ def main():
                 super_spike_count += 1
             elif analysis["axes_count"] == 2:
                 cross_spike_count += 1
-            scored_items.append((score, analysis, row_data["title"], row_data["id"]))
+            disp_title = (row_data.get("raw_payload") or {}).get("title_ko") or row_data["title"]
+            scored_items.append((score, analysis, disp_title, row_data["id"]))
 
             item_dt = parse_iso_or_default(row_data["created_at"], now_utc)
             if (now_utc - item_dt).total_seconds() <= 7 * 86400:

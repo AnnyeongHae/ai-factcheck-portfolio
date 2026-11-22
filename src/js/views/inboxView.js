@@ -47,15 +47,7 @@ export function toggleInboxIncludePending(checked) {
 }
 
 export function setInboxLangFilter(lang) {
-  window.currentInboxPage = 1;
-  window.currentInboxLang = lang;
-  document.querySelectorAll('.inbox-filter-pill').forEach(btn => {
-    if (btn.dataset.langVal === lang) {
-      btn.className = 'inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap';
-    } else {
-      btn.className = 'inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap';
-    }
-  });
+  // Deprecated: UI is Korean-first, language filter retired
   renderInbox();
 }
 
@@ -140,13 +132,11 @@ function getInboxCacheKey(page) {
   params.set('limit', PAGE_SIZE);
   params.set('page', page);
   const curSrc = window.currentInboxSource || currentInboxSource || 'ALL';
-  const curLangFilter = window.currentInboxLang || currentInboxLang || 'ALL';
   const curType = window.currentInboxType || currentInboxType || 'ALL';
   const curSearch = window.inboxSearchQuery || inboxSearchQuery || '';
   const curSort = window.currentInboxSort || currentInboxSort || 'date-audit-desc';
 
   if (curSrc && curSrc !== 'ALL') params.set('source', curSrc);
-  if (curLangFilter && curLangFilter !== 'ALL') params.set('lang', curLangFilter);
   if (curType && curType !== 'ALL') params.set('type', curType);
   if (curSearch) params.set('search', curSearch);
   if (curSort) params.set('sort', curSort);
@@ -277,8 +267,6 @@ export function createInboxCardElement(it, curLang) {
           ${typeBadge}
         </span>
         ${ai && ai.programming_lang && ai.programming_lang !== 'General' ? `<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">💻 ${ai.programming_lang}</span>` : ''}
-        ${effectiveSourceLang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">🌐 ${effectiveSourceLang}</span>` : ''}
-        ${hasTrilingual ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">🌐 KO·EN·ZH</span>` : `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-ink-muted border border-surface-border">🌐 번역 대기</span>`}
       </div>
 
       <h3 class="font-bold text-sm text-ink-primary leading-snug">
@@ -330,7 +318,6 @@ export async function renderInbox() {
   const curPage = window.currentInboxPage || currentInboxPage || 1;
   const curSort = window.currentInboxSort || currentInboxSort || 'date-audit-desc';
   const curSrc = window.currentInboxSource || currentInboxSource || 'ALL';
-  const curLangFilter = window.currentInboxLang || currentInboxLang || 'ALL';
   const curType = window.currentInboxType || currentInboxType || 'ALL';
   const curTech = window.currentInboxTech || currentInboxTech || 'ALL';
   const curSearch = window.inboxSearchQuery || inboxSearchQuery || '';
@@ -367,8 +354,6 @@ export async function renderInbox() {
       const ai = item.ai_enrichment;
       const filterSrcKey = curSrc.toLowerCase();
       const matchesSrc = curSrc === 'ALL' || ((item.source_platform || '').toLowerCase().includes(filterSrcKey));
-      const itemLang = detectSourceLang(item);
-      const matchesLang = curLangFilter === 'ALL' || itemLang === curLangFilter;
       const itemType = (ai ? ai.type_classification : null) || item.category_type || 'TECH';
       const matchesType = curType === 'ALL' ? true : (itemType === curType);
       const itemTech = (ai ? ai.programming_lang : null) || item.programming_lang || 'General';
@@ -380,7 +365,7 @@ export async function renderInbox() {
       }
       const text = ((item.title || '') + ' ' + (item.title_ko || '') + ' ' + (item.description || '')).toLowerCase();
       const matchesSearch = !curSearch || text.includes(curSearch.toLowerCase());
-      return matchesSrc && matchesLang && matchesType && matchesTech && matchesSearch;
+      return matchesSrc && matchesType && matchesTech && matchesSearch;
     });
 
     if (filtered.length > 0) {

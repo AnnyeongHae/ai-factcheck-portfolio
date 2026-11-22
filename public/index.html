@@ -146,13 +146,6 @@
             <span>Admin<span id="headerInboxCount" class="hidden"></span></span>
           </span>
         </button>
-
-        <!-- Language Toggle (KO / ZH / EN) -->
-        <div class="bg-surface-subtle p-0.5 sm:p-1 rounded-lg border border-surface-border flex items-center text-xs font-semibold gap-0.5">
-          <button onclick="setLanguage('KO')" id="langKoBtn" class="px-1.5 sm:px-2 py-0.5 rounded bg-ink-primary text-white transition text-[10px] sm:text-[11px]">KO</button>
-          <button onclick="setLanguage('ZH')" id="langZhBtn" class="px-1.5 sm:px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary transition text-[10px] sm:text-[11px]">中文</button>
-          <button onclick="setLanguage('EN')" id="langEnBtn" class="px-1.5 sm:px-2 py-0.5 rounded text-ink-secondary hover:text-ink-primary transition text-[10px] sm:text-[11px]">EN</button>
-        </div>
       </div>
 
     </div>
@@ -1032,21 +1025,8 @@
 
       <!-- 🎛️ Multi-Tier Interactive Filter Toolbar (검색창 위쪽 복합 필터 바) -->
       <div class="bg-white p-4 rounded-2xl border border-surface-border shadow-sm space-y-2.5">
-        <!-- Row 1: Source Language (원문 언어) -->
+        <!-- Row 1: 4-Tier Classification (4대 기술 분류) -->
         <div class="flex items-center gap-2 text-xs">
-          <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
-            🌐 원문 언어:
-          </span>
-          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full flex-nowrap" id="filterLangRow">
-            <button onclick="setInboxLangFilter('ALL')" data-lang-val="ALL" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap">전체 언어</button>
-            <button onclick="setInboxLangFilter('KO')" data-lang-val="KO" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🇰🇷 한국어 (KO)</button>
-            <button onclick="setInboxLangFilter('EN')" data-lang-val="EN" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🇬🇧 영어 (EN)</button>
-            <button onclick="setInboxLangFilter('ZH')" data-lang-val="ZH" class="inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap">🇨🇳 중국어 (ZH)</button>
-          </div>
-        </div>
-
-        <!-- Row 2: 4-Tier Classification (4대 기술 분류) -->
-        <div class="flex items-center gap-2 text-xs pt-2 border-t border-surface-border/60">
           <span class="font-bold text-ink-secondary text-[11px] w-20 shrink-0 flex items-center gap-1">
             🏷️ 기술 분류:
           </span>

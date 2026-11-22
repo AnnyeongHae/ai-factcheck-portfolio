@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-11-11T15:12:46.628Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-11-22T09:10:46.734Z */
 
 (() => {
   // src/js/core/config.js
@@ -79,7 +79,6 @@
   var currentSort = "date-audit-desc";
   var searchQuery = "";
   var currentInboxSource = "ALL";
-  var currentInboxLang = "ALL";
   var currentInboxType = "ALL";
   var currentInboxTech = "ALL";
   var currentInboxSort = "date-audit-desc";
@@ -3687,31 +3686,13 @@
     let displayHook = "";
     let displayDesc = "";
     let displayTakeaways = [];
-    if (lang === "ZH") {
-      displayTitle = multi?.zh?.title || it.title_zh || multi?.en?.title || it.title_en || it.title || "";
-      displayHook = multi?.zh?.hook || it.hook_zh || story.the_hook_zh || it.curation?.personal_motivation_zh || (ai ? ai.hook : "") || it.hook || story.the_hook || it.curation?.personal_motivation || "";
-      displayDesc = multi?.zh?.description || it.description_zh || displayHook || it.description || "";
-      if (multi?.zh?.key_takeaways?.length > 0) displayTakeaways = multi.zh.key_takeaways;
-      else if (it.key_takeaways_zh?.length > 0) displayTakeaways = it.key_takeaways_zh;
-      else if (ai?.takeaways_zh?.length > 0) displayTakeaways = ai.takeaways_zh;
-      else if (ai?.key_takeaways?.length > 0) displayTakeaways = ai.key_takeaways;
-    } else if (lang === "EN") {
-      displayTitle = multi?.en?.title || it.title_en || it.title || "";
-      displayHook = multi?.en?.hook || it.hook_en || story.the_hook_en || it.curation?.personal_motivation_en || (ai ? ai.hook : "") || it.hook || story.the_hook || it.curation?.personal_motivation || "";
-      displayDesc = multi?.en?.description || it.description_en || displayHook || it.description || "";
-      if (multi?.en?.key_takeaways?.length > 0) displayTakeaways = multi.en.key_takeaways;
-      else if (it.key_takeaways_en?.length > 0) displayTakeaways = it.key_takeaways_en;
-      else if (ai?.takeaways_en?.length > 0) displayTakeaways = ai.takeaways_en;
-      else if (ai?.key_takeaways?.length > 0) displayTakeaways = ai.key_takeaways;
-    } else {
-      displayTitle = multi?.ko?.title || it.title_ko || it.title || "";
-      displayHook = multi?.ko?.hook || it.hook_ko || story.the_hook || it.curation?.personal_motivation || (ai ? ai.hook : "") || it.hook || "";
-      displayDesc = multi?.ko?.description || it.description_ko || it.description || displayHook || "";
-      if (multi?.ko?.key_takeaways?.length > 0) displayTakeaways = multi.ko.key_takeaways;
-      else if (it.key_takeaways?.length > 0) displayTakeaways = it.key_takeaways;
-      else if (ai?.key_takeaways?.length > 0) displayTakeaways = ai.key_takeaways;
-      else if (ai?.takeaways_ko?.length > 0) displayTakeaways = ai.takeaways_ko;
-    }
+    displayTitle = multi?.ko?.title || it.title_ko || it.title || "";
+    displayHook = multi?.ko?.hook || it.hook_ko || story.the_hook || it.curation?.personal_motivation || (ai ? ai.hook : "") || it.hook || "";
+    displayDesc = multi?.ko?.description || it.description_ko || it.description || displayHook || "";
+    if (multi?.ko?.key_takeaways?.length > 0) displayTakeaways = multi.ko.key_takeaways;
+    else if (it.key_takeaways?.length > 0) displayTakeaways = it.key_takeaways;
+    else if (ai?.key_takeaways?.length > 0) displayTakeaways = ai.key_takeaways;
+    else if (ai?.takeaways_ko?.length > 0) displayTakeaways = ai.takeaways_ko;
     if (displayHook && displayTitle) {
       const cleanT = displayTitle.trim();
       const cleanH = displayHook.trim();
@@ -4031,7 +4012,6 @@
           ${typeBadge}
         </span>
         ${ai.programming_lang && ai.programming_lang !== "General" ? `<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">\u{1F4BB} ${ai.programming_lang}</span>` : ""}
-        ${effectiveSourceLang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">${effectiveSourceLang}</span>` : ""}
       </div>
     `;
       aiSummaryHtml = "";
@@ -6171,15 +6151,6 @@
     renderInbox();
   }
   function setInboxLangFilter(lang) {
-    window.currentInboxPage = 1;
-    window.currentInboxLang = lang;
-    document.querySelectorAll(".inbox-filter-pill").forEach((btn) => {
-      if (btn.dataset.langVal === lang) {
-        btn.className = "inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition shrink-0 whitespace-nowrap";
-      } else {
-        btn.className = "inbox-filter-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-surface-subtle text-ink-secondary hover:text-ink-primary border border-surface-border transition shrink-0 whitespace-nowrap";
-      }
-    });
     renderInbox();
   }
   function setInboxTypeFilter(typeVal) {
@@ -6254,12 +6225,10 @@
     params.set("limit", PAGE_SIZE);
     params.set("page", page);
     const curSrc = window.currentInboxSource || currentInboxSource || "ALL";
-    const curLangFilter = window.currentInboxLang || currentInboxLang || "ALL";
     const curType = window.currentInboxType || currentInboxType || "ALL";
     const curSearch = window.inboxSearchQuery || inboxSearchQuery || "";
     const curSort = window.currentInboxSort || currentInboxSort || "date-audit-desc";
     if (curSrc && curSrc !== "ALL") params.set("source", curSrc);
-    if (curLangFilter && curLangFilter !== "ALL") params.set("lang", curLangFilter);
     if (curType && curType !== "ALL") params.set("type", curType);
     if (curSearch) params.set("search", curSearch);
     if (curSort) params.set("sort", curSort);
@@ -6376,8 +6345,6 @@
           ${typeBadge}
         </span>
         ${ai && ai.programming_lang && ai.programming_lang !== "General" ? `<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">\u{1F4BB} ${ai.programming_lang}</span>` : ""}
-        ${effectiveSourceLang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">\u{1F310} ${effectiveSourceLang}</span>` : ""}
-        ${hasTrilingual ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">\u{1F310} KO\xB7EN\xB7ZH</span>` : `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-medium bg-surface-subtle text-ink-muted border border-surface-border">\u{1F310} \uBC88\uC5ED \uB300\uAE30</span>`}
       </div>
 
       <h3 class="font-bold text-sm text-ink-primary leading-snug">
@@ -6425,7 +6392,6 @@
     const curPage = window.currentInboxPage || currentInboxPage || 1;
     const curSort = window.currentInboxSort || currentInboxSort || "date-audit-desc";
     const curSrc = window.currentInboxSource || currentInboxSource || "ALL";
-    const curLangFilter = window.currentInboxLang || currentInboxLang || "ALL";
     const curType = window.currentInboxType || currentInboxType || "ALL";
     const curTech = window.currentInboxTech || currentInboxTech || "ALL";
     const curSearch = window.inboxSearchQuery || inboxSearchQuery || "";
@@ -6457,8 +6423,6 @@
         const ai = item.ai_enrichment;
         const filterSrcKey = curSrc.toLowerCase();
         const matchesSrc = curSrc === "ALL" || (item.source_platform || "").toLowerCase().includes(filterSrcKey);
-        const itemLang = detectSourceLang(item);
-        const matchesLang = curLangFilter === "ALL" || itemLang === curLangFilter;
         const itemType = (ai ? ai.type_classification : null) || item.category_type || "TECH";
         const matchesType = curType === "ALL" ? true : itemType === curType;
         const itemTech = (ai ? ai.programming_lang : null) || item.programming_lang || "General";
@@ -6470,7 +6434,7 @@
         }
         const text = ((item.title || "") + " " + (item.title_ko || "") + " " + (item.description || "")).toLowerCase();
         const matchesSearch = !curSearch || text.includes(curSearch.toLowerCase());
-        return matchesSrc && matchesLang && matchesType && matchesTech && matchesSearch;
+        return matchesSrc && matchesType && matchesTech && matchesSearch;
       });
       if (filtered.length > 0) {
         sortCollection(filtered, curSort);

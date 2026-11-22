@@ -457,8 +457,15 @@ def harvest_all():
     # 1. Hugging Face Models Trending
     hf_start = time.time()
     try:
-        logger.log("[*] Fetching Hugging Face Trending Models (limit=100)...")
-        hf_data = fetch_json("https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=100")
+        logger.log("[*] Fetching Hugging Face Trending Models (limit=100) & GGUF Quantization Wave (limit=30)...")
+        hf_data = fetch_json("https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=100") or []
+        try:
+            hf_gguf = fetch_json("https://huggingface.co/api/models?pipeline_tag=text-generation&other=gguf&sort=trendingScore&direction=-1&limit=30")
+            if hf_gguf and isinstance(hf_gguf, list):
+                hf_data.extend(hf_gguf)
+        except Exception as gguf_err:
+            logger.log(f"[!] HF GGUF query note: {gguf_err}", level="WARNING")
+
         count = 0
         if hf_data and isinstance(hf_data, list):
             for item in hf_data:
@@ -565,23 +572,29 @@ def harvest_all():
         logger.log(f"[!] Hugging Face Spaces Failed: {e}", level="ERROR")
         harvest_report["summary"]["errors"] += 1
 
-    # 3. GitHub Search API (High Velocity Repos & Emerging AI Tools)
+    # 3. GitHub Search API (3-Tier: Emerging Velocity + Emerging AI + Active AI Giants)
     gh_start = time.time()
     try:
-        logger.log("[*] Fetching GitHub High-Velocity Repositories (Recent 14 days, Stars > 30 & Emerging AI)...")
+        logger.log("[*] Fetching GitHub 3-Tier Repositories (Emerging 14d + Active AI Giants 7d)...")
         fourteen_days_ago = (datetime.date.today() - datetime.timedelta(days=14)).strftime("%Y-%m-%d")
+        seven_days_ago = (datetime.date.today() - datetime.timedelta(days=7)).strftime("%Y-%m-%d")
         gh_token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
         gh_headers = {"User-Agent": "FactCheck-Harvester/1.0", "Accept": "application/vnd.github.v3+json"}
         if gh_token:
             gh_headers["Authorization"] = f"Bearer {gh_token}"
 
-        gh_queries = [
-            f"https://api.github.com/search/repositories?q=created:>{fourteen_days_ago}+stars:>30&sort=stars&order=desc&per_page=100",
-            f"https://api.github.com/search/repositories?q=topic:llm+created:>{fourteen_days_ago}+stars:>15&sort=stars&order=desc&per_page=50"
+        # NOTE: GitHub Search API does not support OR across topic: qualifiers; keep separate focused queries.
+        # Active Giants use topic scoping + sort=updated + pushed_at to prevent static mega-repo stagnation & 2023 date bugs.
+        gh_query_specs = [
+            ("emerging_all", f"https://api.github.com/search/repositories?q=created:>{fourteen_days_ago}+stars:>30&sort=stars&order=desc&per_page=100", False),
+            ("emerging_llm", f"https://api.github.com/search/repositories?q=topic:llm+created:>{fourteen_days_ago}+stars:>15&sort=stars&order=desc&per_page=50", False),
+            ("active_giant_llm", f"https://api.github.com/search/repositories?q=topic:llm+pushed:>{seven_days_ago}+stars:>3000&sort=updated&order=desc&per_page=50", True),
+            ("active_giant_ai", f"https://api.github.com/search/repositories?q=topic:ai+pushed:>{seven_days_ago}+stars:>5000&sort=updated&order=desc&per_page=50", True),
+            ("active_mcp_servers", f"https://api.github.com/search/repositories?q=topic:mcp-server+pushed:>{fourteen_days_ago}+stars:>20&sort=updated&order=desc&per_page=50", True),
         ]
         count = 0
         seen_repos = set()
-        for gh_url in gh_queries:
+        for tier_name, gh_url, use_pushed_at in gh_query_specs:
             try:
                 gh_data = fetch_json(gh_url, headers=gh_headers)
                 if gh_data and "items" in gh_data:
@@ -594,19 +607,48 @@ def harvest_all():
                         desc = item.get("description", "") or "No description"
                         stars = item.get('stargazers_count', 0)
                         forks = item.get('forks_count', 0)
-                        pub_at = item.get("created_at")
+                        created_at = item.get("created_at") or ""
+                        pub_at = (item.get("pushed_at") or item.get("updated_at") or created_at) if use_pushed_at else created_at
+                        tier_tag = f"[Active Giant · Since {created_at[:4]}] " if (use_pushed_at and created_at) else ""
                         added = add_candidate({
                             "title": f"GitHub: {rname}",
                             "source_platform": "GitHub Official",
                             "source_url": url,
                             "published_at": pub_at,
                             "type": "repo",
-                            "description": f"Stars: {stars}, Forks: {forks} | {desc}",
+                            "description": f"{tier_tag}Stars: {stars}, Forks: {forks} | {desc}",
                             "viral_metric": f"★ {stars} Stars"
                         })
                         if added: count += 1
             except Exception as gh_q_err:
-                logger.log(f"[!] GitHub query note: {gh_q_err}", level="WARNING")
+                logger.log(f"[!] GitHub query note ({tier_name}): {gh_q_err}", level="WARNING")
+
+        # 3-B. GitHub Core Infra Architecture RFCs & Tracking Issues (Leading Indicators)
+        try:
+            rfc_url = "https://api.github.com/search/issues?q=repo:vllm-project/vllm+repo:ggerganov/llama.cpp+repo:BerriAI/litellm+label:RFC+state:open&sort=updated&per_page=20"
+            rfc_data = fetch_json(rfc_url, headers=gh_headers)
+            if rfc_data and "items" in rfc_data:
+                for issue in rfc_data["items"]:
+                    issue_url = issue.get("html_url", "")
+                    issue_title = issue.get("title", "")
+                    comments_cnt = issue.get("comments", 0)
+                    up_at = issue.get("updated_at") or issue.get("created_at") or ""
+                    user_login = (issue.get("user") or {}).get("login", "engineer")
+                    repo_match = re.search(r'github\.com/([^/]+/[^/]+)/issues', issue_url)
+                    repo_label = repo_match.group(1) if repo_match else "Infra"
+
+                    added = add_candidate({
+                        "title": f"RFC ({repo_label}): {issue_title}",
+                        "source_platform": "GitHub Official",
+                        "source_url": issue_url,
+                        "published_at": up_at,
+                        "type": "issue_rfc",
+                        "description": f"Core Infrastructure Architecture RFC by @{user_login} | Comments: {comments_cnt} | {(issue.get('body') or '')[:500]}",
+                        "viral_metric": f"💬 {comments_cnt} Comments"
+                    })
+                    if added: count += 1
+        except Exception as rfc_err:
+            logger.log(f"[!] GitHub RFC query note: {rfc_err}", level="WARNING")
 
         harvest_report["sources"]["github"] = {"status": "SUCCESS", "items_found": count, "duration_sec": round(time.time() - gh_start, 2)}
         logger.log(f"[+] GitHub Search: {count} repo candidates ingested in {time.time() - gh_start:.2f}s")
@@ -621,7 +663,8 @@ def harvest_all():
         logger.log("[*] Fetching Hacker News Front Page & Show HN via Algolia API (Parallel w=6)...")
         hn_queries = [
             "https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=100",
-            "https://hn.algolia.com/api/v1/search?tags=show_hn&hitsPerPage=40"
+            "https://hn.algolia.com/api/v1/search?tags=show_hn&hitsPerPage=40",
+            "https://hn.algolia.com/api/v1/search?query=%22Model+Context+Protocol%22+OR+MCP&tags=story&numericFilters=num_comments%3E=10&hitsPerPage=30"
         ]
         count = 0
         seen_stories = set()
@@ -718,7 +761,7 @@ def harvest_all():
                 title = title_elem.text.strip().replace("\n", " ")
                 url = id_elem.text.strip()
                 full_abstract = summary_elem.text.strip().replace("\n", " ") if (summary_elem is not None and summary_elem.text) else ""
-                summary = full_abstract[:200]
+                summary = full_abstract[:500]
                 added = add_candidate({
                     "title": f"ArXiv: {title}",
                     "source_platform": "ArXiv Preprint",
@@ -766,7 +809,7 @@ def harvest_all():
                         url = link_elem.attrib.get('href', '') if link_elem is not None else ""
                         published_at = pub_elem.text.strip() if pub_elem is not None and pub_elem.text else None
                         full_reddit_txt = re.sub(r'<[^>]+>', ' ', content_elem.text).strip()[:25000] if content_elem is not None and content_elem.text else title
-                        desc_text = full_reddit_txt[:180]
+                        desc_text = full_reddit_txt[:500]
                         
                         if url:
                             # Extract comments for top 5 high-signal posts per subreddit to protect against Reddit's 60 req/min ceiling
@@ -812,7 +855,7 @@ def harvest_all():
                 topic_url = id_elem.text.strip() if id_elem.text else ""
                 content_raw = content_elem.text.strip() if content_elem is not None and content_elem.text else ""
                 full_geek_txt = re.sub(r'<[^>]+>', ' ', content_raw).strip()[:25000]
-                clean_desc = full_geek_txt[:200]
+                clean_desc = full_geek_txt[:500]
                 
                 # Check for external article link
                 m_ext = re.search(r'href=[\'"](https?://[^\'"]+)[\'"]', content_raw)
@@ -935,7 +978,7 @@ def harvest_all():
                         
                         raw_body = (c_node.text if (c_node is not None and c_node.text) else (d_node.text if (d_node is not None and d_node.text) else ""))
                         full_press_txt = re.sub(r'<[^>]+>', ' ', raw_body).strip()[:30000] if raw_body else title_clean
-                        desc_text = full_press_txt[:180]
+                        desc_text = full_press_txt[:500]
                         if url:
                             added = add_candidate({
                                 "title": f"News: {title_clean}",

@@ -37,31 +37,14 @@ export function getLocalizedContent(it, lang = currentLang) {
   let displayDesc = '';
   let displayTakeaways = [];
 
-  if (lang === 'ZH') {
-    displayTitle = multi?.zh?.title || it.title_zh || multi?.en?.title || it.title_en || it.title || '';
-    displayHook = multi?.zh?.hook || it.hook_zh || story.the_hook_zh || it.curation?.personal_motivation_zh || (ai ? ai.hook : '') || it.hook || story.the_hook || it.curation?.personal_motivation || '';
-    displayDesc = multi?.zh?.description || it.description_zh || displayHook || it.description || '';
-    if (multi?.zh?.key_takeaways?.length > 0) displayTakeaways = multi.zh.key_takeaways;
-    else if (it.key_takeaways_zh?.length > 0) displayTakeaways = it.key_takeaways_zh;
-    else if (ai?.takeaways_zh?.length > 0) displayTakeaways = ai.takeaways_zh;
-    else if (ai?.key_takeaways?.length > 0) displayTakeaways = ai.key_takeaways;
-  } else if (lang === 'EN') {
-    displayTitle = multi?.en?.title || it.title_en || it.title || '';
-    displayHook = multi?.en?.hook || it.hook_en || story.the_hook_en || it.curation?.personal_motivation_en || (ai ? ai.hook : '') || it.hook || story.the_hook || it.curation?.personal_motivation || '';
-    displayDesc = multi?.en?.description || it.description_en || displayHook || it.description || '';
-    if (multi?.en?.key_takeaways?.length > 0) displayTakeaways = multi.en.key_takeaways;
-    else if (it.key_takeaways_en?.length > 0) displayTakeaways = it.key_takeaways_en;
-    else if (ai?.takeaways_en?.length > 0) displayTakeaways = ai.takeaways_en;
-    else if (ai?.key_takeaways?.length > 0) displayTakeaways = ai.key_takeaways;
-  } else {
-    displayTitle = multi?.ko?.title || it.title_ko || it.title || '';
-    displayHook = multi?.ko?.hook || it.hook_ko || story.the_hook || it.curation?.personal_motivation || (ai ? ai.hook : '') || it.hook || '';
-    displayDesc = multi?.ko?.description || it.description_ko || it.description || displayHook || '';
-    if (multi?.ko?.key_takeaways?.length > 0) displayTakeaways = multi.ko.key_takeaways;
-    else if (it.key_takeaways?.length > 0) displayTakeaways = it.key_takeaways;
-    else if (ai?.key_takeaways?.length > 0) displayTakeaways = ai.key_takeaways;
-    else if (ai?.takeaways_ko?.length > 0) displayTakeaways = ai.takeaways_ko;
-  }
+  // Korean-First SSOT localization
+  displayTitle = multi?.ko?.title || it.title_ko || it.title || '';
+  displayHook = multi?.ko?.hook || it.hook_ko || story.the_hook || it.curation?.personal_motivation || (ai ? ai.hook : '') || it.hook || '';
+  displayDesc = multi?.ko?.description || it.description_ko || it.description || displayHook || '';
+  if (multi?.ko?.key_takeaways?.length > 0) displayTakeaways = multi.ko.key_takeaways;
+  else if (it.key_takeaways?.length > 0) displayTakeaways = it.key_takeaways;
+  else if (ai?.key_takeaways?.length > 0) displayTakeaways = ai.key_takeaways;
+  else if (ai?.takeaways_ko?.length > 0) displayTakeaways = ai.takeaways_ko;
 
   if (displayHook && displayTitle) {
     const cleanT = displayTitle.trim();
@@ -429,7 +412,6 @@ export function createNewsCardElement(it, currentLang) {
           ${typeBadge}
         </span>
         ${ai.programming_lang && ai.programming_lang !== 'General' ? `<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">💻 ${ai.programming_lang}</span>` : ''}
-        ${effectiveSourceLang ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-mono font-semibold bg-surface-subtle text-ink-muted border border-surface-border">${effectiveSourceLang}</span>` : ''}
       </div>
     `;
 

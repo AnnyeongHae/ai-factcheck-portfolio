@@ -829,8 +829,8 @@ def _extract_full_text_and_snippet(item_elem: ET.Element) -> tuple[str, str]:
     clean_full = re.sub(r'[ \t]+', ' ', clean_full)
     clean_full = re.sub(r'\n\s*\n+', '\n\n', clean_full).strip()[:50000]
 
-    # Single-line compact snippet (<=180 chars) for public metadata
-    snippet = re.sub(r'\s+', ' ', clean_full).strip()[:180]
+    # Deep contextual snippet (<=500 chars) for accurate AI enrichment and clear technical explanation
+    snippet = re.sub(r'\s+', ' ', clean_full).strip()[:500]
     return (snippet, clean_full)
 
 

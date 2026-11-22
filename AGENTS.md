@@ -118,3 +118,22 @@ AI 다국어 요약·번역·분류 작업은 다음 **단일 SSOT 원칙**으�
    - 코드 수정 완료 즉시 `node tools/build_frontend.js`로 번들을 컴파일하고, `node tools/verify_agent.js`(Puppeteer 32개 테스트, 20초)를 백그라운드로 실행하여 **무비용(0 LLM Token)으로 무결성을 즉시 입증**합니다.
 5. **목표 생산성 지표**:
    - 일반 버그 수정 및 UI/로직 패치 작업은 **도구 호출 10회 이내, 총 소요 시간 2분 이내 (Speedrun Protocol)** 완료를 원칙으로 합니다.
+
+---
+
+## 8. 🛡️ Track B 온디맨드 팩트체크 시스템 단일 표준 (4-Pillar Targeted Evidence + Zero-Clone + Token-Diet)
+정밀 팩트체크는 자동 수집 파이프라인(Track A)과 완벽히 분리된 **사용자 검증 요청(Human Request) 전담 엔진(Track B)**으로 운용합니다:
+
+1. **4대 정밀 증거 기둥 (Four Pillars)**:
+   - **Academic (ArXiv API)**: 학술 논문의 이론적 상한, 벤치마크 한계점, 정량적 제약 사항 추출.
+   - **Developer Community (Hacker News Algolia API)**: 실제 개발자들의 재현 실패, 메모리 누수(OOM), 버그, 논란 사항 추출.
+   - **Remote Code Inspection (GitHub REST API - Strictly Zero-Clone)**: 보안 격리(Host Immunity) 유지를 위해 로컬 `git clone`을 엄격히 금지하고, GitHub REST API로 라이선스, 아카이브 여부, 활성 푸시 일자를 비침습 감사.
+   - **News & Internal RAG Cross-Check**: 사내 24,000+ pgvector DB 및 공식 벤더 문서 교차 대조.
+2. **시맨틱 카드 토큰 다이어트 (Semantic Token-Diet, 99% 절약)**:
+   - 웹페이지 Raw HTML 덤프(~89,000 토큰)를 일체 피하고, 각 기둥별 노이즈가 제거된 시맨틱 카드(~150-1,000 토큰)로 압축 가공하여 $0.00 가성비와 검증 정밀도를 극대화합니다.
+3. **표준 호출 도구**:
+   - MCP 환경: `conduct_4pillar_factcheck`
+   - Python 환경: `trend_rag_sdk.FactcheckEngine` 또는 `TrendRAGClient.verify_claim_4pillar()`
+4. **검증 완료 후 정본 DB 즉시 동기화**:
+   - 검증 완료 즉시 `tools/upsert_factcheck_db.py`를 실행하여 `case_id`를 부여받고 정본 DB에 적재 완료해야 합니다.
+
