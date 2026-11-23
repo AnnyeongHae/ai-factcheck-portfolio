@@ -167,7 +167,7 @@ def apply_enriched_batch(in_path="data/agent_inbox_enriched.json", model_name="a
             continue
         
         # Load existing payload from DB to avoid overwriting metadata
-        cur.execute("SELECT raw_payload, inbox_id FROM raw_trends_inbox WHERE id = %s;", (db_id,))
+        cur.execute("SELECT t.raw_payload, t.inbox_id FROM raw_trends_inbox t WHERE t.id = %s;", (db_id,))
         row = cur.fetchone()
         if not row:
             continue

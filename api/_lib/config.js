@@ -78,23 +78,28 @@ function getDbProviderInfo(rawUrl = DATABASE_URL) {
     const parsed = new URL(rawUrl);
     const host = parsed.hostname || '';
     let provider = 'PostgreSQL';
+    let maskedHost = '***.cloud-db.internal';
 
     if (host.includes('aivencloud.com')) {
       provider = 'Aiven PostgreSQL';
+      maskedHost = '***.aivencloud.com';
     } else if (host.includes('neon.tech')) {
       provider = 'Neon PostgreSQL';
+      maskedHost = '***.neon.tech';
     } else if (host.includes('supabase.co')) {
       provider = 'Supabase PostgreSQL';
+      maskedHost = '***.supabase.co';
     } else if (host === 'localhost' || host === '127.0.0.1') {
       provider = 'Local PostgreSQL';
+      maskedHost = 'localhost';
     }
 
     return {
       provider,
-      host,
-      port: parsed.port || '5432',
-      database: parsed.pathname ? parsed.pathname.replace(/^\//, '') : '',
-      user: parsed.username || ''
+      host: maskedHost,
+      port: '5432',
+      database: '***',
+      user: '***'
     };
   } catch (err) {
     return {

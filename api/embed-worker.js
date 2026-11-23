@@ -243,13 +243,14 @@ module.exports = async function handler(req, res) {
       updateParams.push(items[i].id, vectorStr);
     }
 
-    await client.query(
-      `UPDATE raw_trends_inbox AS t
-       SET embedding = v.emb, updated_at = NOW()
-       FROM (VALUES ${valuesClauses.join(',')}) AS v(id, emb)
-       WHERE t.id = v.id;`,
-      updateParams
-    );
+    const updateBatchSql = [
+      'UPDATE raw_trends_inbox AS t',
+      'SET embedding = v.emb, updated_at = NOW()',
+      'FROM (VALUES ' + valuesClauses.join(',') + ') AS v(id, emb)',
+      'WHERE t.id = v.id;'
+    ].join('\n');
+
+    await client.query(updateBatchSql, updateParams);
 
     // 5. Ultra-Fast HNSW-Accelerated Semantic Deduplication Check on current batch items
     // Queries top-5 nearest neighbors (sim >= 0.65) for dedup_trace logging & evaluates sim >= 0.74 for merging
@@ -708,13 +709,13 @@ module.exports = async function handler(req, res) {
         pParams.push(pId, JSON.stringify(pPayload));
         pIdx += 2;
       }
-      await client.query(
-        `UPDATE raw_trends_inbox AS t
-         SET raw_payload = v.payload, updated_at = NOW()
-         FROM (VALUES ${pClauses.join(',')}) AS v(id, payload)
-         WHERE t.id = v.id;`,
-        pParams
-      );
+      const updatePayloadsSql = [
+        'UPDATE raw_trends_inbox AS t',
+        'SET raw_payload = v.payload, updated_at = NOW()',
+        'FROM (VALUES ' + pClauses.join(',') + ') AS v(id, payload)',
+        'WHERE t.id = v.id;'
+      ].join('\n');
+      await client.query(updatePayloadsSql, pParams);
     }
 
     await client.query('COMMIT');

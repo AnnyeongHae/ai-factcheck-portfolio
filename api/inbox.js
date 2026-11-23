@@ -427,7 +427,8 @@ module.exports = async (req, res) => {
     const [result, histRes] = await Promise.all(queries);
     let total = result.rows.length > 0 ? (parseInt(result.rows[0].full_count, 10) || 0) : 0;
     if (result.rows.length === 0 && offset > 0) {
-      const countRes = await pool.query(`SELECT COUNT(id) AS total_count FROM raw_trends_inbox ${whereClause};`, countParams);
+      const countSql = 'SELECT COUNT(id) AS total_count FROM raw_trends_inbox ' + whereClause + ';';
+      const countRes = await pool.query(countSql, countParams);
       total = parseInt(countRes.rows[0]?.total_count, 10) || 0;
     }
 

@@ -6,9 +6,16 @@ const ALLOWED_ADMIN_EMAILS = [
   'restrict357@gmail.com'
 ];
 
-const JWT_SECRET = process.env.ADMIN_QUEUE_SECRET || process.env.CRON_SECRET || 'ai-factcheck-secret-admin-key-2026';
+function getJwtSecret() {
+  const secret = process.env.ADMIN_QUEUE_SECRET || process.env.CRON_SECRET;
+  if (!secret) {
+    throw new Error('CRITICAL: JWT_SECRET (ADMIN_QUEUE_SECRET or CRON_SECRET) is missing in environment variables!');
+  }
+  return secret;
+}
 
 function generateAdminSessionToken(email) {
+  const secret = getJwtSecret();
   const header = Buffer.from(JSON.stringify({ alg: 'HS256', typ: 'JWT' })).toString('base64url');
   const payload = Buffer.from(JSON.stringify({
     email,
@@ -16,7 +23,7 @@ function generateAdminSessionToken(email) {
     iat: Math.floor(Date.now() / 1000),
     exp: Math.floor(Date.now() / 1000) + (7 * 24 * 60 * 60) // 7 days validity
   })).toString('base64url');
-  const signature = crypto.createHmac('sha256', JWT_SECRET).update(`${header}.${payload}`).digest('base64url');
+  const signature = crypto.createHmac('sha256', secret).update(`${header}.${payload}`).digest('base64url');
   return `${header}.${payload}.${signature}`;
 }
 
@@ -24,8 +31,10 @@ function verifyAdminSessionToken(token) {
   if (!token || typeof token !== 'string') return null;
   const parts = token.split('.');
   if (parts.length !== 3) return null;
+  const secret = process.env.ADMIN_QUEUE_SECRET || process.env.CRON_SECRET;
+  if (!secret) return null; // Fail-closed: cannot verify tokens without active environment secret
   const [header, payload, signature] = parts;
-  const expectedSig = crypto.createHmac('sha256', JWT_SECRET).update(`${header}.${payload}`).digest('base64url');
+  const expectedSig = crypto.createHmac('sha256', secret).update(`${header}.${payload}`).digest('base64url');
   if (signature !== expectedSig) return null;
   try {
     const data = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8'));

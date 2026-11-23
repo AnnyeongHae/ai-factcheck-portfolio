@@ -9,7 +9,6 @@ import { APP_CONFIG } from './config.js';
 import { showToast } from '../components/toast.js';
 
 export const GOOGLE_CLIENT_ID = '62067487846-a43fhnnnk6teqfdi99vrkiknfato8fk0.apps.googleusercontent.com';
-export const ALLOWED_ADMIN_EMAILS = ['andrew4may@gmail.com', 'restrict357@gmail.com'];
 
 let _gsiInitialized = false;
 
@@ -145,7 +144,7 @@ export async function submitAdminMasterKey(key) {
   try {
     // Check key against worker / auth
     sessionStorage.setItem('admin_token', trimmed);
-    sessionStorage.setItem('admin_user', JSON.stringify({ email: ALLOWED_ADMIN_EMAIL, name: 'Master Admin' }));
+    sessionStorage.setItem('admin_user', JSON.stringify({ email: 'admin@factcheck.internal', name: 'Master Admin' }));
 
     closeAdminLoginModal();
     updateAdminAuthUI();
@@ -194,7 +193,7 @@ export function updateAdminAuthUI() {
     if (isAuth && user) {
       banner.classList.remove('hidden');
       const emailEl = document.getElementById('inboxAdminEmail');
-      if (emailEl) emailEl.textContent = user.email || ALLOWED_ADMIN_EMAIL;
+      if (emailEl) emailEl.textContent = user.email || 'Master Admin';
     } else {
       banner.classList.add('hidden');
     }

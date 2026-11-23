@@ -303,7 +303,7 @@ def apply_enriched_items(conn, enriched_list: list, model_name: str = "antigravi
         if not db_id:
             continue
 
-        cur.execute("SELECT raw_payload, inbox_id FROM raw_trends_inbox WHERE id = %s;", (db_id,))
+        cur.execute("SELECT t.raw_payload, t.inbox_id FROM raw_trends_inbox t WHERE t.id = %s;", (db_id,))
         row = cur.fetchone()
         if not row:
             continue

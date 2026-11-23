@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-11-22T09:10:46.734Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-11-23T17:00:29.676Z */
 
 (() => {
   // src/js/core/config.js
@@ -2410,7 +2410,6 @@
 
   // src/js/core/auth.js
   var GOOGLE_CLIENT_ID = "62067487846-a43fhnnnk6teqfdi99vrkiknfato8fk0.apps.googleusercontent.com";
-  var ALLOWED_ADMIN_EMAILS = ["andrew4may@gmail.com", "restrict357@gmail.com"];
   var _gsiInitialized = false;
   function isAdminAuthenticated() {
     if (typeof sessionStorage === "undefined") return false;
@@ -2520,7 +2519,7 @@
     showAdminAuthLoading(true);
     try {
       sessionStorage.setItem("admin_token", trimmed);
-      sessionStorage.setItem("admin_user", JSON.stringify({ email: ALLOWED_ADMIN_EMAIL, name: "Master Admin" }));
+      sessionStorage.setItem("admin_user", JSON.stringify({ email: "admin@factcheck.internal", name: "Master Admin" }));
       closeAdminLoginModal();
       updateAdminAuthUI();
       showToast("\uB9C8\uC2A4\uD130 \uD0A4\uB85C \uAD00\uB9AC\uC790 \uBAA8\uB4DC\uAC00 \uD65C\uC131\uD654\uB418\uC5C8\uC2B5\uB2C8\uB2E4.");
@@ -2559,7 +2558,7 @@
       if (isAuth && user) {
         banner.classList.remove("hidden");
         const emailEl = document.getElementById("inboxAdminEmail");
-        if (emailEl) emailEl.textContent = user.email || ALLOWED_ADMIN_EMAIL;
+        if (emailEl) emailEl.textContent = user.email || "Master Admin";
       } else {
         banner.classList.add("hidden");
       }
@@ -6861,7 +6860,6 @@
     window.runSystemVerificationAgent = runSystemVerificationAgent;
     window.showVerificationReportModal = showVerificationReportModal;
     window.GOOGLE_CLIENT_ID = GOOGLE_CLIENT_ID;
-    window.ALLOWED_ADMIN_EMAILS = ALLOWED_ADMIN_EMAILS;
     window.isAdminAuthenticated = isAdminAuthenticated;
     window.getAdminUser = getAdminUser;
     window.openAdminLoginModal = openAdminLoginModal;
