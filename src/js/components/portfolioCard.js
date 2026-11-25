@@ -212,7 +212,7 @@ export function renderCards() {
         <div class="flex items-center justify-between text-indigo-700 text-[11px] font-semibold gap-2">
           <span title="${lang === 'KO' ? '심층 기술 분석일' : (lang === 'ZH' ? '深度分析日' : 'Audit Date')}" class="flex items-center gap-1.5 min-w-0 overflow-hidden">
             <span class="shrink-0">🔬 ${invDate}</span>
-            <span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${c.curation?.audited_by_model || c.audited_by_model || 'gemini-3.8-flash-medium'}">(${formatModelAttribution(c.curation?.audited_by_model || c.audited_by_model || 'gemini-3.8-flash-medium')})</span>
+            ${(c.curation?.audited_by_model || c.audited_by_model) ? `<span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${c.curation?.audited_by_model || c.audited_by_model}">(${formatModelAttribution(c.curation?.audited_by_model || c.audited_by_model)})</span>` : ''}
           </span>
           <span class="text-ink-muted font-normal shrink-0">${(c.sources || []).length}${t.cardSourcesLabel}</span>
         </div>

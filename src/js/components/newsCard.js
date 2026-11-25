@@ -265,7 +265,7 @@ export function renderCardStandardFooter(it, lang = currentLang, extraActionHtml
     auditHtml = `
       <div class="text-[10.5px] text-indigo-700 font-semibold flex items-center gap-1 min-w-0 overflow-hidden">
         <span class="shrink-0">🔬 ${formatDateTimeShort(ai.enriched_at)}</span>
-        <span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${ai.enriched_by_model || ''}">(${formatModelAttribution(ai.enriched_by_model)})</span>
+        ${ai.enriched_by_model ? `<span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${ai.enriched_by_model}">(${formatModelAttribution(ai.enriched_by_model)})</span>` : ''}
       </div>
     `;
   }
@@ -279,7 +279,7 @@ export function renderCardStandardFooter(it, lang = currentLang, extraActionHtml
   const hrvShortLabel = lang === 'KO' ? '포착:' : (lang === 'ZH' ? '捕获' : 'Spotted');
   const updShortLabel = lang === 'KO' ? '갱신' : (lang === 'ZH' ? '更新' : 'Updated');
   const srcStandardLabel = lang === 'KO' ? '원문 보기' : (lang === 'ZH' ? '查看原文' : 'View Source');
-  const modelTag = ai?.enriched_by_model ? formatModelAttribution(ai.enriched_by_model) : CANONICAL_MODEL.display;
+  const modelTag = ai?.enriched_by_model ? formatModelAttribution(ai.enriched_by_model) : '';
 
   return `
     <div class="mt-3.5 pt-2.5 border-t border-stone-200 space-y-2 text-[11px] font-mono text-stone-500">
@@ -292,7 +292,7 @@ export function renderCardStandardFooter(it, lang = currentLang, extraActionHtml
             <span>${updShortLabel} ${updDate}</span>
           </span>
         ` : ''}
-        <span class="text-stone-400 font-normal shrink-0">(🤖 ${modelTag})</span>
+        ${modelTag ? `<span class="text-stone-400 font-normal shrink-0">(🤖 ${modelTag})</span>` : ''}
       </div>
       <!-- Row 2: Action Buttons (Right-aligned without duplicate '원문 보기') -->
       ${extraActionHtml ? `

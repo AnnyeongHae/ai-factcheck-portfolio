@@ -28,21 +28,30 @@ def get_enrichment_config():
     # Safe default fallback
     _CACHED_CONFIG = {
         "canonical_engine": {
-            "model_id": "gemini-3.8-flash",
-            "full_model_tag": "google/gemini-3.8-flash",
-            "display_name": "gemini-3.8-flash"
+            "model_id": os.getenv("ENRICH_MODEL") or os.getenv("ACTIVE_AI_MODEL") or "in-session-agent",
+            "full_model_tag": os.getenv("ENRICH_MODEL") or os.getenv("ACTIVE_AI_MODEL") or "in-session-agent",
+            "display_name": os.getenv("ENRICH_MODEL") or os.getenv("ACTIVE_AI_MODEL") or "in-session-agent"
         }
     }
     return _CACHED_CONFIG
 
 def get_canonical_model_id():
+    env_model = os.getenv("ENRICH_MODEL") or os.getenv("ACTIVE_AI_MODEL")
+    if env_model:
+        return env_model
     cfg = get_enrichment_config()
-    return cfg.get("canonical_engine", {}).get("model_id", "gemini-3.8-flash")
+    return cfg.get("canonical_engine", {}).get("model_id", "in-session-agent")
 
 def get_canonical_model_tag():
+    env_model = os.getenv("ENRICH_MODEL") or os.getenv("ACTIVE_AI_MODEL")
+    if env_model:
+        return env_model
     cfg = get_enrichment_config()
-    return cfg.get("canonical_engine", {}).get("full_model_tag", "google/gemini-3.8-flash")
+    return cfg.get("canonical_engine", {}).get("full_model_tag", "in-session-agent")
 
 def get_canonical_display_name():
+    env_model = os.getenv("ENRICH_MODEL") or os.getenv("ACTIVE_AI_MODEL")
+    if env_model:
+        return env_model
     cfg = get_enrichment_config()
-    return cfg.get("canonical_engine", {}).get("display_name", "gemini-3.8-flash")
+    return cfg.get("canonical_engine", {}).get("display_name", "in-session-agent")

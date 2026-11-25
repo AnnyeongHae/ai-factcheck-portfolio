@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-11-25T04:34:31.390Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-11-25T04:47:26.141Z */
 
 (() => {
   // src/js/core/config.js
@@ -321,9 +321,9 @@
 
   // src/js/core/canonicalModel.js
   var CANONICAL_MODEL = Object.freeze({
-    id: "gemini-3.8-flash",
-    tag: "google/gemini-3.8-flash",
-    display: "gemini-3.8-flash"
+    id: "",
+    tag: "",
+    display: ""
   });
 
   // src/js/utils/dateTime.js
@@ -3881,7 +3881,7 @@
       auditHtml = `
       <div class="text-[10.5px] text-indigo-700 font-semibold flex items-center gap-1 min-w-0 overflow-hidden">
         <span class="shrink-0">\u{1F52C} ${formatDateTimeShort(ai.enriched_at)}</span>
-        <span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${ai.enriched_by_model || ""}">(${formatModelAttribution(ai.enriched_by_model)})</span>
+        ${ai.enriched_by_model ? `<span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${ai.enriched_by_model}">(${formatModelAttribution(ai.enriched_by_model)})</span>` : ""}
       </div>
     `;
     }
@@ -3893,7 +3893,7 @@
     const hrvShortLabel = lang === "KO" ? "\uD3EC\uCC29:" : lang === "ZH" ? "\u6355\u83B7" : "Spotted";
     const updShortLabel = lang === "KO" ? "\uAC31\uC2E0" : lang === "ZH" ? "\u66F4\u65B0" : "Updated";
     const srcStandardLabel = lang === "KO" ? "\uC6D0\uBB38 \uBCF4\uAE30" : lang === "ZH" ? "\u67E5\u770B\u539F\u6587" : "View Source";
-    const modelTag = ai?.enriched_by_model ? formatModelAttribution(ai.enriched_by_model) : CANONICAL_MODEL.display;
+    const modelTag = ai?.enriched_by_model ? formatModelAttribution(ai.enriched_by_model) : "";
     return `
     <div class="mt-3.5 pt-2.5 border-t border-stone-200 space-y-2 text-[11px] font-mono text-stone-500">
       <!-- Row 1: Spotted, Pulse Update Badge, AI Model -->
@@ -3905,7 +3905,7 @@
             <span>${updShortLabel} ${updDate}</span>
           </span>
         ` : ""}
-        <span class="text-stone-400 font-normal shrink-0">(\u{1F916} ${modelTag})</span>
+        ${modelTag ? `<span class="text-stone-400 font-normal shrink-0">(\u{1F916} ${modelTag})</span>` : ""}
       </div>
       <!-- Row 2: Action Buttons (Right-aligned without duplicate '\uC6D0\uBB38 \uBCF4\uAE30') -->
       ${extraActionHtml ? `
@@ -4297,7 +4297,7 @@
         <div class="flex items-center justify-between text-indigo-700 text-[11px] font-semibold gap-2">
           <span title="${lang === "KO" ? "\uC2EC\uCE35 \uAE30\uC220 \uBD84\uC11D\uC77C" : lang === "ZH" ? "\u6DF1\u5EA6\u5206\u6790\u65E5" : "Audit Date"}" class="flex items-center gap-1.5 min-w-0 overflow-hidden">
             <span class="shrink-0">\u{1F52C} ${invDate}</span>
-            <span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${c.curation?.audited_by_model || c.audited_by_model || "gemini-3.8-flash-medium"}">(${formatModelAttribution(c.curation?.audited_by_model || c.audited_by_model || "gemini-3.8-flash-medium")})</span>
+            ${c.curation?.audited_by_model || c.audited_by_model ? `<span class="text-ink-muted font-normal truncate min-w-0 align-bottom cursor-help" title="${c.curation?.audited_by_model || c.audited_by_model}">(${formatModelAttribution(c.curation?.audited_by_model || c.audited_by_model)})</span>` : ""}
           </span>
           <span class="text-ink-muted font-normal shrink-0">${(c.sources || []).length}${t.cardSourcesLabel}</span>
         </div>

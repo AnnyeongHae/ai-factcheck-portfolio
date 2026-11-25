@@ -526,12 +526,12 @@ module.exports = async (req, res) => {
           score: p.ai_enrichment.score || 0,
           worth_score: p.ai_enrichment.worth_score || 0,
           enriched_at: p.ai_enrichment.enriched_at || r.updated_at || r.harvested_date,
-          enriched_by_model: p.ai_enrichment.enriched_by_model || 'inclusionai/ling-3.0-flash-sante:free'
+          enriched_by_model: p.ai_enrichment.enriched_by_model || ''
         };
       } else if (keyTakeaways.length > 0) {
         aiEnrichment = {
           enriched_at: r.updated_at || r.harvested_date,
-          enriched_by_model: 'inclusionai/ling-3.0-flash-sante:free'
+          enriched_by_model: ''
         };
       }
 
