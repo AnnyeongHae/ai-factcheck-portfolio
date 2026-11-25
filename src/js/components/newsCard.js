@@ -166,11 +166,11 @@ export function renderRelatedDossierButton(rel, lang = currentLang) {
   `;
 }
 
-export function renderCommentsAccordion(rawComments, lang = currentLang, threadUrl = null) {
+export function renderCommentsAccordion(rawComments, lang = currentLang, threadUrl = null, totalCommentsCount = null) {
   if (!Array.isArray(rawComments) || rawComments.length === 0) return '';
   const sorted = rawComments.slice().sort((a, b) => (b.points || 0) - (a.points || 0));
   const top3 = sorted.slice(0, 3);
-  const topCount = rawComments.length;
+  const topCount = Math.max(Number(totalCommentsCount) || 0, rawComments.length);
   const sanitizeTxt = str => String(str || '').replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
   
   const commentsListHtml = top3.map(cm => `
@@ -365,7 +365,7 @@ export function createNewsCardElement(it, currentLang) {
   let aiSummaryHtml = '';
   const hookHtml = renderHookCallout(displayHook, currentLang);
   const relatedHtml = renderRelatedDossierButton(it.related_dossier, currentLang);
-  const commentsHtml = renderCommentsAccordion(it.raw_comments, currentLang, hnUrl || it.source_url);
+  const commentsHtml = renderCommentsAccordion(it.raw_comments, currentLang, hnUrl || it.source_url, it.raw_comments_total);
 
   const tier1Map = {
     'SCIENCE_RESEARCH': { label: currentLang === 'KO' ? '🚀 과학·우주' : (currentLang === 'ZH' ? '🚀 科学与航天' : '🚀 Science & Research'), cls: 'bg-teal-50 text-teal-900 border-teal-200' },

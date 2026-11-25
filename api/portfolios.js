@@ -71,7 +71,8 @@ module.exports = async (req, res) => {
   const summaryOnly = queryParams.summary === 'true' || queryParams.summary === '1';
 
   try {
-    // 1. Build Factchecks Query (with SQL-level pagination when limit > 0)
+    // 1. Build Factchecks Query (with SQL-level column projection when summary=true)
+    const isLightSummary = summaryOnly && !caseIdParam;
     let sql = 
       "SELECT " +
         "COUNT(*) OVER() AS full_count, " +
@@ -91,12 +92,10 @@ module.exports = async (req, res) => {
         "vf.hands_on_pipeline, " +
         "vf.hands_on_env, " +
         "vf.hands_on_metrics, " +
-        "vf.hands_on_details, " +
-        "vf.the_hook, " +
-        "vf.marketing_hype_anatomy, " +
-        "vf.engineering_takeaways, " +
-        "vf.future_applications, " +
-        "vf.sources " +
+        "vf.the_hook" +
+        (isLightSummary
+          ? " "
+          : ", vf.hands_on_details, vf.marketing_hype_anatomy, vf.engineering_takeaways, vf.future_applications, vf.sources ") +
       "FROM verified_factchecks vf ";
 
     const values = [];

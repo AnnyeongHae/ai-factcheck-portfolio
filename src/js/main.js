@@ -357,9 +357,8 @@ if (typeof document !== 'undefined') {
     setInterval(updateCronCountdown, 1000);
     updateCronCountdown();
 
-    // Initial check of Voyage embedding & AI summary status
+    // Initial check of Voyage embedding status (AI summary count already hydrated by bootstrap /api/stats)
     setTimeout(checkVoyageEmbeddingStatus, 800);
-    setTimeout(checkAiEnrichStatus, 800);
 
     // Initial check and hydration of Admin Auth state
     updateAdminAuthUI();

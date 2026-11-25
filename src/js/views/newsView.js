@@ -524,14 +524,14 @@ export function setNewsSourceFilter(src) {
 export async function renderNews() {
   const grid = document.getElementById('newsGrid');
   if (!grid) return;
-  if (spikeDatesCatalog.length === 0) {
-    loadCrossSpikeDatesList();
-  }
   const curLang = window.currentLang || currentLang || 'KO';
   const curPage = window.currentNewsPage || currentNewsPage || 1;
   const curT1 = window.currentNewsTier1 || currentNewsTier1 || 'ALL';
   const curT2 = window.currentNewsTier2 || currentNewsTier2 || 'ALL';
   const curFacet = window.currentNewsFacet || currentNewsFacet || 'ALL';
+  if (curFacet === 'CROSS_SPIKE' && spikeDatesCatalog.length === 0) {
+    loadCrossSpikeDatesList();
+  }
   const curSrc = window.currentNewsSource || currentNewsSource || 'ALL';
   const curSearch = window.currentNewsSearch || currentNewsSearch || '';
   const targetId = window.targetSelectedInboxId || targetSelectedInboxId || '';
@@ -699,43 +699,7 @@ if (typeof window !== 'undefined') {
   window.prefetchNewsPage = prefetchNewsPage;
   window.prefetchNewsFilter = prefetchNewsFilter;
 
-  // ⚡ Intelligent Filter Hover Prefetching (Smart Radar, Categories, IT Sub-tracks, Sources, Spike Dates)
-  if (!window._newsFilterHoverBound) {
-    window._newsFilterHoverBound = true;
-    document.addEventListener('mouseover', (e) => {
-      const facetBtn = e.target.closest('.news-facet-pill');
-      if (facetBtn) {
-        const f = facetBtn.getAttribute('data-facet');
-        if (f) prefetchNewsFilter({ facet: f, tier1: 'ALL', tier2: 'ALL' });
-        return;
-      }
-      const catBtn = e.target.closest('.news-cat-pill');
-      if (catBtn) {
-        const c = catBtn.getAttribute('data-cat');
-        if (c) prefetchNewsFilter({ tier1: c });
-        return;
-      }
-      const t2Btn = e.target.closest('.news-t2-pill');
-      if (t2Btn) {
-        const t = t2Btn.getAttribute('data-t2');
-        if (t) prefetchNewsFilter({ tier2: t });
-        return;
-      }
-      const srcBtn = e.target.closest('.news-src-btn');
-      if (srcBtn) {
-        const s = srcBtn.getAttribute('data-src');
-        if (s) prefetchNewsFilter({ source: s });
-        return;
-      }
-      const spkDateBtn = e.target.closest('#crossSpikeQuickDatePills button');
-      if (spkDateBtn) {
-        const dateMatch = spkDateBtn.getAttribute('onclick')?.match(/setCrossSpikeDate\('([^']+)'\)/);
-        if (dateMatch && dateMatch[1]) {
-          prefetchNewsFilter({ facet: 'CROSS_SPIKE', spikeDate: dateMatch[1] });
-        }
-      }
-    }, { passive: true });
-  }
+  // Prefetching on hover disabled to prevent race conditions and connection-pool saturation on filter clicks.
 
   if (!window._midScrollPrefetchBound) {
     window._midScrollPrefetchBound = true;
@@ -753,11 +717,9 @@ if (typeof window !== 'undefined') {
           if (activeView === 'news') {
             const p = Number(window.currentNewsPage || 1);
             prefetchNewsPage(p + 1);
-            prefetchNewsPage(p + 2);
           } else if (activeView === 'inbox' && typeof window.prefetchInboxPage === 'function') {
             const p = Number(window.currentInboxPage || 1);
             window.prefetchInboxPage(p + 1);
-            window.prefetchInboxPage(p + 2);
           }
         }
       });

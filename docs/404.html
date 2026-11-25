@@ -10,11 +10,12 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="alternate icon" href="favicon.svg">
   
-  <!-- Dedicated Native Fonts for Korean, Chinese, and English (High-Performance Variable Dynamic Subset) -->
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <!-- Dedicated Native Fonts for Korean and English (Non-blocking Variable Dynamic Subset) -->
+  <link rel="preload" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" /></noscript>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Compiled Production Stylesheet (PostCSS / Tailwind) -->
   <link rel="stylesheet" href="styles.css">
@@ -23,7 +24,7 @@
   <meta name="description" content="Universal AI Tech Intelligence & Empirical Fact-Check Hub with Aiven Cloud DB">
   <meta property="og:title" content="FactCheck Hub — Universal AI Tech Intelligence">
   <meta property="og:description" content="Autonomous empirical fact-checking, tech-lineage intelligence, and live AI radar observatory.">
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
   <!-- Google Identity Services (GIS) for Admin Authentication -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 

@@ -272,7 +272,7 @@ module.exports = async (req, res) => {
           conditions.push(`id IN (SELECT item_id FROM cross_viral_daily_rankings WHERE ranking_date = $${params.length}::date)`);
         } else {
           conditions.push(`(
-            (raw_payload->>'is_cross_spiking' = 'true' OR (CASE WHEN jsonb_typeof(raw_payload->'sources') = 'array' THEN jsonb_array_length(raw_payload->'sources') ELSE 0 END > 1))
+            (live_spike_score >= 0.3 OR raw_payload->>'is_cross_spiking' = 'true')
             AND created_at >= (NOW() - INTERVAL '7 days')
             AND (
               raw_payload->'spike_analysis' IS NULL
@@ -482,6 +482,9 @@ module.exports = async (req, res) => {
       if (typeof desc === 'string') {
         desc = desc.replace(/^HN\s*Score:\s*\d+\s*pts\s*(\|\s*Comments:\s*\d+\s*)?(\|\s*)?/i, '');
         desc = desc.replace(/^Abstract:\s*/i, '').trim();
+        if (desc.length > 320) {
+          desc = desc.slice(0, 317).trim() + '...';
+        }
       }
 
       const multi = p.multilingual || p.ai_enrichment?.multilingual || null;
@@ -509,11 +512,12 @@ module.exports = async (req, res) => {
         }
       }
 
+      const topHookKo = p.hook_ko || p.hook || '';
       let aiEnrichment = null;
       if (p.ai_enrichment) {
         aiEnrichment = {
           id: p.ai_enrichment.id || r.inbox_id,
-          hook: p.ai_enrichment.hook_ko || p.ai_enrichment.hook || p.hook_ko || p.hook || '',
+          hook: topHookKo ? '' : (p.ai_enrichment.hook_ko || p.ai_enrichment.hook || ''),
           source_lang: detectedLang,
           artifact_type: p.ai_enrichment.artifact_type || p.artifact_type || '',
           type_classification: p.ai_enrichment.type_classification || p.category_type || 'TECH',
@@ -521,15 +525,11 @@ module.exports = async (req, res) => {
           recommended_tag: p.ai_enrichment.recommended_tag || '',
           score: p.ai_enrichment.score || 0,
           worth_score: p.ai_enrichment.worth_score || 0,
-          key_takeaways: keyTakeaways,
-          summary_ko: p.ai_enrichment.summary_ko || '',
           enriched_at: p.ai_enrichment.enriched_at || r.updated_at || r.harvested_date,
           enriched_by_model: p.ai_enrichment.enriched_by_model || 'inclusionai/ling-3.0-flash-sante:free'
         };
       } else if (keyTakeaways.length > 0) {
         aiEnrichment = {
-          key_takeaways: keyTakeaways,
-          summary_ko: '',
           enriched_at: r.updated_at || r.harvested_date,
           enriched_by_model: 'inclusionai/ling-3.0-flash-sante:free'
         };
@@ -643,6 +643,27 @@ module.exports = async (req, res) => {
         };
       }
 
+      const slimSources = Array.isArray(p.sources)
+        ? p.sources.map(s => ({
+            platform: s?.platform || s?.source_name || '',
+            source_name: s?.source_name || s?.platform || '',
+            url: s?.url || s?.source_url || '',
+            title: s?.title ? String(s.title).slice(0, 140) : ''
+          }))
+        : [];
+
+      const rawCommentsAll = Array.isArray(p.raw_comments) ? p.raw_comments : [];
+      const rawCommentsTotal = rawCommentsAll.length;
+      const slimComments = rawCommentsAll
+        .slice()
+        .sort((a, b) => (Number(b?.points) || 0) - (Number(a?.points) || 0))
+        .slice(0, 3)
+        .map(cm => ({
+          author: cm?.author || 'User',
+          points: cm?.points || 0,
+          text: String(cm?.text || '').slice(0, 240)
+        }));
+
       return {
         id: r.id,
         inbox_id: r.inbox_id,
@@ -664,7 +685,7 @@ module.exports = async (req, res) => {
         is_model: p.is_model !== undefined ? p.is_model : (p.facet_type === 'MODEL'),
         model_family: p.model_family || '',
         artifact_type: p.artifact_type || '',
-        sources: p.sources || [],
+        sources: slimSources,
         cross_posts: p.cross_posts || [],
         is_cross_spiking: isCrossSpiking,
         spike_analysis: activeSpikeAnalysis,
@@ -693,7 +714,8 @@ module.exports = async (req, res) => {
         updated_at: r.updated_at,
         key_takeaways: keyTakeaways,
         ai_enrichment: aiEnrichment,
-        raw_comments: Array.isArray(p.raw_comments) ? p.raw_comments : [],
+        raw_comments: slimComments,
+        raw_comments_total: rawCommentsTotal,
         canonical_story_key: p.canonical_story_key || ''
       };
     });

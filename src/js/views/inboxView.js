@@ -239,7 +239,7 @@ export function createInboxCardElement(it, curLang) {
     ? it.raw_comments 
     : (Array.isArray(it.raw_payload?.raw_comments) ? it.raw_payload.raw_comments : []);
   
-  const commentsHtml = renderCommentsAccordion(rawComments, curLang, it.source_url);
+  const commentsHtml = renderCommentsAccordion(rawComments, curLang, it.source_url, it.raw_comments_total);
 
   const queueActionBtn = `
     <button onclick="toggleQueueItem('${it.inbox_id}', '${displayTitle.replace(/'/g, "")}')" 

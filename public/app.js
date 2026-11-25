@@ -1,4 +1,4 @@
-/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-11-23T17:00:29.676Z */
+/* AI Factcheck Hub - Modular Production Bundle (SSOT) | Built: 2026-11-25T04:34:31.390Z */
 
 (() => {
   // src/js/core/config.js
@@ -1427,7 +1427,7 @@
     })();
     const basePath = getBasePath();
     const staticDataUrl = (basePath ? basePath + "/" : "") + "data.json";
-    const staticPromise = (async () => {
+    const fetchStaticFallback = async () => {
       try {
         const res = await fetch(staticDataUrl, { cache: "default" });
         if (res.ok) return await res.json();
@@ -1439,13 +1439,16 @@
       } catch (e) {
       }
       return null;
-    })();
-    const [statsData, portfoliosResult, crossSpikeData, staticData] = await Promise.all([
+    };
+    const [statsData, portfoliosResult, crossSpikeData] = await Promise.all([
       statsPromise,
       portfoliosPromise,
-      crossSpikePromise,
-      staticPromise
+      crossSpikePromise
     ]);
+    let staticData = null;
+    if (!statsData || !portfoliosResult?.data?.portfolios || !crossSpikeData?.items) {
+      staticData = await fetchStaticFallback();
+    }
     const applyStaticData = (staticData2) => {
       if (!staticData2) return;
       if (!window.adminData || Object.keys(window.adminData).length === 0) window.adminData = staticData2.admin_stats || {};
@@ -3798,11 +3801,11 @@
     </div>
   `;
   }
-  function renderCommentsAccordion(rawComments, lang = currentLang, threadUrl = null) {
+  function renderCommentsAccordion(rawComments, lang = currentLang, threadUrl = null, totalCommentsCount = null) {
     if (!Array.isArray(rawComments) || rawComments.length === 0) return "";
     const sorted = rawComments.slice().sort((a, b) => (b.points || 0) - (a.points || 0));
     const top3 = sorted.slice(0, 3);
-    const topCount = rawComments.length;
+    const topCount = Math.max(Number(totalCommentsCount) || 0, rawComments.length);
     const sanitizeTxt = (str) => String(str || "").replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[m]);
     const commentsListHtml = top3.map((cm) => `
     <div class="pt-2 border-t border-indigo-100/70 text-[11px] leading-relaxed">
@@ -3969,7 +3972,7 @@
     let aiSummaryHtml = "";
     const hookHtml = renderHookCallout(displayHook, currentLang2);
     const relatedHtml = renderRelatedDossierButton(it.related_dossier, currentLang2);
-    const commentsHtml = renderCommentsAccordion(it.raw_comments, currentLang2, hnUrl || it.source_url);
+    const commentsHtml = renderCommentsAccordion(it.raw_comments, currentLang2, hnUrl || it.source_url, it.raw_comments_total);
     const tier1Map = {
       "SCIENCE_RESEARCH": { label: currentLang2 === "KO" ? "\u{1F680} \uACFC\uD559\xB7\uC6B0\uC8FC" : currentLang2 === "ZH" ? "\u{1F680} \u79D1\u5B66\u4E0E\u822A\u5929" : "\u{1F680} Science & Research", cls: "bg-teal-50 text-teal-900 border-teal-200" },
       "ECONOMY_FINANCE": { label: currentLang2 === "KO" ? "\u{1F3E6} \uACBD\uC81C\xB7\uAE08\uC735" : currentLang2 === "ZH" ? "\u{1F3E6} \u7ECF\u6D4E\u4E0E\u91D1\u878D" : "\u{1F3E6} Economy & Finance", cls: "bg-emerald-50 text-emerald-900 border-emerald-200" },
@@ -5757,14 +5760,14 @@
   async function renderNews() {
     const grid = document.getElementById("newsGrid");
     if (!grid) return;
-    if (spikeDatesCatalog.length === 0) {
-      loadCrossSpikeDatesList();
-    }
     const curLang = window.currentLang || currentLang || "KO";
     const curPage = window.currentNewsPage || currentNewsPage || 1;
     const curT1 = window.currentNewsTier1 || currentNewsTier1 || "ALL";
     const curT2 = window.currentNewsTier2 || currentNewsTier2 || "ALL";
     const curFacet = window.currentNewsFacet || currentNewsFacet || "ALL";
+    if (curFacet === "CROSS_SPIKE" && spikeDatesCatalog.length === 0) {
+      loadCrossSpikeDatesList();
+    }
     const curSrc = window.currentNewsSource || currentNewsSource || "ALL";
     const curSearch = window.currentNewsSearch || currentNewsSearch || "";
     const targetId = window.targetSelectedInboxId || targetSelectedInboxId || "";
@@ -5914,42 +5917,6 @@
     window.updateCrossSpikeTimeMachineUI = updateCrossSpikeTimeMachineUI;
     window.prefetchNewsPage = prefetchNewsPage;
     window.prefetchNewsFilter = prefetchNewsFilter;
-    if (!window._newsFilterHoverBound) {
-      window._newsFilterHoverBound = true;
-      document.addEventListener("mouseover", (e) => {
-        const facetBtn = e.target.closest(".news-facet-pill");
-        if (facetBtn) {
-          const f = facetBtn.getAttribute("data-facet");
-          if (f) prefetchNewsFilter({ facet: f, tier1: "ALL", tier2: "ALL" });
-          return;
-        }
-        const catBtn = e.target.closest(".news-cat-pill");
-        if (catBtn) {
-          const c = catBtn.getAttribute("data-cat");
-          if (c) prefetchNewsFilter({ tier1: c });
-          return;
-        }
-        const t2Btn = e.target.closest(".news-t2-pill");
-        if (t2Btn) {
-          const t = t2Btn.getAttribute("data-t2");
-          if (t) prefetchNewsFilter({ tier2: t });
-          return;
-        }
-        const srcBtn = e.target.closest(".news-src-btn");
-        if (srcBtn) {
-          const s = srcBtn.getAttribute("data-src");
-          if (s) prefetchNewsFilter({ source: s });
-          return;
-        }
-        const spkDateBtn = e.target.closest("#crossSpikeQuickDatePills button");
-        if (spkDateBtn) {
-          const dateMatch = spkDateBtn.getAttribute("onclick")?.match(/setCrossSpikeDate\('([^']+)'\)/);
-          if (dateMatch && dateMatch[1]) {
-            prefetchNewsFilter({ facet: "CROSS_SPIKE", spikeDate: dateMatch[1] });
-          }
-        }
-      }, { passive: true });
-    }
     if (!window._midScrollPrefetchBound) {
       window._midScrollPrefetchBound = true;
       let scrollTick = false;
@@ -5966,11 +5933,9 @@
             if (activeView === "news") {
               const p = Number(window.currentNewsPage || 1);
               prefetchNewsPage(p + 1);
-              prefetchNewsPage(p + 2);
             } else if (activeView === "inbox" && typeof window.prefetchInboxPage === "function") {
               const p = Number(window.currentInboxPage || 1);
               window.prefetchInboxPage(p + 1);
-              window.prefetchInboxPage(p + 2);
             }
           }
         });
@@ -6318,7 +6283,7 @@
     const aiSummaryHtml = "";
     const relatedHtml = renderRelatedDossierButton(it.related_dossier, curLang);
     const rawComments = Array.isArray(it.raw_comments) ? it.raw_comments : Array.isArray(it.raw_payload?.raw_comments) ? it.raw_payload.raw_comments : [];
-    const commentsHtml = renderCommentsAccordion(rawComments, curLang, it.source_url);
+    const commentsHtml = renderCommentsAccordion(rawComments, curLang, it.source_url, it.raw_comments_total);
     const queueActionBtn = `
     <button onclick="toggleQueueItem('${it.inbox_id}', '${displayTitle.replace(/'/g, "")}')" 
             class="px-2.5 py-1 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${isQueued ? "bg-emerald-700 text-white font-black" : "bg-surface-subtle text-ink-primary hover:bg-ink-primary hover:text-white border border-surface-border"}">
@@ -6915,7 +6880,6 @@
       setInterval(updateCronCountdown, 1e3);
       updateCronCountdown();
       setTimeout(checkVoyageEmbeddingStatus, 800);
-      setTimeout(checkAiEnrichStatus, 800);
       updateAdminAuthUI();
       window.__APP_INITIALIZED__ = true;
       console.log("[App] \u{1F680} Modular architecture hydrated and fully ready.");

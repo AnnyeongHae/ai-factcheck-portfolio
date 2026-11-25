@@ -2,6 +2,9 @@
 const { getDbPool, getDbProviderInfo } = require('./_lib/db');
 const { handleOptions, setCorsHeaders } = require('./_lib/cors');
 
+let statsApiCache = { timestamp: 0, data: null };
+const STATS_CACHE_TTL_MS = 60 * 1000;
+
 function getStaticStatsFallback() {
   try {
     let d = null;
@@ -72,11 +75,14 @@ function getStaticStatsFallback() {
 module.exports = async (req, res) => {
   if (handleOptions(req, res, 'GET, OPTIONS')) return;
   setCorsHeaders(res, 'GET, OPTIONS');
-  // 🌟 High-Performance Edge SWR Cache Headers (5m Freshness + 24h Background SWR + Cache-Buster Bypass)
-  if (req.query && (req.query._cb || req.query.nocache)) {
+  const bypassCache = Boolean(req.query && (req.query._cb || req.query.nocache));
+  if (bypassCache) {
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
   } else {
     res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=86400');
+    if (statsApiCache.data && (Date.now() - statsApiCache.timestamp) < STATS_CACHE_TTL_MS) {
+      return res.status(200).json(statsApiCache.data);
+    }
   }
 
   const pool = getDbPool();
@@ -98,14 +104,14 @@ module.exports = async (req, res) => {
   try {
     // ⚡ Execute all primary telemetry and aggregation queries in a single multi-statement network roundtrip
     const queries = [
-      'SELECT count(*) FROM raw_trends_inbox;',
-      'SELECT count(*) FROM verified_factchecks;',
       `SELECT 
+        COUNT(*) AS total_count,
         COUNT(CASE WHEN (item_type = 'MODEL' or source_platform ILIKE '%model%' or source_platform ILIKE '%hub%' or source_platform ILIKE '%space%') THEN 1 END) AS models_count,
         COUNT(CASE WHEN NOT (item_type = 'MODEL' or source_platform ILIKE '%model%' or source_platform ILIKE '%hub%' or source_platform ILIKE '%space%') THEN 1 END) AS news_count,
         COUNT(CASE WHEN is_classified = FALSE THEN 1 END) AS unclassified_count,
         MAX(harvested_date) AS max_date
       FROM raw_trends_inbox;`,
+      'SELECT count(*) FROM verified_factchecks;',
       `SELECT year_month, total_minutes, quota_limit_minutes, remaining_minutes, burn_rate_percent, alert_level, updated_at 
       FROM github_actions_monthly_usage 
       ORDER BY year_month DESC, updated_at DESC 
@@ -138,12 +144,12 @@ module.exports = async (req, res) => {
         AND created_at <  (date_trunc('day', CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Seoul') + interval '15 hours')
       GROUP BY 1;`,
       `SELECT 
-          floor(extract(hour from (NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz + interval '9 hours')) / 6) * 6 as slot_hour,
+          floor(extract(hour from (updated_at + interval '9 hours')) / 6) * 6 as slot_hour,
           count(*) as total_enriched
       FROM raw_trends_inbox
-      WHERE is_classified = true 
-        AND raw_payload->'ai_enrichment'->>'enriched_at' IS NOT NULL
-        AND (NULLIF(raw_payload->'ai_enrichment'->>'enriched_at', '')::timestamptz + interval '9 hours')::date = (CURRENT_TIMESTAMP + interval '9 hours')::date
+      WHERE is_classified = true
+        AND updated_at >= (date_trunc('day', CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Seoul') - interval '9 hours')
+        AND updated_at <  (date_trunc('day', CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Seoul') + interval '15 hours')
       GROUP BY 1;`,
       `SELECT COALESCE(raw_payload->>'tier1_category', 'TECH_COMPUTING') as cat, COUNT(*) as cnt
       FROM raw_trends_inbox
@@ -179,9 +185,8 @@ module.exports = async (req, res) => {
     }
 
     const [
-      cInboxRes,
-      cFactRes,
       cBreakdownRes,
+      cFactRes,
       qRes,
       rRes,
       telemRes,
@@ -193,9 +198,9 @@ module.exports = async (req, res) => {
       tier2Res
     ] = batchResults;
 
-    const totalInboxRaw = parseInt(cInboxRes.rows[0]?.count || 0, 10);
-    const totalFactchecks = parseInt(cFactRes.rows[0]?.count || 0, 10);
     const bRow = cBreakdownRes.rows[0] || {};
+    const totalInboxRaw = parseInt(bRow.total_count || 0, 10);
+    const totalFactchecks = parseInt(cFactRes.rows[0]?.count || 0, 10);
     const rawModels = parseInt(bRow.models_count || 0, 10);
     const rawNews = parseInt(bRow.news_count || (totalInboxRaw - rawModels), 10);
     const unclassifiedInbox = parseInt(bRow.unclassified_count || 0, 10);
@@ -386,7 +391,7 @@ module.exports = async (req, res) => {
       } catch (e) {}
     }
 
-    return res.status(200).json({
+    const responsePayload = {
       status: 'success',
       server_time: new Date().toISOString(),
       db_provider: providerInfo.provider,
@@ -413,7 +418,10 @@ module.exports = async (req, res) => {
       timeline_24h_live: timeline24hLive,
       timeline_24h_baseline: timeline24hBaseline,
       timeline_has_today: totalLiveCount > 0
-    });
+    };
+    statsApiCache = { timestamp: Date.now(), data: responsePayload };
+
+    return res.status(200).json(responsePayload);
 
   } catch (err) {
     console.error('[API Stats Error]:', err.message || err);

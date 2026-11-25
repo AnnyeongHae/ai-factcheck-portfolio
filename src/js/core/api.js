@@ -212,7 +212,7 @@ export async function bootstrapApplicationData() {
 
   const basePath = getBasePath();
   const staticDataUrl = (basePath ? basePath + '/' : '') + 'data.json';
-  const staticPromise = (async () => {
+  const fetchStaticFallback = async () => {
     try {
       const res = await fetch(staticDataUrl, { cache: 'default' });
       if (res.ok) return await res.json();
@@ -222,15 +222,19 @@ export async function bootstrapApplicationData() {
       if (resFallback.ok) return await resFallback.json();
     } catch (e) {}
     return null;
-  })();
+  };
 
-  // 1. Critical Path: Fast Edge CDN Live DB APIs & Baseline Datasets
-  const [statsData, portfoliosResult, crossSpikeData, staticData] = await Promise.all([
+  // 1. Critical Path: Fast Edge CDN Live DB APIs ONLY (do not block initial paint on 2.65MB data.json)
+  const [statsData, portfoliosResult, crossSpikeData] = await Promise.all([
     statsPromise,
     portfoliosPromise,
-    crossSpikePromise,
-    staticPromise
+    crossSpikePromise
   ]);
+
+  let staticData = null;
+  if (!statsData || !portfoliosResult?.data?.portfolios || !crossSpikeData?.items) {
+    staticData = await fetchStaticFallback();
+  }
 
   // 2. Hydrate feeds, timeline, and telemetry from static datasets asynchronously without blocking first paint
   const applyStaticData = (staticData) => {
