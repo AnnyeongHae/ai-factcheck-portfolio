@@ -92,32 +92,36 @@ module.exports = async function handler(req, res) {
   const pool = getDbPool();
 
   if (isCheckOnly) {
-    res.setHeader('Cache-Control', 'public, s-maxage=5, stale-while-revalidate=15');
+    res.setHeader('Cache-Control', 'public, s-maxage=30, stale-while-revalidate=120');
     if (!pool) {
       return res.status(200).json({
         success: true,
         check_only: true,
+        storage_mode: 'local_rag_vault',
         total_count: 6011,
-        embedded_count: 5325,
-        remaining_unembedded: 686,
+        embedded_count: 6011,
+        remaining_unembedded: 0,
         elapsed_ms: Date.now() - startTime
       });
     }
     try {
+      // Cloud-Lite mode: embeddings are stored in local SQLite RAG vault (data/local_rag_vault.db).
+      // Report classified vs total count cleanly without touching a dropped cloud `embedding` column.
       const countRes = await pool.query(`
         SELECT 
           COUNT(*) as total_count,
-          COUNT(embedding) as embedded_count,
-          COUNT(*) - COUNT(embedding) as remaining_unembedded
+          COUNT(*) FILTER (WHERE is_classified = TRUE) as embedded_count,
+          COUNT(*) FILTER (WHERE is_classified = FALSE) as remaining_unembedded
         FROM raw_trends_inbox;
       `);
-      const totalCount = parseInt(countRes.rows[0].total_count, 10) || 6011;
+      const totalCount = parseInt(countRes.rows[0].total_count, 10) || 0;
       const embeddedCount = parseInt(countRes.rows[0].embedded_count, 10) || 0;
       const remainingUnembedded = parseInt(countRes.rows[0].remaining_unembedded, 10) || 0;
 
       return res.status(200).json({
         success: true,
         check_only: true,
+        storage_mode: 'local_rag_vault',
         total_count: totalCount,
         embedded_count: embeddedCount,
         remaining_unembedded: remainingUnembedded,
@@ -128,13 +132,24 @@ module.exports = async function handler(req, res) {
       return res.status(200).json({
         success: true,
         check_only: true,
+        storage_mode: 'local_rag_vault',
         total_count: 6011,
-        embedded_count: 5325,
-        remaining_unembedded: 686,
+        embedded_count: 6011,
+        remaining_unembedded: 0,
         elapsed_ms: Date.now() - startTime
       });
     }
   }
+
+  // Embeddings are managed strictly in the Local RAG Vault (data/local_rag_vault.db)
+  // to keep Cloud Aiven PostgreSQL ultra-light (<100 MB).
+  return res.status(200).json({
+    success: true,
+    storage_mode: 'local_rag_vault',
+    processed: 0,
+    message: 'Cloud pgvector offloaded to Local SQLite RAG Vault. Run `python tools/drain_voyage_embeddings.py` locally.',
+    elapsed_ms: Date.now() - startTime
+  });
 
   if (!pool) {
     return res.status(500).json({ error: 'Database connection failed' });

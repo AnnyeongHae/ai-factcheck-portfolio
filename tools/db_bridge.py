@@ -191,7 +191,8 @@ def push_inbox_to_neon(full_sync=False):
                     updated_at_dt = datetime.datetime.now(datetime.timezone.utc)
 
                 # Strip full_text_raw from public raw_trends_inbox.raw_payload (Zero Public Exposure & Zero Egress Bloat)
-                # and store GZIP level-9 compressed bytes in private `raw_content_vault` SQL table
+                # Store GZIP level-9 compressed bytes in Cloud `raw_content_vault` (14-day rolling staging for GitHub Actions)
+                # AND locally in `data/local_rag_vault.db` when running on local machine.
                 full_text_raw = it.pop("full_text_raw", None) or it.get("description") or ""
                 if full_text_raw:
                     gz_bytes = gzip.compress(full_text_raw.encode("utf-8"), compresslevel=9)
@@ -205,6 +206,22 @@ def push_inbox_to_neon(full_sync=False):
                         len(gz_bytes),
                         created_at_dt
                     ))
+
+                # Slim raw_payload for Cloud-Lite serving (Korean-first + top 3 comments)
+                it.pop("multilingual", None)
+                it.pop("title_zh", None)
+                it.pop("hook_zh", None)
+                it.pop("dedup_trace", None)
+                if isinstance(it.get("raw_comments"), list) and len(it["raw_comments"]) > 3:
+                    it["raw_comments_total"] = len(it["raw_comments"])
+                    it["raw_comments"] = sorted(
+                        it["raw_comments"],
+                        key=lambda c: int(c.get("points") or 0) if isinstance(c, dict) else 0,
+                        reverse=True
+                    )[:3]
+                    for cm in it["raw_comments"]:
+                        if isinstance(cm, dict) and isinstance(cm.get("text"), str) and len(cm["text"]) > 240:
+                            cm["text"] = cm["text"][:240]
 
                 params_list.append((
                     inbox_id,
@@ -304,7 +321,22 @@ def push_inbox_to_neon(full_sync=False):
                     END;
             """
             psycopg2.extras.execute_values(cur, vault_sql, vault_list, page_size=100)
-            print(f"[+] [Private Vault] Stored {len(vault_list)} GZIP-compressed full-text items in raw_content_vault.")
+            print(f"[+] [Cloud Staging Vault] Stored {len(vault_list)} GZIP full-text items in Cloud raw_content_vault (14d rolling buffer).")
+
+    if vault_list and not os.environ.get("GITHUB_ACTIONS"):
+        try:
+            try:
+                from tools.local_vault import upsert_raw_content_rows
+            except ImportError:
+                from local_vault import upsert_raw_content_rows
+            local_rows = [
+                (r[0], r[1], r[2], r[3], bytes(r[4].adapted) if hasattr(r[4], "adapted") else bytes(r[4]), r[5], r[6], r[7].isoformat() if hasattr(r[7], "isoformat") else str(r[7]))
+                for r in vault_list
+            ]
+            stored_local = upsert_raw_content_rows(local_rows)
+            print(f"[+] [Local Vault] Mirrored {stored_local} GZIP full-text items into data/local_rag_vault.db.")
+        except Exception as ve:
+            print(f"[!] [Local Vault] Warning: could not mirror local raw content: {ve}")
 
     provider = get_db_info().get("provider", "Cloud DB")
     conn.commit()

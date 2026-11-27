@@ -194,7 +194,8 @@ class TrendRAGClient:
                category: Optional[str] = None, min_similarity: float = 0.35,
                sort_mode: str = "balanced") -> List[TrendItem]:
         """
-        2-Stage Hybrid Vector Search & Reranking over raw_trends_inbox.
+        2-Stage Hybrid Vector Search & Reranking over the Local SQLite RAG Vault
+        (`data/local_rag_vault.db`, <30ms NumPy cosine search, 0 Cloud DB load).
         
         sort_mode:
           - 'balanced' (default): 0.45*Sim + 0.25*HVD + 0.15*Stability + 0.15*Recency
@@ -203,63 +204,96 @@ class TrendRAGClient:
           - 'similarity': Pure cosine similarity ranking
         """
         q_vec = self.get_embedding(query, input_type="query")
+        candidate_limit = max(50, top_k * 6) if sort_mode != "similarity" else top_k
+
+        # Primary: Local SQLite + NumPy RAG Vault (Zero Cloud Disk / Zero Cloud Egress)
+        try:
+            workspace_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+            if workspace_root not in sys.path:
+                sys.path.insert(0, workspace_root)
+            from tools.local_vault import search_local_vectors, get_vault_path
+
+            if get_vault_path().exists():
+                raw_hits = search_local_vectors(
+                    query_vec=q_vec,
+                    top_k=candidate_limit,
+                    platform=platform,
+                    category=category,
+                    min_similarity=min_similarity,
+                )
+                candidates = []
+                for h in raw_hits:
+                    dt_val = None
+                    if h.get("created_at"):
+                        try:
+                            dt_val = datetime.fromisoformat(str(h["created_at"]).replace("Z", "+00:00"))
+                        except Exception:
+                            dt_val = None
+                    pseudo_payload = {
+                        "title_ko": h.get("title_ko", ""),
+                        "hook_ko": h.get("hook_ko", ""),
+                        "hook_en": h.get("hook_en", ""),
+                        "is_cross_spiking": h.get("is_cross_spiking", False),
+                        "viral_metric": h.get("viral_metric", ""),
+                    }
+                    item = TrendItem(
+                        item_id=h["id"],
+                        title=h["title"],
+                        platform=h["platform"],
+                        url=h["url"],
+                        description=h["description"],
+                        similarity=h["similarity"],
+                        category=h["category"],
+                        raw_payload=pseudo_payload,
+                        peak_score=h["peak_score"],
+                        live_score=h["live_score"],
+                        created_at=dt_val,
+                    )
+                    item.compute_composite_scores(mode=sort_mode)
+                    candidates.append(item)
+
+                if sort_mode != "similarity":
+                    candidates.sort(key=lambda x: x.hybrid_score, reverse=True)
+                return candidates[:top_k]
+        except Exception as local_err:
+            print(f"[TrendRAGClient] Local vault lookup note: {local_err}", file=sys.stderr)
+
+        # Fallback: Cloud DB keyword search if local vault is not initialized on this machine
         conn = self._get_connection()
         cur = conn.cursor()
-
-        conditions = ["embedding IS NOT NULL"]
-        params: List[Any] = [q_vec, q_vec]
-
+        conditions = ["(title ILIKE %s OR description ILIKE %s)"]
+        params: List[Any] = [f"%{query}%", f"%{query}%"]
         if platform:
             conditions.append("source_platform ILIKE %s")
             params.append(f"%{platform}%")
         if category:
             conditions.append("category_primary = %s")
             params.append(category)
-
-        where_clause = " AND ".join(conditions)
-        # Stage 1: Recall broad candidate pool (at least 50 or top_k*6)
-        candidate_limit = max(50, top_k * 6) if sort_mode != "similarity" else top_k
-        params.append(candidate_limit)
-
+        params.append(top_k)
         sql = f"""
-            SELECT id, title, source_platform, source_url, description, 
-                   1 - (embedding <=> %s::vector) AS similarity,
-                   category_primary, raw_payload, peak_spike_score, live_spike_score, created_at
+            SELECT id, title, source_platform, source_url, description,
+                   0.5 AS similarity, category_primary, raw_payload,
+                   peak_spike_score, live_spike_score, created_at
             FROM raw_trends_inbox
-            WHERE {where_clause}
-            ORDER BY embedding <=> %s::vector ASC
+            WHERE {' AND '.join(conditions)}
+            ORDER BY COALESCE(peak_spike_score, live_spike_score, 0) DESC, created_at DESC
             LIMIT %s;
         """
         cur.execute(sql, tuple(params))
         rows = cur.fetchall()
-
-        candidates = []
-        for r in rows:
-            sim = float(r[5])
-            if sim >= min_similarity:
-                item = TrendItem(
-                    item_id=r[0],
-                    title=r[1],
-                    platform=r[2],
-                    url=r[3],
-                    description=r[4],
-                    similarity=sim,
-                    category=r[6],
-                    raw_payload=r[7] if isinstance(r[7], dict) else {},
-                    peak_score=float(r[8] or 0.0),
-                    live_score=float(r[9] or 0.0),
-                    created_at=r[10]
-                )
-                item.compute_composite_scores(mode=sort_mode)
-                candidates.append(item)
-
         cur.close()
         conn.close()
 
-        # Stage 2: Rerank candidates by hybrid_score
-        if sort_mode != "similarity":
-            candidates.sort(key=lambda x: x.hybrid_score, reverse=True)
-
+        candidates = []
+        for r in rows:
+            item = TrendItem(
+                item_id=r[0], title=r[1], platform=r[2], url=r[3], description=r[4],
+                similarity=float(r[5]), category=r[6],
+                raw_payload=r[7] if isinstance(r[7], dict) else {},
+                peak_score=float(r[8] or 0.0), live_score=float(r[9] or 0.0), created_at=r[10],
+            )
+            item.compute_composite_scores(mode=sort_mode)
+            candidates.append(item)
         return candidates[:top_k]
 
     def compare_technologies(self, tech_a: str, tech_b: str, top_k: int = 4) -> Dict[str, Any]:

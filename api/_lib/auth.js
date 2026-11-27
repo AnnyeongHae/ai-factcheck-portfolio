@@ -1,5 +1,6 @@
 // api/_lib/auth.js - Fail-closed Authentication with Google OAuth Whitelist
 const crypto = require('crypto');
+require('./config');
 
 const ALLOWED_ADMIN_EMAILS = [
   'andrew4may@gmail.com',
@@ -7,9 +8,9 @@ const ALLOWED_ADMIN_EMAILS = [
 ];
 
 function getJwtSecret() {
-  const secret = process.env.ADMIN_QUEUE_SECRET || process.env.CRON_SECRET;
+  const secret = process.env.ADMIN_QUEUE_SECRET || process.env.CRON_SECRET || process.env.JWT_SECRET;
   if (!secret) {
-    throw new Error('CRITICAL: JWT_SECRET (ADMIN_QUEUE_SECRET or CRON_SECRET) is missing in environment variables!');
+    throw new Error('CRITICAL: JWT_SECRET (ADMIN_QUEUE_SECRET, CRON_SECRET, or JWT_SECRET) is missing in environment variables!');
   }
   return secret;
 }
@@ -31,7 +32,7 @@ function verifyAdminSessionToken(token) {
   if (!token || typeof token !== 'string') return null;
   const parts = token.split('.');
   if (parts.length !== 3) return null;
-  const secret = process.env.ADMIN_QUEUE_SECRET || process.env.CRON_SECRET;
+  const secret = process.env.ADMIN_QUEUE_SECRET || process.env.CRON_SECRET || process.env.JWT_SECRET;
   if (!secret) return null; // Fail-closed: cannot verify tokens without active environment secret
   const [header, payload, signature] = parts;
   const expectedSig = crypto.createHmac('sha256', secret).update(`${header}.${payload}`).digest('base64url');
@@ -47,7 +48,7 @@ function verifyAdminSessionToken(token) {
 }
 
 function verifyAdminSecret(req, res) {
-  const adminSecret = process.env.ADMIN_QUEUE_SECRET || process.env.CRON_SECRET;
+  const adminSecret = process.env.ADMIN_QUEUE_SECRET || process.env.CRON_SECRET || process.env.JWT_SECRET;
   const authHeader = req.headers.authorization || '';
   const customHeader = req.headers['x-admin-key'] || '';
   const provided = authHeader.startsWith('Bearer ') ? authHeader.substring(7).trim() : (customHeader || '').trim();

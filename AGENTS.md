@@ -2,11 +2,14 @@
 
 ---
 
-## 1. DB-First 단일 진실 원천(SSOT) 아키텍처 원칙
-1. **중앙 집중식 DB 연결 (Aiven PostgreSQL SSOT / Neon 백업)**:
-   - 본 프로젝트의 정본 데이터베이스는 `DATABASE_URL` 환경변수를 통해 중앙 집중식으로 주입됩니다.
-   - 모든 메타데이터, 원천 피드(`raw_trends_inbox`), 정밀 팩트체크(`verified_factchecks`)는 오직 DB에 직접 저장/조회됩니다.
+## 1. 2-Tier Cloud-Lite + Local Intelligence Vault 아키텍처 원칙
+1. **초경량 클라우드 서빙 DB (Aiven PostgreSQL 1 GB Free — Cloud-Lite SSOT)**:
+   - 본 프로젝트의 웹 서빙 정본 데이터베이스는 `DATABASE_URL` / `AIVEN_SERVICE_URI`를 통해 주입되며, **한국어 요약 피드(`raw_trends_inbox`) + 정밀 팩트체크(`verified_factchecks`)**만 초경량(<100 MB)으로 유지합니다.
+   - 클라우드 DB에는 대용량 벡터(`embedding`, HNSW 인덱스), 원문 GZIP 보관함(`raw_content_vault`), 폐기된 3개국어(`multilingual`) 및 초과 댓글(4번째 이후)을 **절대 저장하지 않습니다.**
    - 로컬 `investigations/` 수작업 폴더 생성 및 Git 커밋을 엄격히 금지합니다.
+2. **로컬 지능형 Vault (`data/local_rag_vault.db` — SQLite + NumPy, Gitignore)**:
+   - 1024차원 Voyage 임베딩(`embeddings` 테이블) 및 원문 GZIP 보관함(`raw_content_vault` 테이블)은 오직 로컬 SQLite Vault(`tools/local_vault.py`, `data/local_rag_vault.db`)에만 저장·검색합니다.
+   - `trend_rag_sdk.TrendRAGClient.search()` 및 `tools/drain_voyage_embeddings.py`는 클라우드 디스크를 0 byte 소모하며 로컬 NumPy 코사인 검색(<30ms)으로 동작합니다.
 2. **카테고리 및 지표 집계의 DB 엔진 일임 (No Slice Aggregation)**:
    - 카테고리별 통계, 상태 카운트는 메모리 루프나 부분 슬라이스(`LIMIT 600`)에서 세지 않고, **반드시 SQL `GROUP BY`를 통해 DB 엔진에서 직접 계산**하여 일관성을 100% 보장해야 합니다.
 3. **Edge CDN SWR 캐싱**:

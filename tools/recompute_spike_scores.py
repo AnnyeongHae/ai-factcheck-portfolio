@@ -572,10 +572,18 @@ def main():
     archived_dup_payloads = []
     clustered_hub_ids = set()
 
+    # Check if Cloud DB still has pgvector `embedding` column (offloaded to Local RAG Vault in Cloud-Lite mode)
+    cur.execute("""
+        SELECT 1 FROM information_schema.columns
+        WHERE table_name = 'raw_trends_inbox' AND column_name = 'embedding'
+        LIMIT 1;
+    """)
+    has_cloud_embedding = cur.fetchone() is not None
+
     # Pre-fetch pairwise cosine similarities for all Step 1 cluster members in a single query
     cluster_member_ids = [rd["id"] for grp in clusters.values() if len(grp) >= 2 for rd in grp]
     cluster_sim_map = {}
-    if cluster_member_ids:
+    if cluster_member_ids and has_cloud_embedding:
         cur.execute("""
             SELECT a.id, b.id, (1 - (a.embedding <=> b.embedding)) as sim
             FROM raw_trends_inbox a
@@ -651,7 +659,7 @@ def main():
         rd["id"] for rd in row_dicts
         if rd["id"] not in archived_set and (now_utc - parse_iso_or_default(rd["created_at"], now_utc)).total_seconds() <= 7 * 86400
     ]
-    if recent_active_ids:
+    if recent_active_ids and has_cloud_embedding:
         cur.execute("""
             SELECT a.id as a_id, b.id as b_id, (1 - (a.embedding <=> b.embedding)) as sim
             FROM UNNEST(%s::bigint[]) AS aid
