@@ -2,7 +2,7 @@
   "version": 2,
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/api/:path*", "destination": "/api/not-found" },
+    { "source": "/api/((?!index$|health$|stats$|inbox$|portfolios$|queue$|batch$|embed-worker$|enrich-worker$|watchdog$|auth/google$).*)", "destination": "/api/index" },
     { "source": "/((?!api/|.*\\..*).*)", "destination": "/index.html" }
   ],
   "headers": [
